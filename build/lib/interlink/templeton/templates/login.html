@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Joe Corso">
+  <meta name="description" content="My Accounting Software">
+  <meta name="keywords" content="not for you">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}?12">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <title>Log In</title>
+</head>
+
+<body class="row pc mobile">
+  <div class="title">
+    <h1>You do not have access to this software.</h1>
+    <p>{{ message }}</p>
+  </div>
+
+<article class="index">
+  <section class="col-6 col-s-6 col-m-12">
+    <fieldset class="form">
+      <form action="" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <input type="submit" name="submit" value="Submit">
+      </form>
+    </fieldset>
+  </section>
+</article>
+
+<footer>
+  <small class="col-6 col-s-6 col-m-12">
+    <a href="{{ url_for('/.copyright') }}">Copyright</a> &copy; <a href="https://www.joecorso.com" title="www.joecorso.com">Joe Corso</a><div id="copyright"></div>
+    <a href="https://www.flaticon.com/free-icons/" target="_blank" title="www.flaticon.com/free-icons">UI Icons created by Flaticon</a>
+  </small>
+</footer>
+
+</body>
+</html>

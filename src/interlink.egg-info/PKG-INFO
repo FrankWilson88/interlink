@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: interlink
+Version: 0.0.0
+Summary: Interlink will generate a form and report for any table in a database. It will also create the urls, and the navigation bar.
+Author-email: Joe Corso <pads.email.address@gmail.com>
+Maintainer-email: Joe Corso <pads.email.address@gmail.com>
+License: MIT License
+Project-URL: Homepage, https://github.com/padsRepo/interlink
+Project-URL: Documentation, https://github.com/padsRepo/interlink/wiki/Interlink.html
+Project-URL: Repository, https://github.com/padsRepo/interlink.git
+Keywords: flask,form,report,navigation,url,sql,database
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: Flask>=3.1.0
+Requires-Dist: mysql>=0.0.3
+Requires-Dist: mysqlclient>=2.2.7
+Requires-Dist: mysql-connector>=2.2.9

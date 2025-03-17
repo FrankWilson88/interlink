@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>Installing Arch (PADS 0.0.5)</title>
+
+<meta name="description" content="Installing Arch (PADS 0.0.5)">
+<meta name="keywords" content="Installing Arch (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorials.html" rel="up" title="Tutorials">
+<link href="Qtile-or-XFCE4.html" rel="next" title="Qtile or XFCE4">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+ul.mark-none {list-style-type: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Installing-Arch">
+<div class="nav-panel">
+<p>
+Next: <a href="Qtile-or-XFCE4.html" accesskey="n" rel="next">Qtile or XFCE4</a>, Up: <a href="Tutorials.html" accesskey="u" rel="up">Tutorials</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Installing-Arch-1"><span>3.1 Installing Arch<a class="copiable-link" href="#Installing-Arch-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Tutorials_002c-Installing-Arch"></a>
+<p>Details about setting up Arch Linux. PADS has a built in Arch Install script. Use it at your own risk.
+</p>
+<ol class="enumerate">
+<li> Verify boot mode. If this command runs with no errors, you&rsquo;re using EFI Mode.
+
+<p><code class="code">ls /sys/firmware/efi/efivars</code>
+</p>
+</li><li> Connect to the internet. If you&rsquo;re on Ethernet, it should be connected automatically.
+<ul class="itemize mark-bullet">
+<li>Enable and start <a class="url" href="https://wiki.archlinux.org/title/dhcpcd">dhcpcd.service</a>
+
+
+<p><code class="code">systemctl enable dhcpcd.service</code>
+</p>
+<p><code class="code">systemctl start dhcpcd.service</code>
+</p>
+</li><li>If you&rsquo;re on WIFI, use <a class="url" href="https://wiki.archlinux.org/title/Iwd#iwctl">iwd</a>.
+
+<p><code class="code">iwctl</code>
+</p>
+<p><code class="code">device list</code>
+</p>
+<p><code class="code">station device scan</code>
+</p>
+<p><code class="code">station device get-networks</code>
+</p>
+<p><code class="code">station device connect SSID</code>
+</p></li></ul>
+
+</li><li> Ping something...
+
+<p><code class="code">ping www.google.com</code>
+</p>
+</li><li> Update system clock
+
+<p><code class="code">timedatectl set-ntp true</code>
+</p>
+<p><code class="code">timedatectl set-timezone America/New_York</code>
+</p>
+<p><code class="code">timedatectl status</code>
+</p>
+</li><li> Partition the disk. I use <a class="url" href="https://wiki.archlinux.org/title/fdisk">fdisk</a>. DO NOT OVERWRITE REDUNDANT STORAGE!!!! List devices, and choose your device.
+
+<p><code class="code">fdisk -l</code>
+</p>
+</li><li> Change shell to fdisk
+
+<p><code class="code">fdisk /dev/sda</code>
+</p>
+<ul class="itemize mark-bullet">
+<li>EFI Boot Mode:
+</li><li>Build partition table
+<ul class="itemize mark-bullet">
+<li><code class="code">n</code> /mnt/boot partition
+</li><li><code class="code">p</code> primary partition
+</li><li><code class="code">1</code> /dev/sda1
+</li><li><code class="code">&quot;&quot;</code> first block default
+</li><li><code class="code">+512M</code> last block 512mb
+</li><li><code class="code">n</code> swap partition
+</li><li><code class="code">p</code> primary partition
+</li><li><code class="code">2</code> /dev/sda2
+</li><li><code class="code">&quot;&quot;</code> first block default
+</li><li><code class="code">+2G</code> last block 2gb (Or however big you want swap)
+</li><li><code class="code">n</code> /mnt partition
+</li><li><code class="code">3</code> /dev/sda3
+</li><li><code class="code">&quot;&quot;</code> first block default
+</li><li><code class="code">&quot;&quot;</code> last block takes rest of space
+</li><li><code class="code">w</code> write partition table
+</li><li><code class="code">q</code> quit fdisk (Might exit automatically)
+</li></ul>
+</li><li>Make filesystem:
+<ul class="itemize mark-bullet">
+<li><code class="code">mkfs.fat -F 32 /dev/sda1</code>
+</li><li><code class="code">mkswap /dev/sda2</code>
+</li><li><code class="code">mkfs.ext4 /dev/sda3</code>
+</li></ul>
+</li><li>Mount filesystem:
+<ul class="itemize mark-bullet">
+<li><code class="code">mount --mkdir /dev/sda1 /mnt/boot</code>
+</li><li><code class="code">swapon /dev/sda2</code>
+</li><li><code class="code">mount /dev/sda3 /mnt</code>
+</li></ul>
+</li><li>BIOS Boot Mode:
+</li><li>Build partition table
+<ul class="itemize mark-bullet">
+<li><code class="code">n</code> /mnt partition
+</li><li><code class="code">p</code> primary partition
+</li><li><code class="code">1</code> partition number
+</li><li><code class="code">&quot;&quot;</code> first block default
+</li><li><code class="code">+500G</code> last block (make it as big as you want)
+</li><li><code class="code">t</code> type of filesystem
+</li><li><code class="code">83</code> linux filesystem
+</li><li><code class="code">a</code> bootable flag
+</li><li><code class="code">1</code> partition number to make bootable
+</li><li><code class="code">n</code> swap partition
+</li><li><code class="code">p</code> primary partition
+</li><li><code class="code">3</code> partition number
+</li><li><code class="code">&quot;&quot;</code> first block default
+</li><li><code class="code">+2G</code> last block partition
+</li><li><code class="code">t</code> type of filesystem
+</li><li><code class="code">3</code> partition number
+</li><li><code class="code">82 OR swap</code> swap filesystem
+</li><li><code class="code">w</code> write partition table
+</li><li><code class="code">q</code> quit fdisk
+</li></ul>
+</li><li>Make filesystem:
+<ul class="itemize mark-bullet">
+<li><code class="code">mkfs.ext4 /dev/sda1</code>
+</li><li><code class="code">mkswap /dev/sda2</code>
+</li><li><code class="code">swapon /dev/sda2</code>
+</li></ul>
+</li><li>Mount filesystem:
+<ul class="itemize mark-bullet">
+<li><code class="code">mount /dev/sda1 /mnt</code>
+</li></ul>
+</li></ul>
+
+</li><li> Backup and Select your mirrorlist
+
+<p><code class="code">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak</code>
+</p>
+<p><code class="code">reflector --verbose -c &quot;US&quot; -f 12 -l 50 -n 12 --sort rate --protocol https --save /etc/pacman.d/mirrorlist</code>
+</p>
+<p><code class="code">cat /etc/pacman.d/mirrorlist</code>
+</p>
+</li><li> Install Essential Packages
+
+<p><code class="code">pacstrap /mnt base linux linux-firmware neofetch fakeroot nano sudo man-db man-pages texinfo lshw upower dhcpcd iwd</code>
+</p>
+</li><li> If your iso file is old, you may get an error like this: error: some-pack
+age: signature from &quot;Some Person email@some.domain&quot; is unknown trust You will need to update your key-ring with 
+
+<p><code class="code">pacman -Sy</code>
+</p>
+<p><code class="code">sudo pacman -S archlinux-keyring</code>
+</p>
+</li><li> If you&rsquo;re using a hypervisor install proper guest utilities
+
+<p><code class="code">pacstrap /mnt virtualbox-guest-utils &amp;&amp; systemctl enable vboxservice.service &amp;&amp; systemctl start vboxservice.service</code>
+</p>
+</li><li> Configure the system
+
+<p><code class="code">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code>
+</p>
+</li><li> Change root
+
+<p><code class="code">arch-chroot /mnt</code>
+</p>
+</li><li> Configure timezone for system
+
+<p><code class="code">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime</code>
+</p>
+<p><code class="code">hwclock --systohc</code>
+</p>
+</li><li> Set device locale
+
+<ul class="itemize mark-bullet">
+<li>Manually edit /etc/locale.gen and uncomment your locale (ig: en_US.UTF-8) OR run the following command:
+
+<p><code class="code">sed -i &quot;s/#en_US.UTF-8 UTF8/en_US.UTF-8 UTF-8/g&quot; /etc/locale.gen</code>
+</p>
+</li><li>Generate locale file
+
+<p><code class="code">locale-gen</code>
+</p>
+</li><li>Manually edit /etc/locale.conf OR run the following command
+
+<p><code class="code">echo &quot;LANG=en_US.UTF-8&quot; &gt;&gt; /etc/locale.conf</code>
+</p></li></ul>
+
+</li><li> Create hostname, host, and user, enable dhcpcd.service
+
+<ul class="itemize mark-none">
+<li><code class="code">systemctl enable dhcpcd.service</code>
+</li><li><code class="code">echo &quot;$hostname&quot; &gt; /etc/hostname</code>
+</li><li><code class="code">echo &quot;127.0.0.1 localhost&quot; &gt;&gt; /etc/hosts</code>
+</li><li><code class="code">echo &quot;::1 localhost&quot; &gt;&gt; /etc/hosts</code>
+</li><li><code class="code">echo &quot;127.0.1.1 $hostname&quot; &gt;&gt; /etc/hosts</code>
+</li><li><code class="code">passwd</code> this is for root password NOT the user
+</li><li><code class="code">useradd -m $user</code> add your user
+</li><li><code class="code">passwd $user</code> enter your user password
+</li><li><code class="code">sudo nano /etc/sudoers</code>
+</li><li><code class="code">$user ALL=(ALL:ALL) ALL&quot; &gt;&gt; /etc/sudoers</code>
+</li></ul>
+
+</li><li> Install Bootloader (I&rsquo;m using GRUB)
+
+<ul class="itemize mark-bullet">
+<li>EFI Bootloader
+<ul class="itemize mark-none">
+<li><code class="code">pacman -Syu grub efibootmgr</code>
+</li><li><code class="code">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</code>
+</li><li><code class="code">grub-mkconfig -o /boot/grub/grub.cfg</code>
+</li></ul>
+</li><li>BIOS Bootloader
+<ul class="itemize mark-none">
+<li><code class="code">pacman -Syu grub</code>
+</li><li><code class="code">grub-install --target=i386-pc /dev/sda</code>
+</li><li><code class="code">grub-mkconfig -o /boot/grub/grub.cfg</code>
+</li></ul>
+</li><li>Exit Chroot and Reboot:
+<ul class="itemize mark-none">
+<li><code class="code">exit</code>
+</li><li><code class="code">reboot</code>
+</li></ul>
+</li></ul>
+</li></ol>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Qtile-or-XFCE4.html">Qtile or XFCE4</a>, Up: <a href="Tutorials.html">Tutorials</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

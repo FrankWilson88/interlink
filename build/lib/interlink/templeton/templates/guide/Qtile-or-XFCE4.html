@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>Qtile or XFCE4 (PADS 0.0.5)</title>
+
+<meta name="description" content="Qtile or XFCE4 (PADS 0.0.5)">
+<meta name="keywords" content="Qtile or XFCE4 (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Tutorials.html" rel="up" title="Tutorials">
+<link href="Building-a-Server.html" rel="next" title="Building a Server">
+<link href="Installing-Arch.html" rel="prev" title="Installing Arch">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-none {list-style-type: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Qtile-or-XFCE4">
+<div class="nav-panel">
+<p>
+Next: <a href="Building-a-Server.html" accesskey="n" rel="next">Building a Server</a>, Previous: <a href="Installing-Arch.html" accesskey="p" rel="prev">Installing Arch</a>, Up: <a href="Tutorials.html" accesskey="u" rel="up">Tutorials</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Qtile-or-XFCE4-1"><span>3.2 Qtile or XFCE4<a class="copiable-link" href="#Qtile-or-XFCE4-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Tutorials_002c-Setting-up-a-DE-or-WM"></a>
+<p>Details about setting up Qtile
+</p>
+<ol class="enumerate">
+<li> There isn&rsquo;t much to say. This is something already well documented. Start by installing it, and picom for dynamic windows:
+
+<p><code class="code">sudo pacman -Syu xorg xorg-server xorg-apps xorg-xinit xterm qtile picom</code>
+</p>
+</li><li> The default config is loaded from <samp class="file">~/.config/qtile/config.py</samp>. If it&rsquo;s not there, copy it from <samp class="file">/usr/share/doc/qtile/default_config.py</samp>. My config is at: <samp class="file">$HOME/.config/qtile/config.py</samp>. The config for picom is at <samp class="file">/etc/xdg/picom.conf</samp>
+
+</li><li> Change ~/.xinitrc to add the following line:
+
+<p><code class="code">sudo nano ~/.xinitrc</code>
+</p>
+<p><code class="code">picom &amp;</code>
+</p>
+<p><code class="code">exec qtile start</code>
+</p>
+</li><li> Install the qtile-extras to make the bar look cool: It&rsquo;s only on the AUR
+<ul class="itemize mark-none">
+<li><code class="code">cd ~/Downloads</code>
+</li><li><code class="code">sudo git clone https://aur.archlinux.org/qtile-extras-git.git</code>
+</li><li><code class="code">cd qtile-extras</code>
+</li><li><code class="code">makepkg -si</code>
+</li></ul>
+</li></ol>
+
+<p>This installs xfce4
+</p>
+<ol class="enumerate">
+<li> Install the packages
+
+<p><code class="code">sudo pacman -Syu xorg xorg-server xorg-apps xorg-xinit xterm xfce4 xfce4-goodies unzip</code>
+</p>
+</li><li> Change ~/.xinitrc and add these lines:
+
+<p><code class="code">sudo nano ~/.xinitrc</code>
+</p>
+<p><code class="code">exec startxfce4</code>
+</p>
+</li><li> You can find all kinds of cool looking themes and icons over at <a class="url" href="https://www.xfce-look.org/browse/">xfce-look.org</a>. Download the theme or icon you like and unpack it just like any other tar file. Then just copy and paste your unpacked candy into its respective directory. The beauty of XFCE is that all you have to do is create a &quot;.theme&quot; directory, an &quot;.icon&quot; directory, and a &quot;.face&quot; icon in your home directory. So let&rsquo;s do that real quick:
+
+<p><code class="code">sudo mkdir $HOME/.icons</code>
+</p>
+<p><code class="code">sudo mkdir $HOME/.themes</code>
+</p>
+<p><code class="code">sudo cp /path/to/icon/.face $HOME/.face</code>
+</p></li></ol>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Building-a-Server.html">Building a Server</a>, Previous: <a href="Installing-Arch.html">Installing Arch</a>, Up: <a href="Tutorials.html">Tutorials</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

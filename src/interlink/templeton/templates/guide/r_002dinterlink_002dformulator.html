@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>r-interlink-formulator (PADS 0.0.5)</title>
+
+<meta name="description" content="r-interlink-formulator (PADS 0.0.5)">
+<meta name="keywords" content="r-interlink-formulator (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="r_002dinterlink_002dreference.html" rel="up" title="r-interlink-reference">
+<link href="r_002dinterlink_002dsafeHaven.html" rel="next" title="r-interlink-safeHaven">
+<link href="r_002dinterlink_002dtoolkit.html" rel="prev" title="r-interlink-toolkit">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="r_002dinterlink_002dformulator">
+<div class="nav-panel">
+<p>
+Next: <a href="r_002dinterlink_002dsafeHaven.html" accesskey="n" rel="next">interlink.safeHaven</a>, Previous: <a href="r_002dinterlink_002dtoolkit.html" accesskey="p" rel="prev">interlink.toolkit</a>, Up: <a href="r_002dinterlink_002dreference.html" accesskey="u" rel="up">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="interlink_002eformulator"><span>2.5.4 interlink.formulator<a class="copiable-link" href="#interlink_002eformulator"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Interlink_002c-Reference_002c-Formulator"></a>
+<p>A collection of tools used to generate Forms, Reports, and Navigation Bars from your database
+</p>
+<ul class="mini-toc">
+<li><a href="#interlink_002eformulator_002eGenerator_0028db_002c-user_002c-password_0029" accesskey="1">interlink.formulator.Generator(db, user, password)</a></li>
+</ul>
+<div class="subsubsection-level-extent" id="interlink_002eformulator_002eGenerator_0028db_002c-user_002c-password_0029">
+<h4 class="subsubsection"><span>2.5.4.1 interlink.formulator.Generator(db, user, password)<a class="copiable-link" href="#interlink_002eformulator_002eGenerator_0028db_002c-user_002c-password_0029"> &para;</a></span></h4>
+<p>Create the object for generating you form, report, query, or nav.
+</p>
+<div class="example">
+<pre class="example-preformatted">class Generator: 
+  def __init__(self, db, user, password):
+    self.db = db
+    self.user = user
+    self.password = password
+    
+  def generateForm(self, table):
+    error, form = createForm(self.db, self.user, self.password, table)
+    title = table
+    return error, form, title
+    
+  def generateReport(self, table):
+    colName, colRow, error = createReport(self.db, self.user, self.password, table)
+    title = table
+    return colName, colRow, error, title
+    
+  def generateQuery(self, table):
+    return createQuery(self.db, self.user, self.password, table)
+    
+  def generateNav(self):
+    return createNav(self.db, self.user, self.password)
+</pre></div>
+
+<dl class="table">
+<dt><code class="code">__init__(self, db, user, password)</code></dt>
+<dd><p>Initalize the connection, create the object.
+</p><dl class="table">
+<dt><code class="code">db</code></dt>
+<dd><p>The name of the Environment Variable for the database
+</p></dd>
+<dt><code class="code">user</code></dt>
+<dd><p>The name of the Environment Variable for the user which has access to the database
+</p></dd>
+<dt><code class="code">password</code></dt>
+<dd><p>The name of the Environment Variable for the password of the user which has access to the database
+</p></dd>
+</dl>
+</dd>
+<dt><code class="code">generateForm(self, table)</code></dt>
+<dd><p>Generate the Form, URL, and Template for said <code class="code">table</code> in database. Variables returned are <code class="code">error</code> <code class="code">form</code> <code class="code">title</code>
+</p></dd>
+<dt><code class="code">generateReport(self, table)</code></dt>
+<dd><p>Generate the Report, URL, and Template for said <code class="code">table</code> in database. Variables returned are <code class="code">error</code> <code class="code">table</code> <code class="code">colName</code> <code class="code">colRow</code>
+</p></dd>
+<dt><code class="code">generateQuery(self, table)</code></dt>
+<dd><p>Generate a Query for said <code class="code">table</code> in database. Unlike creating a URL and Template, you can create a variable to be used in a template.
+</p></dd>
+<dt><code class="code">generateNav(self)</code></dt>
+<dd><p>Generate a Navigation Bar for said <code class="code">table</code> in database. It basically just finds the table names, rather than the table data.
+</p></dd>
+</dl>
+
+</div>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="r_002dinterlink_002dsafeHaven.html">interlink.safeHaven</a>, Previous: <a href="r_002dinterlink_002dtoolkit.html">interlink.toolkit</a>, Up: <a href="r_002dinterlink_002dreference.html">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

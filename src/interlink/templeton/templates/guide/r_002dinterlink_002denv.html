@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>r-interlink-env (PADS 0.0.5)</title>
+
+<meta name="description" content="r-interlink-env (PADS 0.0.5)">
+<meta name="keywords" content="r-interlink-env (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="r_002dinterlink_002dreference.html" rel="up" title="r-interlink-reference">
+<link href="r_002dinterlink_002dtoolkit.html" rel="next" title="r-interlink-toolkit">
+<link href="r_002dinterlink_002dquickie.html" rel="prev" title="r-interlink-quickie">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="r_002dinterlink_002denv">
+<div class="nav-panel">
+<p>
+Next: <a href="r_002dinterlink_002dtoolkit.html" accesskey="n" rel="next">interlink.toolkit</a>, Previous: <a href="r_002dinterlink_002dquickie.html" accesskey="p" rel="prev">Quick Guide</a>, Up: <a href="r_002dinterlink_002dreference.html" accesskey="u" rel="up">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="interlink_002eenv"><span>2.5.2 interlink.env<a class="copiable-link" href="#interlink_002eenv"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Interlink_002c-Reference_002c-Env-Vars"></a>
+<dl class="table">
+<dt><code class="code">KEY = os.urandom(16)</code></dt>
+<dt><code class="code">os.environ['SECRET_KEY'] = str(KEY)</code></dt>
+<dt><code class="code">os.environ['DB'] = 'db_name'</code></dt>
+<dt><code class="code">os.environ['DB_USER'] = 'db_username'</code></dt>
+<dt><code class="code">os.environ['DB_PASS'] = 'db_password'</code></dt>
+<dt><code class="code">os.environ['BASE_DIR'] = os.path.dirname(__file__)</code></dt>
+<dt><code class="code">os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'</code></dt>
+<dt><code class="code">os.environ['whitelist'] = '[&quot;127.0.0.1&quot;, &quot;my_ip&quot;, &quot;192.168.0.*&quot;]'</code></dt>
+<dt><code class="code">os.environ['blacklist'] = '[&quot;105.0.0.*&quot;]'</code></dt>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

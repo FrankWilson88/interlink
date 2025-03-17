@@ -1,0 +1,18 @@
+<section>
+  <div class="dropdown">
+  <span>Reports</span>
+    <div class="dropdownContent">
+      {% for p in nav %}
+      <a href="{{ url_for('templeton.generateReport', db='{}'.format(db), page='{}'.format(p[0])) }}">{{ p[0] }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="dropdown">
+  <span>Forms</span>
+    <div class="dropdownContent">
+      {% for p in nav %}
+      <a href="{{ url_for('templeton.generateForm', db='{}'.format(db),  page='{}'.format(p[0])) }}">{{ p[0] }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

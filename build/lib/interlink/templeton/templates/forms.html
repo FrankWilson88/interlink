@@ -1,0 +1,21 @@
+{% extends 'templeton.html' %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block title %}{{ title }} Form{% endblock %}
+
+{% block content %}
+<article class="index">
+  <section class="col-6 col-s-6 col-m-6">
+    <fieldset class="form">
+      <output name="showResults" for="{{ form }}">{{ error }}</output>
+      <form method="POST">
+        {% for f in form %}
+          <label for="{{ form[0] }}">{{ f[0] }}</label>
+          <input type="text" name="{{ f[0] }}" required>
+        {% endfor %}
+        <input type="submit" value="submit">
+      </form>
+    </fieldset>
+  </section>
+</article>
+{% endblock %}

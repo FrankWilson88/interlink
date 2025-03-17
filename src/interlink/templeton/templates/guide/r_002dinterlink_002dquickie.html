@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>r-interlink-quickie (PADS 0.0.5)</title>
+
+<meta name="description" content="r-interlink-quickie (PADS 0.0.5)">
+<meta name="keywords" content="r-interlink-quickie (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="r_002dinterlink_002dreference.html" rel="up" title="r-interlink-reference">
+<link href="r_002dinterlink_002denv.html" rel="next" title="r-interlink-env">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="r_002dinterlink_002dquickie">
+<div class="nav-panel">
+<p>
+Next: <a href="r_002dinterlink_002denv.html" accesskey="n" rel="next">interlink.env</a>, Up: <a href="r_002dinterlink_002dreference.html" accesskey="u" rel="up">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Quick-Guide"><span>2.5.1 Quick Guide<a class="copiable-link" href="#Quick-Guide"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-Interlink_002c-Reference_002c-Quick-Guide"></a>
+<p>Here is the TLDR: If you set everything up properly you should be able to just type in the URL for the form or report you want to see. If you type it in wrong you&rsquo;ll see a 404. If the code is wrong you&rsquo;ll see a 500, or some other error message if you have debug mode on.
+</p>
+<div class="example">
+<pre class="example-preformatted">https://www.website.com/reports/&lt;dbname&gt;/authors
+OR
+https://www.website.com/forms/&lt;dbname&gt;/solarSystems
+</pre></div>
+
+<p>&ndash;&gt; __init__.py
+</p><div class="example">
+<pre class="example-preformatted">import os
+import pandas as pd
+import odf
+from flask import Flask, Blueprint, flash, render_template, request, session, redirect, url_for, send_from_directory
+
+from views import viewsBP
+
+KEY = os.urandom(16)
+os.environ['SECRET_KEY'] = str(KEY)
+os.environ['DB_USER'] = '&lt;dbname&gt;'
+os.environ['DB_PASS'] = '&lt;dbpassword&gt;'
+os.environ['BASE_DIR'] = os.path.dirname(__file__)
+os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
+os.environ['whitelist'] = '[&quot;127.0.0.1&quot;, &quot;192.168.0.49&quot;]'
+os.environ['blacklist'] = '[&quot;&quot;]'
+
+app = Flask(__name__)
+app.config.from_mapping(SECRET_KEY=os.environ.get(&quot;SECRET_KEY&quot;))
+app.config['UPLOAD_FOLDER'] = 'repo/'
+
+from interlink import *
+app.register_blueprint(viewsBP)
+app.register_blueprint(templetonBP)
+app.register_error_handler(404, url_not_found)
+app.register_error_handler(500, internal_error)
+
+if __name__ == '__main__':
+  app.run()
+else:
+  app.run(debug=True, host='0.0.0.0', port='8000')
+</pre></div>
+
+<p>&ndash;&gt; views.py
+</p><div class="example">
+<pre class="example-preformatted">from __init__ import *
+
+print(&quot; * Loading Views...&quot;)
+viewsBP = Blueprint('/', __name__, url_prefix='/')
+
+tempulator('views.catalog', ['/catalog'])
+
+@viewsBP.route('/')
+@honeypot
+@backdoor
+def index():
+  gen = Generator('repository', 'DB_USER', 'DB_PASS')
+  manifest = gen.generateQuery('qrepo1')
+  siteMap = site_map()
+  version = metadata['version']
+  updateDate = metadata['updateDate']
+  ip = session['yourballslooklikemine']
+  return render_template('index.html', domains=domains, manifest=manifest, siteMap=siteMap, version=version, updateDate=updateDate, ip=ip)
+</pre></div>
+
+<p>&ndash;&gt; forms.html
+</p><pre class="verbatim">{% raw %}
+{% extends 'base.html' %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+&lt;article class=&quot;index&quot;&gt;
+  &lt;section class=&quot;col-6 col-s-6 col-m-6&quot;&gt;
+    &lt;fieldset class=&quot;form&quot;&gt;
+      &lt;label&gt;{{ error }}&lt;/label&gt;
+      &lt;form method=&quot;POST&quot;&gt;
+        {% for f in form %}
+          &lt;label for=&quot;{{ f[0] }}&quot;&gt;{{ f[0] }}&lt;/label&gt;
+          &lt;input type=&quot;text&quot; name=&quot;{{ f[0] }}&quot;&gt;
+        {% endfor %}
+        &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+      &lt;/form&gt;
+    &lt;/fieldset&gt;
+  &lt;/section&gt;
+&lt;/article&gt;
+
+{% endblock %}
+{% endraw %}
+</pre>
+<p>&mdash;&gt; reports.html
+</p><pre class="verbatim">{% raw %}
+{% extends 'base.html' %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+  &lt;article class=&quot;col-12 col-s-12 col-m-12&quot;&gt;
+    &lt;h1&gt;{{ title }} Report&lt;/h1&gt;
+    {{ error }}
+    &lt;table class=&quot;data&quot;&gt;
+      &lt;tr&gt;
+        {% for c in colName %}
+          &lt;th&gt;{{ c[0] }}&lt;/th&gt;
+        {% endfor %}
+      &lt;/tr&gt;
+      {% for row in colRow %}
+        &lt;tr&gt;
+          {% for c in row %}
+          &lt;td&gt;{{ c }}&lt;/td&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      {% endfor %}
+    &lt;/table&gt;
+  &lt;/article&gt;
+
+{% endblock %}
+{% endraw %}
+</pre>
+<p>&mdash;&gt; base.html
+</p><pre class="verbatim">{% raw %}
+&lt;nav class=&quot;pc mobile&quot;&gt;
+  &lt;a href=&quot;{{ url_for('/.index') }}&quot;&gt;Index&lt;/a&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;span&gt;Reports&lt;/span&gt;
+    &lt;div class=&quot;dropdownContent&quot;&gt;
+      {% for p in path %}
+      &lt;a href=&quot;{{ url_for('pads.generateReport', path='{}'.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
+      {% endfor %}
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;span&gt;Forms&lt;/span&gt;
+    &lt;div class=&quot;dropdownContent&quot;&gt;
+      {% for p in path %}
+      &lt;a href=&quot;{{ url_for('pads.generateForm', path='{}'.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
+      {% endfor %}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+{% endraw %}
+</pre>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="r_002dinterlink_002denv.html">interlink.env</a>, Up: <a href="r_002dinterlink_002dreference.html">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

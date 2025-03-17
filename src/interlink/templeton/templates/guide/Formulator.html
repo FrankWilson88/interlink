@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>Formulator (PADS 0.0.5)</title>
+
+<meta name="description" content="Formulator (PADS 0.0.5)">
+<meta name="keywords" content="Formulator (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Interlink.html" rel="up" title="Interlink">
+<link href="Templeton.html" rel="next" title="Templeton">
+<link href="Setup.html" rel="prev" title="Setup">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Formulator">
+<div class="nav-panel">
+<p>
+Next: <a href="Templeton.html" accesskey="n" rel="next">Templeton</a>, Previous: <a href="Setup.html" accesskey="p" rel="prev">Setup</a>, Up: <a href="Interlink.html" accesskey="u" rel="up">Interlink API</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Formulator-1"><span>2.2 Formulator<a class="copiable-link" href="#Formulator-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Interlink_002c-Formulator"></a>
+<p>see <a class="pxref" href="r_002dinterlink_002dformulator.html">Formulator</a>
+</p>
+<p>The formulator is the module used to generate your forms, reports, queries, and anything DB related.
+</p>
+<p>Let&rsquo;s say you want to generate a blog. Use the formulator.Generator to make a query of your blog table from your SQL database. Create a variable from it, and then using Jinja&rsquo;s Templating Engine with Flask, we can manipulate the variable in an html template anyway we want.
+</p>
+<div class="example">
+<pre class="example-preformatted">from interlink import Generator
+
+@viewsBP.route('/blog/')
+def blog():
+  gen = Generator('blog', 'DB_USER', 'DB_PASS')
+  content = gen.generateQuery('blog')
+  return render_template('blog.html', content=content)
+</pre></div>
+
+<p>Then your blog template could look something like this:
+</p>
+<pre class="verbatim">{% raw %}
+{% extends 'base.html' %}
+{% block description %}Raw Thoughts{% endblock %}
+{% block keywords %}emo, roses are black violets are black my life is black everything is black{% endblock %}
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+  &lt;article class=&quot;col-12 col-s-12 col-m-12&quot;&gt;
+    &lt;h1&gt;My personal shit show&lt;/h1&gt;
+    {{ error }}
+    &lt;table class=&quot;blog&quot;&gt;
+      &lt;tr&gt;
+        {% for c in content %}
+          &lt;th&gt;{{ c[3] }}&lt;/th&gt;
+        {% endfor %}
+      &lt;/tr&gt;
+      {% for row in content %}
+          {% for c in row %}
+          &lt;tr&gt;{{ c }}&lt;/tr&gt;&lt;br&gt;
+          {% endfor %}
+      {% endfor %}
+    &lt;/table&gt;
+  &lt;/article&gt;
+{% endblock %}
+{% end raw %}
+</pre>
+<p>Then, you can style the page any way that you want without having to keep going back and rewriting the logic for the form and report and also start cluttering your templates folder with a bunch of different types of forms, reports, navbars, blogs, logins, etc. It&rsquo;s just one, and it&rsquo;s already made.
+</p>
+<p>Conversely, you can build your project a bit more flexible.
+</p>
+<p>In your views.py file you only need two specific views that will generate every form, and report respectively. In the index() function you will see the nav var set to generateNav(), this generates the navigation bar for you. So put that where ever you want that to generate. If you&rsquo;re familiar with flask&rsquo;s app factory, and Blueprints, then this should look pretty simple. If not, check out the flask docs, it&rsquo;s pretty cool. They look something like this:
+</p>
+<div class="example">
+<pre class="example-preformatted">---&gt; views.py
+
+from flask import Blueprint, render_template
+import interlink as i
+
+viewsBP = Blueprint('/', __name__, url-prefix='/')
+
+@viewsBP.route(/)
+def index():
+  gen = i.Generator('DB', 'DB_USER', 'DB_PASS')
+  nav = gen.generateNav()
+  return render_template('index.html', nav=nav)
+
+@viewsBP.route('/reports/&lt;db&gt;/&lt;page&gt;')
+def generateReport(db, page):
+  gen = i.Generator(db, 'DB_USER', 'DB_PASS')
+  colName, colRow, error, title = gen.generateReport(page)
+  return render_template('reports.html', colName=colName, colRow=colRow, error=error, title=title)
+
+@viewsBP.route('/forms/&lt;db&gt;/&lt;path&gt;', methods=['GET', 'POST'])
+def generateForm(db, page):
+  gen = i.Generator(db, 'DB_USER', 'DB_PASS')
+  error, form, title = gen.generateForm(page)
+  return render_template('forms.html', form=form, error=error, title=title)
+
+@viewsBP.route('/admin/&lt;db&gt;')
+def admin(db):
+  nav = Generator(db, 'DB_USER', 'DB_PASS').generateNav()
+  return render_template('admin.html', nav=nav, db=db, title=db)
+</pre></div>
+
+<p>Basically, make a route for a reports url and a route for a forms url so that the computer doesn&rsquo;t confuse the two. For your route you need to define a parameter for your database, and table. This is just to pass into the generateReport() or generateForm() functions which is used to find the table, and create the form or report. The report needs 4 parameters(One for the column names of the table, one for the data in the table, a title, and a generic error) and the form needs 3(One to generate the forms, a title, and a generic error). The generateNav() doesn&rsquo;t need a parameter, but it searches for the database you set to your Generator.__init__(). Make sure to register the views in your app factory:
+</p>
+<div class="example">
+<pre class="example-preformatted">---&gt; __init__.py
+
+from views import viewsBP
+app.regist_blueprint(viewsBP)
+</pre></div>
+
+<p>Make a template for your Forms:
+</p>
+<pre class="verbatim">---&gt; forms.html
+{% raw %}
+{% extends 'base.html' %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+&lt;article class=&quot;index&quot;&gt;
+  &lt;section class=&quot;col-6 col-s-6 col-m-6&quot;&gt;
+    &lt;fieldset class=&quot;form&quot;&gt;
+      &lt;label&gt;{{ error }}&lt;/label&gt;
+      &lt;form method=&quot;POST&quot;&gt;
+        {% for f in form %}
+          &lt;label for=&quot;{{ f[0] }}&quot;&gt;{{ f[0] }}&lt;/label&gt;
+          &lt;input type=&quot;text&quot; name=&quot;{{ f[0] }}&quot;&gt;
+        {% endfor %}
+        &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+      &lt;/form&gt;
+    &lt;/fieldset&gt;
+  &lt;/section&gt;
+&lt;/article&gt;
+
+{% endblock %}
+{% endraw %}
+</pre>
+<p>Make a template for your reports:
+</p>
+<pre class="verbatim">
+---&gt; reports.html
+{% raw %}
+{% extends 'base.html' %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+  &lt;article class=&quot;col-12 col-s-12 col-m-12&quot;&gt;
+    &lt;h1&gt;{{ title }} Report&lt;/h1&gt;
+    {{ error }}
+    &lt;table class=&quot;data&quot;&gt;
+      &lt;tr&gt;
+        {% for c in colName %}
+          &lt;th&gt;{{ c[0] }}&lt;/th&gt;
+        {% endfor %}
+      &lt;/tr&gt;
+      {% for row in colRow %}
+        &lt;tr&gt;
+          {% for c in row %}
+          &lt;td&gt;{{ c }}&lt;/td&gt;
+          {% endfor %}
+        &lt;/tr&gt;
+      {% endfor %}
+    &lt;/table&gt;
+  &lt;/article&gt;
+
+{% endblock %}
+{% endraw %}
+</pre>
+<p>Finally, make a navigation menu for it all. This just plops every link onto the screen, so it&rsquo;s up to you to decide how to style it, maybe make a dropdown menu with it or something.  The formulator filters &quot;timestamp&quot;, &quot;pri&quot;, &quot;uni&quot;, &quot;mul&quot;, and &quot;updated&quot;. Be sure to decide which tables you actually want to use, and which not; so you don&rsquo;t accidentally insert data to a table you&rsquo;re not supposed to.
+</p>
+<pre class="verbatim">---&gt; base.html
+{% raw %}
+&lt;nav class=&quot;pc mobile&quot;&gt;
+  &lt;a href=&quot;{{ url_for('/.index') }}&quot;&gt;Index&lt;/a&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;span&gt;Reports&lt;/span&gt;
+    &lt;div class=&quot;dropdownContent&quot;&gt;
+      {% for p in nav %}
+      &lt;a href=&quot;{{ url_for('templeton.generateReport', db='{}'.format(db),  page='{}'.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
+      {% endfor %}
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;span&gt;Forms&lt;/span&gt;
+    &lt;div class=&quot;dropdownContent&quot;&gt;
+      {% for p in nav %}
+      &lt;a href=&quot;{{ url_for('templeton.generateForm', db='{}'.format(db),  page='{}'.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
+      {% endfor %}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+{% endraw %}
+</pre>
+<p>That&rsquo;s it! So if you have a DB with tables named books, authors, planets, solarSystems....etc. Just type in the url for the table name. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">https://www.website.com/reports/&lt;dbname&gt;/authors
+OR
+https://www.website.com/forms/&lt;dbname&gt;/solarSystems
+</pre></div>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Templeton.html">Templeton</a>, Previous: <a href="Setup.html">Setup</a>, Up: <a href="Interlink.html">Interlink API</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

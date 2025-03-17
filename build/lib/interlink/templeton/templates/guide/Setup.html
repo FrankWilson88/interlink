@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>Setup (PADS 0.0.5)</title>
+
+<meta name="description" content="Setup (PADS 0.0.5)">
+<meta name="keywords" content="Setup (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Interlink.html" rel="up" title="Interlink">
+<link href="Formulator.html" rel="next" title="Formulator">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Setup">
+<div class="nav-panel">
+<p>
+Next: <a href="Formulator.html" accesskey="n" rel="next">Formulator</a>, Up: <a href="Interlink.html" accesskey="u" rel="up">Interlink API</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Setup-1"><span>2.1 Setup<a class="copiable-link" href="#Setup-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Interlink_002c-Setup"></a>
+
+<p>Setting up interlink is very easy. I like to use some boilerplate for every flask project, as I&rsquo;m sure most people do. This isn&rsquo;t a tutorial on Flask, so we&rsquo;ll skip setting up the project. The point is to get it from github to your site-packages directory.
+</p>
+<ol class="enumerate">
+<li> Make your flask project and create the virtual env
+</li><li> Download:
+<ul class="itemize mark-bullet">
+<li><code class="code">cd ~/path/to/project/project/lib/python3.*/site-packages</code>
+</li><li><code class="code">git clone https://github.com/padsRepo/interlink.git</code>
+</li></ul>
+</li><li> Install requirements:
+<ul class="itemize mark-bullet">
+<li><code class="code">path/to/project/project/bin/python path/to/project/project/bin/pip install flask, mysql-connector</code>
+</li></ul>
+</li><li> Add to your project:
+<ul class="itemize mark-bullet">
+<li><code class="code">from interlink import *</code>
+</li></ul>
+</li></ol>
+
+<p>Since I&rsquo;m cheap, I just copy and past it into the site-packages directory of the project I&rsquo;m working on. Of course, you&rsquo;ll need Flask, and mysql.connector set up as a dependancy for this to work. I think that should go without saying if you&rsquo;re using forms and reports in flask. The first thing you want to do is start your flask project, and make your webpages.
+</p>
+<p>FIRST WAY: In your __init__.py file you need to create these ENV Vars for the API to find, and import the Blueprint: (I usually add these to the &quot;activate&quot; file for starting the virtual env.)
+</p>
+<div class="example">
+<pre class="example-preformatted">import os
+from flask import Flask, Blueprint, flash, render_template, request, session, redirect, url_for, send_from_directory
+
+from views import viewsBP
+
+KEY = os.urandom(16)
+os.environ['SECRET_KEY'] = str(KEY)
+os.environ['DB_USER'] = 'username'
+os.environ['DB_PASS'] = 'db password'
+os.environ['BASE_DIR'] = os.path.dirname(__file__)
+os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
+os.environ['whitelist'] = '[&quot;127.0.0.1&quot;, &quot;192.168.0.*&quot;, &quot;10.0.0.*&quot;]'
+os.environ['blacklist'] = '[&quot;My_brothers_smartphone_ip&quot;]'
+
+app = Flask(__name__)
+app.config.from_mapping(SECRET_KEY=os.environ.get(&quot;SECRET_KEY&quot;))
+app.config['UPLOAD_FOLDER'] = 'repo/'
+
+from interlink import *
+app.register_blueprint(viewsBP)
+app.register_blueprint(templetonBP)
+app.register_error_handler(404, url_not_found)
+app.register_error_handler(500, internal_error)
+
+if __name__ == '__main__':
+  app.run()
+else:
+  app.run(debug=True, host='0.0.0.0', port='8000')
+</pre></div>
+
+<p>You&rsquo;ll see that we imported templetonBP from interlink, then just registered the Blueprint with <code class="code">app_register_blueprint(templetonBP)</code>. We also imported <var class="var">url_not_found</var>, and <var class="var">internal_error</var> because PADS has a built in generic url handler. We register those with <code class="code">app.register_error_handler(404, url_not_found)</code>, and <code class="code">app.register_error_handler(500, internal_error)</code> respectively. The rest of it comes from your own custom urls that you generate from the <code class="code">app.register_blueprint(viewsBP)</code> line. The DB name needs to be named exactly as it&rsquo;s named in SQL. <var class="var">DB_USER</var> and <var class="var">DB_PASS</var> must be named exactly that for the formulator to find it. The <var class="var">SECRET_KEY</var> is needed for <code class="code">flask.session</code>. Notice that we import interlink further down the file, so the env vars load first and prevents recursion.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Formulator.html">Formulator</a>, Up: <a href="Interlink.html">Interlink API</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
