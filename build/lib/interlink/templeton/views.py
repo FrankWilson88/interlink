@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, request
 
 from interlink.formulator import Generator
 from interlink.safeHaven import backdoor, login, honeypot
-from interlink.toolkit import metadata, site_map
+from interlink.toolkit import site_map
 
 templates = os.path.dirname(__file__) + '/templates/'
 templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=templates)
@@ -11,7 +11,7 @@ templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=t
 def wrapper(page = 'template.html', **kwargs):
   '''Used to wrap all the web pages in default params. TODO: make a decorator.'''
   ip = request.remote_addr
-  return render_template(page, metadata=metadata, siteMap=site_map(), ip=ip, **kwargs)
+  return render_template(page, siteMap=site_map(), ip=ip, **kwargs)
 
 def index():
   '''

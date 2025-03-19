@@ -8,9 +8,10 @@ __version__ = '0.0.4'
 __author__ = 'Joe Corso'
 __date__ = '01-21-2024'
 __copyright__ = 'Copyright 2024 Joe Corso'
-__license__ = 'MIT'
-__email__ = 'armyglass@hotmail.com'
+__license__ = 'MIT License'
+__email__ = 'pads.email.address@gmail.com'
 __status__ = 'Development'
+__description__ = "Interlink will generate a form and report for any table in a database. It will also create the urls, and the navigation bar."
 
 # formulator functions
 from interlink.formulator import Generator
@@ -23,6 +24,6 @@ from interlink.templeton.views import url_not_found, internal_error, templetonBP
 from interlink.safeHaven import honeypot, backdoor, login
 
 # toolkit functions
-from interlink.toolkit import metadata, get_script_path, site_map
+from interlink.toolkit import DB, get_script_path, site_map
 
 print(f' * Interlink {__version__} is online')

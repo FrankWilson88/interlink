@@ -5,15 +5,6 @@ from flask import url_for
 
 from __init__ import app
 
-metadata = {
-  "version": "0.0.4",
-  "createDate": "01-21-2024",
-  "updateDate": "09-12-2024",
-  "author": "Joe Corso",
-  "email": "armyglass@hotmail.com",
-  "docs": "https://github.com/padsRepo/interlink"
-}
-
 def get_script_path():
     return os.path.dirname(os.path.realpath(sys.argv[0]))
 
@@ -36,6 +27,7 @@ def site_map():
 class DB:
   '''
   Connects to MariaDB
+  RETURN: sql
   
   Example:
     @viewsBP.route('/report/<db>/<page>')
