@@ -7,6 +7,7 @@ This is a collection of libraries written to work in Python’s flask framework.
 __version__ = '0.0.4'
 __author__ = 'Joe Corso'
 __date__ = '01-21-2024'
+__updated__ = '03-18-2025'
 __copyright__ = 'Copyright 2024 Joe Corso'
 __license__ = 'MIT License'
 __email__ = 'pads.email.address@gmail.com'

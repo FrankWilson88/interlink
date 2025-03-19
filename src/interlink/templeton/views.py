@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, render_template, request
-
+from . import interlink
 from interlink.formulator import Generator
 from interlink.safeHaven import backdoor, login, honeypot
 from interlink.toolkit import site_map
@@ -11,7 +11,7 @@ templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=t
 def wrapper(page = 'template.html', **kwargs):
   '''Used to wrap all the web pages in default params. TODO: make a decorator.'''
   ip = request.remote_addr
-  return render_template(page, siteMap=site_map(), ip=ip, **kwargs)
+  return render_template(page, version=interlink.__version__, updated=interlink.__updated__, author=interlink.__author__, siteMap=site_map(), ip=ip, **kwargs)
 
 def index():
   '''
@@ -22,8 +22,6 @@ def index():
   title = f"Index"
   article = f'''
   Article Content. This is content coming from views.py. This is some Metadata about interlink I've added for the example: <br>
-  Version: {metadata['version']} <br>
-  Author: {metadata['author']}
   '''
   varA = f'''New:<br>'''
   #article = article.join('<br>')
@@ -32,11 +30,6 @@ def index():
 def catalog():
   title = f'Catalog'
   return wrapper('template.html', title=title)
-
-@templetonBP.route('/interlink/')
-def interlinkData():
-  title = "Interlink Metadata"
-  return wrapper('data.html', title=title)
   
 # Generic templeton templates
 @templetonBP.errorhandler(404)

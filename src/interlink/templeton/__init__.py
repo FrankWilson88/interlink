@@ -1,5 +1,6 @@
 print(" * Loading Templeton...")
 
+import interlink
 from werkzeug.utils import import_string, cached_property
 from __init__ import app
 

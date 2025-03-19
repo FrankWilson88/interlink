@@ -20,7 +20,7 @@ def createQuery(db, user, password, table, *args):
 def createNav(db, user, password):
   db_conn = DB(user, password).connect()
   cursor = db_conn.cursor(buffered=True)
-  cursor.execute(f'''SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='{db}'; ''')
+  cursor.execute(f'''SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='{db}' AND TABLE_NAME NOT LIKE '\q%'; ''')
   sql = cursor.fetchall()
   db_conn.close()
   return sql
