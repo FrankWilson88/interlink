@@ -3,13 +3,36 @@ from .logic import createQuery, createNav, createReport, createForm
 
 class Generator:
   '''
- Used to generate your forms, reports, queries, and anything DB related
- Example Use:
-    @templetonBP.route('/forms/<db>/<page>', methods=['GET', 'POST'])
-    def generateForm(db, page):
+  The generator is the module used to generate your forms, reports,
+queries, and anything DB related.
+
+Let's say you want to generate a blog. Use the formulator.Generator to
+make a query of your blog table from your SQL database. Create a
+variable from it, and then using Jinja's Templating Engine with Flask,
+we can manipulate the variable in an html template anyway we want.
+
+Examples:
+
+    from interlink import Generator
+    @templetonBP.route('/forms/<db>/<page>', methods=['GET', 'POST'])  
+    def generateForm(db, page):  
+        gen = Generator(db, 'DB_USER', 'DB_PASS')  
+        error, form, title = gen.generateForm(page)  
+        return render_template('forms.html', error=error, form=form, title=title)
+        
+
+    from interlink import Generator
+    @templetonBP.route('/reports/<db>/<page>')
+    def generateReport(db, page):
       gen = Generator(db, 'DB_USER', 'DB_PASS')
-      error, form, title = gen.generateForm(page)
-      return render_template('forms.html', error=error, form=form, title=title)
+      colName, colRow, error, title = gen.generateReport(page)
+      return wrapper('reports.html', colName=colName, colRow=colRow, error=error, title=title)
+      
+    @viewsBP.route(/)
+    def index():
+      gen = i.Generator('DB', 'DB_USER', 'DB_PASS')
+      nav = gen.generateNav()
+      return render_template('index.html', nav=nav)
   '''
  
   def __init__(self, db, user, password):
@@ -21,7 +44,11 @@ class Generator:
   def generateForm(self, table):
     '''
     Generate a form to enter data into the `table`
-    RETURN: error, form, title
+    
+    Returns: 
+      error (str): Success! Error!
+      form (str): Success! 404 
+      title (str): DB table name
     '''
     error, form = createForm(self.db, self.user, self.password, table)
     title = table
@@ -30,7 +57,12 @@ class Generator:
   def generateReport(self, table):
     '''
     Generate a report to enter data into the `table`
-    RETURN: colName, colRow, error, title
+    
+    Returns: 
+      colName (str): DB Column Name 
+      colRow (str): DB Column Row 
+      error (str): Success! 404
+      title (str): DB table name
     '''
     colName, colRow, error = createReport(self.db, self.user, self.password, table)
     title = table
@@ -39,6 +71,7 @@ class Generator:
   def generateQuery(self, table):
     '''
     Run a custom SELECT statement to see the results.
+    
     TODO: Start making it.
     '''
     return createQuery(self.db, self.user, self.password, table)

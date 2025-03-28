@@ -1,0 +1,16 @@
+site_name: Interlink
+plugins:
+- search
+- autorefs
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [interlink/]
+        options:
+          show_inheritance_diagram: true
+          backlinks: tree
+          heading_level: 3
+          parameter_headings: true
+          show_root_heading: true
+          docstring_style: google
+          

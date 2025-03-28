@@ -30,6 +30,11 @@ def index():
 def catalog():
   title = f'Catalog'
   return wrapper('template.html', title=title)
+
+@templetonBP.route('/interlink/')
+def interlinkData():
+  title = "Interlink Metadata"
+  return wrapper('data.html', title=title)
   
 # Generic templeton templates
 @templetonBP.errorhandler(404)

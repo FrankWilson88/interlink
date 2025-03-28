@@ -26,10 +26,13 @@ def site_map():
 
 class DB:
   '''
-  Connects to MariaDB
-  RETURN: sql
-  
-  Example:
+Connects to MariaDB
+
+Returns: 
+    sql (str): Conn to db
+
+Example:
+
     @viewsBP.route('/report/<db>/<page>')
     def myFuntion(db, user, password):
       db_conn = DB(db, user, password).connect()

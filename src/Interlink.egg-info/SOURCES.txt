@@ -15,6 +15,7 @@ src/interlink/templeton/views.py
 src/interlink/templeton/templates/404.html
 src/interlink/templeton/templates/500.html
 src/interlink/templeton/templates/admin.html
+src/interlink/templeton/templates/data.html
 src/interlink/templeton/templates/forms.html
 src/interlink/templeton/templates/login.html
 src/interlink/templeton/templates/nav.html
