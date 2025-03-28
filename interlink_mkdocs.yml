@@ -5,7 +5,7 @@ plugins:
 - mkdocstrings:
     handlers:
       python:
-        paths: [interlink/]
+        paths: [src/]
         options:
           show_inheritance_diagram: true
           backlinks: tree
