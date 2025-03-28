@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>Top (PADS 0.0.5)</title>
+
+<meta name="description" content="Top (PADS 0.0.5)">
+<meta name="keywords" content="Top (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Forward.html" rel="next" title="Forward">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+ul.toc-numbered-mark {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+
+
+
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="Forward.html" accesskey="n" rel="next">Forward</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h1 class="top" id="PADS-_0028Personal-Assistant-and-Deployment-System_0029"><span>PADS (Personal Assistant and Deployment System)<a class="copiable-link" href="#PADS-_0028Personal-Assistant-and-Deployment-System_0029"> &para;</a></span></h1>
+<p>This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
+</p>
+<p>Copyright &copy; 2022 Joe Corso
+</p><blockquote class="quotation">
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+<p>Documentation at <a class="url" href="https://www.joecorso.com/guide">PADS Manual</a>
+</p></blockquote>
+
+
+<div class="region-contents" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="toc-numbered-mark">
+  <li><a id="toc-Forward" href="Forward.html">Forward</a></li>
+  <li><a id="toc-Updates" href="Updates.html">Updates</a></li>
+  <li><a id="toc-PADS-CLI" href="PADS-CLI.html">1 PADS CLI</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Options" href="Options.html">1.1 Options</a></li>
+    <li><a id="toc-Exit-Status" href="Exit-Status.html">1.2 Exit Status</a></li>
+    <li><a id="toc-Environment" href="Environment.html">1.3 Environment</a></li>
+    <li><a id="toc-Directories" href="Directories.html">1.4 Directories</a></li>
+    <li><a id="toc-History" href="History.html">1.5 History</a></li>
+    <li><a id="toc-Notes" href="Notes.html">1.6 Notes</a></li>
+    <li><a id="toc-Examples" href="Examples.html">1.7 Examples</a></li>
+  </ul></li>
+  <li><a id="toc-Interlink-API" href="Interlink.html">2 Interlink API</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Setup" href="Setup.html">2.1 Setup</a></li>
+    <li><a id="toc-Formulator" href="Formulator.html">2.2 Formulator</a></li>
+    <li><a id="toc-Templeton" href="Templeton.html">2.3 Templeton</a></li>
+    <li><a id="toc-Safe-Haven" href="Safe-Haven.html">2.4 Safe Haven</a></li>
+    <li><a id="toc-Reference" href="r_002dinterlink_002dreference.html">2.5 Reference</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Quick-Guide" href="r_002dinterlink_002dquickie.html">2.5.1 Quick Guide</a></li>
+      <li><a id="toc-interlink_002eenv" href="r_002dinterlink_002denv.html">2.5.2 interlink.env</a></li>
+      <li><a id="toc-interlink_002etoolkit" href="r_002dinterlink_002dtoolkit.html">2.5.3 interlink.toolkit</a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-interlink_002etoolkit_002emetadata_007bversion_003d_0027-_0027_002c-createDate_003d_0027-_0027_002c-updateDate_003d_0027-_0027_002c-author_003d_0027-_0027_002c-docs_003d_0027-_0027_007d" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002emetadata_007bversion_003d_0027-_0027_002c-createDate_003d_0027-_0027_002c-updateDate_003d_0027-_0027_002c-author_003d_0027-_0027_002c-docs_003d_0027-_0027_007d">2.5.3.1 interlink.toolkit.metadata{version=&rsquo; &rsquo;, createDate=&rsquo; &rsquo;, updateDate=&rsquo; &rsquo;, author=&rsquo; &rsquo;, docs=&rsquo; &rsquo;}</a></li>
+        <li><a id="toc-interlink_002etoolkit_002eget_005fscript_005fpath_0028_0029" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002eget_005fscript_005fpath_0028_0029">2.5.3.2 interlink.toolkit.get_script_path()</a></li>
+        <li><a id="toc-interlink_002etoolkit_002esite_005fmap_0028_0029" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002esite_005fmap_0028_0029">2.5.3.3 interlink.toolkit.site_map()</a></li>
+        <li><a id="toc-interlink_002etoolkit_002eDB_0028db_002c-user_002c-password_0029" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002eDB_0028db_002c-user_002c-password_0029">2.5.3.4 interlink.toolkit.DB(db, user, password)</a></li>
+      </ul></li>
+      <li><a id="toc-interlink_002eformulator" href="r_002dinterlink_002dformulator.html">2.5.4 interlink.formulator</a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-interlink_002eformulator_002eGenerator_0028db_002c-user_002c-password_0029" href="r_002dinterlink_002dformulator.html#interlink_002eformulator_002eGenerator_0028db_002c-user_002c-password_0029">2.5.4.1 interlink.formulator.Generator(db, user, password)</a></li>
+      </ul></li>
+      <li><a id="toc-interlink_002esafeHaven" href="r_002dinterlink_002dsafeHaven.html">2.5.5 interlink.safeHaven</a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-interlink_002esafeHaven_002e_0040honeypot_0028f_0029" href="r_002dinterlink_002dsafeHaven.html#interlink_002esafeHaven_002e_0040honeypot_0028f_0029">2.5.5.1 interlink.safeHaven.@honeypot(f)</a></li>
+        <li><a id="toc-interlink_002esafeHaven_002e_0040backdoor_0028f_0029" href="r_002dinterlink_002dsafeHaven.html#interlink_002esafeHaven_002e_0040backdoor_0028f_0029">2.5.5.2 interlink.safeHaven.@backdoor(f)</a></li>
+        <li><a id="toc-interlink_002esafeHaven_002e_0040login_0028f_0029" href="r_002dinterlink_002dsafeHaven.html#interlink_002esafeHaven_002e_0040login_0028f_0029">2.5.5.3 interlink.safeHaven.@login(f)</a></li>
+      </ul></li>
+      <li><a id="toc-interlink_002etempleton" href="r_002dinterlink_002dtempleton.html">2.5.6 interlink.templeton</a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-interlink_002etempleton_002eTempulation_0028object_0029" href="r_002dinterlink_002dtempleton.html#interlink_002etempleton_002eTempulation_0028object_0029">2.5.6.1 interlink.templeton.Tempulation(object)</a></li>
+        <li><a id="toc-interlink_002etempleton_002etempulator_0028import_005fname_002c-url_005frules_003d_005b_005d_002c-_002a_002aoptions_0029" href="r_002dinterlink_002dtempleton.html#interlink_002etempleton_002etempulator_0028import_005fname_002c-url_005frules_003d_005b_005d_002c-_002a_002aoptions_0029">2.5.6.2 interlink.templeton.tempulator(import_name, url_rules=[], **options)</a></li>
+        <li><a id="toc-interlink_002etempleton_002etempletonBP" href="r_002dinterlink_002dtempleton.html#interlink_002etempleton_002etempletonBP">2.5.6.3 interlink.templeton.templetonBP</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Tutorials" href="Tutorials.html">3 Tutorials</a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Installing-Arch" href="Installing-Arch.html">3.1 Installing Arch</a></li>
+    <li><a id="toc-Qtile-or-XFCE4" href="Qtile-or-XFCE4.html">3.2 Qtile or XFCE4</a></li>
+    <li><a id="toc-Building-a-Server" href="Building-a-Server.html">3.3 Building a Server</a></li>
+  </ul></li>
+  <li><a id="toc-Index" href="Index.html" rel="index">Index</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Forward.html" accesskey="n" rel="next">Forward</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

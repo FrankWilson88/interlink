@@ -1,15 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
 
-# Interlink
+Copyright © 2022 Joe Corso
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-This is a collection of libraries written to work in Python’s flask framework. It will generate a form and report for any table in a database. It will also create the urls, and the navigation bar. You can customize your website by generating your own instance of the API; or you can register the Blueprint(e.g. app.register_blueprint(templetonBP)), which has its own set of templates etc. So essentially, if you create a database for a library like in all tutorials and you need a form template and a report template, it will generate the form or report from the table in the database, and fill in the details in the template. To render the page in the browser just type in the url which corresponds to the table name, or make a navigation bar to generate the links for you.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-### Install:
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-1. Activate your virtual env, and install the program:
+Documentation at https://www.joecorso.com/guide (PADS Manual) -->
+<title>r-interlink-quickie (PADS 0.0.5)</title>
 
-`python -m pip install git+https://github.com/padsRepo/interlink.git`
+<meta name="description" content="r-interlink-quickie (PADS 0.0.5)">
+<meta name="keywords" content="r-interlink-quickie (PADS 0.0.5)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<h3 class="subsection" id="Quick-Guide"><span>Quick Guide<a class="copiable-link" href="#Quick-Guide"> &para;</a></span></h4>
+<link href="index.html" rel="start" title="Top">
+<link href="Index.html" rel="index" title="Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="r_002dinterlink_002dreference.html" rel="up" title="r-interlink-reference">
+<link href="r_002dinterlink_002denv.html" rel="next" title="r-interlink-env">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="r_002dinterlink_002dquickie">
+<div class="nav-panel">
+<p>
+Next: <a href="r_002dinterlink_002denv.html" accesskey="n" rel="next">interlink.env</a>, Up: <a href="r_002dinterlink_002dreference.html" accesskey="u" rel="up">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Quick-Guide"><span>2.5.1 Quick Guide<a class="copiable-link" href="#Quick-Guide"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-Interlink_002c-Reference_002c-Quick-Guide"></a>
 <p>Here is the TLDR: If you set everything up properly you should be able to just type in the URL for the form or report you want to see. If you type it in wrong you&rsquo;ll see a 404. If the code is wrong you&rsquo;ll see a 500, or some other error message if you have debug mode on.
 </p>
@@ -76,7 +112,7 @@ def index():
 </pre></div>
 
 <p>&ndash;&gt; forms.html
-</p><pre class="verbatim">
+</p><pre class="verbatim">{% raw %}
 {% extends 'base.html' %}
 {% block description %}{% endblock %}
 {% block keywords %}{% endblock %}
@@ -100,9 +136,10 @@ def index():
 &lt;/article&gt;
 
 {% endblock %}
+{% endraw %}
 </pre>
 <p>&mdash;&gt; reports.html
-</p><pre class="verbatim">
+</p><pre class="verbatim">{% raw %}
 {% extends 'base.html' %}
 {% block description %}{% endblock %}
 {% block keywords %}{% endblock %}
@@ -130,9 +167,10 @@ def index():
   &lt;/article&gt;
 
 {% endblock %}
+{% endraw %}
 </pre>
 <p>&mdash;&gt; base.html
-</p><pre class="verbatim">
+</p><pre class="verbatim">{% raw %}
 &lt;nav class=&quot;pc mobile&quot;&gt;
   &lt;a href=&quot;{{ url_for('/.index') }}&quot;&gt;Index&lt;/a&gt;
   &lt;div class=&quot;dropdown&quot;&gt;
@@ -152,9 +190,16 @@ def index():
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/nav&gt;
-
+{% endraw %}
 </pre>
 </div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="r_002dinterlink_002denv.html">interlink.env</a>, Up: <a href="r_002dinterlink_002dreference.html">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
 
 </body>
 </html>
