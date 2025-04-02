@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
+        <title>Interlink</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/fontawesome.min.css" rel="stylesheet">
         <link href="css/brands.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <body class="homepage">
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href=".">Interlink</a>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
@@ -54,49 +54,6 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#forward" class="nav-link">Forward</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#updates" class="nav-link">Updates</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#command-line" class="nav-link">Command Line</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#options" class="nav-link">Options</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#exit-status" class="nav-link">Exit Status</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#environment" class="nav-link">Environment</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#directories" class="nav-link">Directories</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#history" class="nav-link">History</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#notes" class="nav-link">Notes</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#examples" class="nav-link">Examples</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
             <li class="nav-item" data-bs-level="1"><a href="#interlink" class="nav-link">interlink</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#interlink.formulator" class="nav-link">formulator</a>
@@ -117,247 +74,10 @@
             </li>
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#tutorials" class="nav-link">Tutorials</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#installing-arch" class="nav-link">Installing Arch</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#qtile-or-xfce4" class="nav-link">Qtile or XFCE4</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#building-a-server" class="nav-link">Building a Server</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#reference" class="nav-link">Reference</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
-
-<p>This manual is for PADS (<a href="0.0.5">version</a>, <a href="2025-02-26">date</a>) a general
-purpose automated assistant</p>
-<p>Copyright (c) 2022 Joe Corso</p>
-<p>Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:</p>
-<p>The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-<p>Documentation at <a href="https://www.joecorso.com/guide," title="Comprehensive Guide">PADS Manual
-(https://www.joecorso.com/guide)</a></p>
-<h1 id="forward">Forward</h1>
-<p>I started programming with HTML, and CSS. My goal was to make an
-e-commerce website to sell the products I made blowing glass. I realized
-this might be something for me when I was awake at 5am feverishly typing
-in more lines of code. I then noticed how important it was to organize
-the code. Every week I was changing the directory structure. Slowly I
-learned python, the Django, then Flask, then Bash. When I learned Bash I
-felt like my power lever exceeded 9K. But I still had the same problem:
-a lot of code with no where to go. So I started to write wrappers in
-Bash, to call the function name rather then source a random file.
-Eventually it turned into a full command with options and arguments.
-Eventually, an new problem arose. How to remember all this stuff? So I
-decided to document everything. I fould texinfo because I wanted
-something to run in a terminal, online, and printout. So here we are, my
-comprehensive guide on all things I've researched, and documented so far
-to this point. The man page my be outdated.</p>
-<h1 id="updates">Updates</h1>
-<ul>
-<li>Started 12-29-23 12:00pm</li>
-<li>Worked on throughout 12-30-2023</li>
-<li>Updated 1-1-2024</li>
-<li>Updated 2-9-2024</li>
-<li>Changed PADS Syntax 9-2-2024</li>
-</ul>
-<h1 id="command-line">Command Line</h1>
-<p>PADS is a general purpose programming language designed to automate
-tasks, and run complex scripts in a format that only involves a few
-flags, and options. The first flag in the syntax is made to access logic
-from modules which may have their own complex logic. The second flag in
-the syntax is made to access options that may be available in those
-modules. PADS also has robust error checking; so you can be sure not to
-enter the wrong flags. Also see: info pads for the comprehensive guide.
-The man page may be out of date.</p>
-<p>Synopsis:</p>
-<pre><code class="language-bash">        `&lt;cmd&gt; -[&lt;module&gt;] -[&lt;argument&gt;] -[&lt;option&gt;] [name...]`  
-
-        `pads -S -[b,u,i,l,d,r:,m,s,h,v] [name...]`  
-
-        `pads -P -[p:,f:,g:,h,v] -[m:,s:,d-h] &lt;name&gt;`  
-
-        `pads -R -[s:,v,h] &lt;name...&gt;`  
-
-        `pads -T [-h|-v]`  
-
-        `pads -x`  
-
-        `pads -h`  
-
-        `pads -v`  
-</code></pre>
-<h2 id="options">Options</h2>
-<h3 id="system-module">System Module</h3>
-<p><code>-S -[b,u,i,l,d,r:,m,s,h,v] [name...]</code>\
-Run automated system scripts and exit. The logic for this module is
-intended to interact with the OS itself. The options are as follows:</p>
-<pre><code>    `-b`  
-    : Backup your system to {set a location}
-
-    `-u` [name...]  
-    : Update your machine. If given a name it will attempt to install packages.
-
-    `-i`  
-    : Update pads info page. Docs are at: pads/docs/pads.texi
-
-    `-l`  
-    : List packages installed on this machine.
-
-    `-d`  
-    : Update pads' man page. Docs are at: pads/docs/pads.1.
-
-    `-r` &lt;name...&gt;  
-    : Remove supplied packages
-
-    `-m`  
-    : Set up Mariadb
-
-    `-v`  
-    : Show version
-
-    `-h`  
-    : Show help
-</code></pre>
-<h3 id="project-module">Project Module</h3>
-<p><code>-P -[p:|f:|g:|h|v] -[&lt;m|s|d&gt;] &lt;name&gt;</code>\
-Run modules parsed in another language and exit. This module is intended
-to run full programs. Usually something other than Bash. The m flag is
-make, the s flag is start, the d flag is delete the project.</p>
-<pre><code>    `-p -[&lt;m|s|d&gt;] &lt;name&gt;`  
-    : For managing a Python Project or Module.
-
-    `-f -[&lt;m|s|d&gt;] &lt;name&gt;`  
-    : For managing a Flask Project or Module.
-
-    `-g -[&lt;m|s|d&gt;] &lt;name&gt;`  
-    : For managing a Pygames Project or Module.
-
-    `-h`  
-    : Show help for the P module and exit
-
-    `-v`  
-    : Show version for the -p module and exit
-</code></pre>
-<h3 id="run-module">Run Module</h3>
-<p><code>-R [-s|-h|-v]</code>\
-Used to run any random script within the r_opts.sh file. This flag is
-good for testing.</p>
-<pre><code>    `-s [&lt;name&gt;]`  
-    : Run the given script. Good for scripts that dont fit into a module.
-
-    `-h`  
-    : Show help for the R module.
-
-    `-v`  
-    : Show version for the R module.
-</code></pre>
-<h3 id="test-module">Test Module</h3>
-<p><code>-T -[arg]</code> [name] For tests scripts</p>
-<pre><code>    `-s`  
-    : Run script with specified `name`
-
-    `-h`  
-    : Show help for PADS and exit.
-
-    **-v`  
-    : Show version for PADS and exit
-</code></pre>
-<h2 id="exit-status">Exit Status</h2>
-<p>Code   Response</p>
-<hr />
-<p>0      Success
-  1      Error
-  2      Illegal/Required Option
-  127    K18 (Command doesn't exist)
-  130    Ctl+C</p>
-<h2 id="environment">Environment</h2>
-<p>BROWSER="w3m"\
-PROMPT_COMMAND=prompt_command\
-RANGER_LOAD_DEFAULT=false\
-PATH=PATH:HOME/pads/bin</p>
-<h2 id="directories">Directories</h2>
-<p>N/A</p>
-<h2 id="history">History</h2>
-<ul>
-<li>PADS is General Purpose Artificial Intelligence designed to carry
-    out every day business tasks. It's purpose is to provide book
-    keeping, employee timesheets, client tracking, automation, etc. It
-    can do double entry accounting for hybrid manufacturing companies.
-    None of the data is loaded as Environment Variables, so your
-    interaction with PADS is between you and it. It's original purpose
-    was to serve as a website, with a relational historical database.
-    Work on this project began in Python using the Django Framework on
-    June 23, 2021 at 5:30pm. The accounting database first came online
-    Oct. 13th, 2021 at 11:48pm. The Bash Syntax was first created by Joe
-    Corso on May 4th, 2022. It was previously codenamed Project Eniac,
-    to pay homage to the original project of the same name.\</li>
-<li>Work began on an Arch Linux distro\</li>
-<li>The original man page was created 2023-09-08\</li>
-<li>Flask Project for Accounting was created\</li>
-<li>Flask API was created\</li>
-<li>Started using Qtile (switched from XFCE4).\</li>
-<li>Created info page</li>
-</ul>
-<h2 id="notes">Notes</h2>
-<ul>
-<li>All new logic files added to \~/pads/module/ must be named by the
-    flag or argument they represent.\</li>
-<li>I wanted to following a syntax which follows the <code>&lt;command&gt;</code>{=html}
-    <code>&lt;module&gt;</code>{=html} <code>&lt;argument&gt;</code>{=html} <code>&lt;option&gt;</code>{=html} pattern
-    because I thought it would be easy to code and work with. It seems
-    cryptic with one letter names, but the code is easy, and each
-    function can have its own logic. Most of it being wrappers for more
-    complex commands that already exist anyway, but I have a hard time
-    remembering. I made it similar to pacman just because I liked it.</li>
-</ul>
-<h2 id="examples">Examples</h2>
-<p><code>pads -Ph</code>\
-Show project help and exit</p>
-<p><code>pads -Pps brain</code>\
-Start a python project named "brain"</p>
-<p><code>pads -Ppm brain</code>\
-Make a python project named "brain". This will create a virtual env for
-the project as well.</p>
-<p><code>pads -Ppd brain</code>\
-Delete the project named "brain". It will ask confirmation as well.</p>
-<p><code>pads -Su</code>\
-Update your machine.</p>
-<p><code>pads -Su neofetch</code>\
-Install neofetch to your machine.</p>
-<p><code>pads -Sb</code>\
-Back up your machine locally.</p>
-<p><code>pads -x</code>\
-Set the x flag for whatever command you need to debug.</p>
-
 
 <div class="doc doc-object doc-module">
 
@@ -375,19 +95,52 @@ Set the x flag for whatever command you need to debug.</p>
 
 
 <p><span class="doc-section-title">Examples:</span></p>
-    <p>Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically. First create your database, and tables. Then install:  </p>
-<pre><code>python -m venv pads/env/my_env
-pads/env/my_env/bin/activate
-python -m pip install git+https://github.com/padsRepo/interlink.git 
-from interlink import *
-app.register_blueprint(templetonBP)
-app.register_error_handler(404, url_not_found)
-app.register_error_handler(500, internal_error)
+    <p>Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically. </p>
+        <p>Let's say we want to make a blog, and we have a database named "blog" with a table named "manifest".</p>
+<ol>
+<li>
+<p>First create your database, and tables. Then activate your virtual env and install interlink:  </p>
+<pre><code>python -m venv path/to/venv/my_env
+. path/to/venv/bin/activate
+python -m pip install git+https://github.com/padsRepo/interlink.git
 </code></pre>
-<p>Enter URL in browser:</p>
-<pre><code>127.0.0.1:8000/blog/manifest
+</li>
+<li>
+<p>In your <code>__init__.py</code> file:</p>
+<p>import os
+   from flask import Flask, Blueprint, render_template, url_for
+   from views import viewsBP</p>
+<p>KEY = os.urandom(16)
+   os.environ['SECRET_KEY'] = str(KEY)
+   os.environ['DB_USER'] = '<username>'
+   os.environ['DB_PASS'] = '<password>'
+   os.environ['BASE_DIR'] = os.path.dirname(<strong>file</strong>)
+   os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
+   os.environ['whitelist'] = '["127.0.0.1", "192.168.0.37"]'
+   os.environ['blacklist'] = '["71.71.71.71"]'</p>
+<p>app = Flask(<strong>name</strong>)
+   app.config.from_mapping(SECRET_KEY=os.environ.get('SECRET_KEY'))
+   app.config['UPLOAD_FOLDER'] = 'repo/'</p>
+<p>from interlink import *
+   app.register_blueprint(viewsBP)
+   app.register_blueprint(templetonBP)
+   app.register_error_handler(404, url_not_found)
+   app.register_error_handler(500, internal_error)</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+     app.run()
+   else:
+     app.run(debug=True, host='0.0.0.0', port='8000')</p>
+</li>
+<li>
+<p>The <code>templetonBP</code> has all the templates you need. Enter the URL into the browser:</p>
+<pre><code>127.0.0.1:8000/admin/blog
+127.0.0.1:8000/forms/blog/manifest
+127.0.0.1:8000/reports/blog/manifest
+127.0.0.1:8000/blog/manifest # for the blog you want everyone to see
 </code></pre>
-        <p>Let's say you want to generate a blog. Use the formulator.Generator to
+</li>
+</ol>
+<p>Let's say you want to use your own blog template. Use the <code>formulator.Generator</code> to
 make a query of your blog table from your SQL database. Create a
 variable from it, and then using Jinja's Templating Engine with Flask,
 we can manipulate the variable in an html template anyway we want.</p>
@@ -396,12 +149,11 @@ we can manipulate the variable in an html template anyway we want.</p>
   @viewsBP.route('/blog/')
   def blog():
     gen = Generator('blog', 'DB_USER', 'DB_PASS')
-    content = gen.generateReport('blog')
+    content = gen.generateQuery('manifest')
     return render_template('blog.html', content=content)
 </code></pre>
 <p>Then your blog template could look something like this:  </p>
-<pre><code>  {% raw %}
-  {% extends 'base.html' %}
+<pre><code>  {% extends 'base.html' %}
   {% block description %}Raw Thoughts{% endblock %}
   {% block keywords %}emo, roses are black violets are black my life is black everything is black{% endblock %}
   {% block title %}Blog{% endblock %}
@@ -409,7 +161,6 @@ we can manipulate the variable in an html template anyway we want.</p>
   {% block content %}
     &lt;article class="col-12 col-s-12 col-m-12"&gt;
       &lt;h1&gt;My personal shit show&lt;/h1&gt;
-      {{ error }}
       &lt;table class="blog"&gt;
         &lt;tr&gt;
           {% for c in content %}
@@ -424,19 +175,18 @@ we can manipulate the variable in an html template anyway we want.</p>
       &lt;/table&gt;
     &lt;/article&gt;
   {% endblock %}
-  {% endraw %}
 </code></pre>
-<p>Then, you can style the page any way that you want without having to
-keep going back and rewriting the logic for the form and report and also
-start cluttering your templates folder with a bunch of different types
-of forms, reports, navbars, blogs, logins, etc. It's just one, and it's
-already made.</p>
+<p>Then, you can style that one page any way that you want.
+When you need to enter the data just go to the URL:
+<code>http://127.0.0.1:8000/forms/blog/manifest</code>
+When you want to show it off, go to:
+<code>http://127.0.0.1:8000/blog</code></p>
 <p>Conversely, you can build your project a bit more flexible. In your
 views.py file you only need two specific views that will generate every
 form, and report respectively. In the <code>index()</code> function you will see
 the nav var set to <code>generateNav()</code>, this generates the navigation bar
 for you. So put that where ever you want that to generate. If you're
-familiar with flask's app factory, and Blueprints, then this should look
+familiar with flask's Blueprints, then this should look
 pretty simple. If not, check out the flask docs, it's pretty cool. They
 look something like this:</p>
 <p>---&gt; views.py</p>
@@ -451,16 +201,22 @@ look something like this:</p>
     nav = gen.generateNav()
     return render_template('index.html', nav=nav)
 
-  @viewsBP.route('/reports/&lt;db&gt;/&lt;page&gt;')
-  def generateReport(db, page):
+  @viewsBP.route('/&lt;db&gt;/&lt;table&gt;')
+  def blog(db, table):
+    gen = Generator(db, 'DB_USER', 'DB_PASS')
+    content = gen.generateQuery(table)
+    return render_template('template.html', content=content)
+
+  @viewsBP.route('/reports/&lt;db&gt;/&lt;table&gt;')
+  def generateReport(db, table):
     gen = i.Generator(db, 'DB_USER', 'DB_PASS')
-    colName, colRow, error, title = gen.generateReport(page)
+    colName, colRow, error, title = gen.generateReport(table)
     return render_template('reports.html', colName=colName, colRow=colRow, error=error, title=title)
 
-  @viewsBP.route('/forms/&lt;db&gt;/&lt;path&gt;', methods=['GET', 'POST'])
-  def generateForm(db, page):
+  @viewsBP.route('/forms/&lt;db&gt;/&lt;table&gt;', methods=['GET', 'POST'])
+  def generateForm(db, table):
     gen = i.Generator(db, 'DB_USER', 'DB_PASS')
-    error, form, title = gen.generateForm(page)
+    error, form, title = gen.generateForm(table)
     return render_template('forms.html', form=form, error=error, title=title)
 
   @viewsBP.route('/admin/&lt;db&gt;')
@@ -477,16 +233,14 @@ parameters(One for the column names of the table, one for the data in
 the table, a title, and a generic error) and the form needs 3(One to
 generate the forms, a title, and a generic error). The <code>generateNav()</code>
 doesn't need a parameter, but it searches for the database you set to
-your <code>Generator.__init__()</code>. Make sure to register the views in your app
-factory:</p>
+your <code>Generator.__init__()</code>. Make sure to register the views:</p>
 <p>---&gt; <strong>init</strong>.py</p>
 <pre><code>  from views import viewsBP
   app.regist_blueprint(viewsBP)
 </code></pre>
 <p>Make a template for your Forms:<br />
 ---&gt; forms.html</p>
-<pre><code>  {% raw %}
-  {% extends 'base.html' %}
+<pre><code>  {% extends 'base.html' %}
   {% block description %}{% endblock %}
   {% block keywords %}{% endblock %}
   {% block title %}{{ title }}{% endblock %}
@@ -509,12 +263,10 @@ factory:</p>
   &lt;/article&gt;
 
   {% endblock %}
-  {% endraw %}
 </code></pre>
 <p>Make a template for your reports:<br />
 ---&gt; reports.html</p>
-<pre><code>  {% raw %}
-  {% extends 'base.html' %}
+<pre><code>  {% extends 'base.html' %}
   {% block description %}{% endblock %}
   {% block keywords %}{% endblock %}
   {% block title %}{{ title }}{% endblock %}
@@ -541,18 +293,11 @@ factory:</p>
     &lt;/article&gt;
 
   {% endblock %}
-  {% endraw %}
 </code></pre>
-<p>Finally, make a navigation menu for it all. This just plops every link
-onto the screen, so it's up to you to decide how to style it, maybe make
-a dropdown menu with it or something. The formulator filters
-"timestamp", "pri", "uni", "mul", "updated", and anything that starts
-with "q". Be sure to decide which tables you actually want to use, and
-which not; so you don't accidentally insert data to a table you're not
-supposed to.</p>
+<p>Finally, make a navigation menu for it all. The formulator filters
+"timestamp", "pri", "uni", "mul", "updated", and "q".</p>
 <p>---&gt; base.html</p>
-<pre><code>  {% raw %}
-  &lt;nav class="pc mobile"&gt;
+<pre><code>  &lt;nav class="pc mobile"&gt;
     &lt;a href="{{ url_for('/.index') }}"&gt;Index&lt;/a&gt;
     &lt;div class="dropdown"&gt;
       &lt;span&gt;Reports&lt;/span&gt;
@@ -571,7 +316,6 @@ supposed to.</p>
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/nav&gt;
-  {% endraw %}
 </code></pre>
 <p>That's it! So if you have a DB with tables named books, authors,
 planets, solarSystems....etc. Just type in the url for the table name.
@@ -2153,1411 +1897,6 @@ def myFuntion(db, user, password):
 
     </div>
 
-</div><h1 id="tutorials">Tutorials</h1>
-<p>A Collection of tutorials I've cobbled together after reading through
-docs, and stackover flow.</p>
-<h2 id="installing-arch">Installing Arch</h2>
-<p>Details about setting up Arch Linux. PADS has a built in Arch Install
-script. Use it at your own risk.</p>
-<p>1)  Boot Mode\
-    Verify boot mode. If this command runs with no errors, you're using
-    EFI Mode.\
-    <code>ls /sys/firmware/efi/efivars</code></p>
-<p>2)  Internet Connection\
-    Connect to the internet. If you're on Ethernet, it should be
-    connected automatically.</p>
-<pre><code>1)  Enable and start
-    [dhcpcd.service](https://wiki.archlinux.org/title/dhcpcd, "dhcpcd wiki")\
-    `systemctl enable dhcpcd.service`\
-    `systemctl start dhcpcd.service`\
-2)  If you're on WIFI, use
-    [iwd](https://wiki.archlinux.org/title/Iwd#iwctl, "iwd Docs").\
-    `iwctl`\
-    `device list`\
-    `station device scan`\
-    `station device get-networks`\
-    `station device connect SSID`\
-3)  Ping something...\
-    `ping www.google.com`
-</code></pre>
-<p>3)  System Clock\
-    Update system clock\
-    <code>timedatectl set-ntp true</code>\
-    <code>timedatectl set-timezone America/New_York</code>\
-    <code>timedatectl status</code></p>
-<p>4)  Partition\
-    Partition the disk. I use
-    <a href="https://wiki.archlinux.org/title/fdisk," title="fdisk Docs">fdisk</a>. DO
-    NOT OVERWRITE REDUNDANT STORAGE!!!! List devices, and choose your
-    device.\
-    <code>fdisk -l</code>\
-    <code>fdisk /dev/sda</code></p>
-<pre><code>1)  EFI Boot Mode:
-    1)  Build partition table\
-        `n` /mnt/boot partition\
-        `p` primary partition\
-        `1` /dev/sda1\
-        `""` first block default\
-        `+512M` last block 512mb\
-        `n` swap partition\
-        `p` primary partition\
-        `2` /dev/sda2\
-        `""` first block default\
-        `+2G` last block 2gb (Or however big you want swap)\
-        `n` /mnt partition\
-        `3` /dev/sda3\
-        `""` first block default\
-        `""` last block takes rest of space\
-        `w` write partition table\
-        `q` quit fdisk (Might exit automatically)\
-    2)  Make filesystem:\
-        `mkfs.fat -F 32 /dev/sda1`\
-        `mkswap /dev/sda2`\
-        `mkfs.ext4 /dev/sda3`\
-    3)  Mount filesystem:\
-        `mount --mkdir /dev/sda1 /mnt/boot`\
-        `swapon /dev/sda2`\
-        `mount /dev/sda3 /mnt`\
-2)  BIOS Boot Mode:
-    1)  Build partition table\
-        `n` /mnt partition\
-        `p` primary partition\
-        `1` partition number\
-        `""` first block default\
-        `+500G` last block (make it as big as you want)\
-        `t` type of filesystem\
-        `83` linux filesystem\
-        `a` bootable flag\
-        `1` partition number to make bootable\
-        `n` swap partition\
-        `p` primary partition\
-        `3` partition number\
-        `""` first block default\
-        `+2G` last block partition\
-        `t` type of filesystem\
-        `3` partition number\
-        `82` OR `swap` swap filesystem\
-        `w` write partition table\
-        `q` quit fdisk\
-    2)  Make filesystem: `mkfs.ext4 /dev/sda1`\
-        `mkswap /dev/sda2`\
-        `swapon /dev/sda2`\
-    3)  Mount filesystem:\
-        `mount /dev/sda1 /mnt`
-</code></pre>
-<p>5)  Backup\
-    Backup and Select your mirrorlist\
-    <code>cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak</code>\
-    <code>reflector --verbose -c "US" -f 12 -l 50 -n 12 --sort rate --protocol https --save /etc/pacman.d/mirrorlist</code>\
-    <code>cat /etc/pacman.d/mirrorlist</code></p>
-<p>6)  Install Packages\
-    <code>pacstrap /mnt base linux linux-firmware neofetch fakeroot nano sudo man-db man-pages texinfo lshw upower dhcpcd iwd</code></p>
-<blockquote>
-<p>[!NOTE] If your iso file is old, you may get an error like this:
-error: some-package: signature from "Some Person email@@some.domain"
-is unknown trust You will need to update your key-ring with:\
-<code>pacman -Sy</code>\
-<code>sudo pacman -S archlinux-keyring</code></p>
-<p>[!NOTE] If you're using a hypervisor install proper guest
-utilities:\
-<code>pacstrap /mnt virtualbox-guest-utils &amp;&amp; systemctl enable vboxservice.service &amp;&amp; systemctl start vboxservice.service</code></p>
-</blockquote>
-<p>7)  Configure the system\
-    <code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></p>
-<p>8)  Change root\
-    <code>arch-chroot /mnt</code></p>
-<p>9)  Timezone\
-    Configure timezone for system\
-    <code>ln -sf /usr/share/zoneinfo/Region/City /etc/localtime</code>\
-    <code>hwclock --systohc</code></p>
-<p>10) Locale\
-    Set device locale</p>
-<pre><code>1)  Manually edit /etc/locale.gen and uncomment your locale (ig:
-    en_US.UTF-8) OR run the following command:\
-    `sed -i "s/#en_US.UTF-8 UTF8/en_US.UTF-8 UTF-8/g" /etc/locale.gen`\
-2)  Generate locale file\
-    `locale-gen`\
-3)  Manually edit /etc/locale.conf OR run the following command\
-    `echo "LANG=en_US.UTF-8" &gt;&gt; /etc/locale.conf`
-</code></pre>
-<p>11) OS Environment\
-    Create hostname, host, and user, enable dhcpcd.service\
-    <code>systemctl enable dhcpcd.service</code>\
-    <code>echo "$hostname" &gt; /etc/hostname</code>\
-    <code>echo "127.0.0.1 localhost" &gt;&gt; /etc/hosts</code>\
-    <code>echo "::1 localhost" &gt;&gt; /etc/hosts</code>\
-    <code>echo "127.0.1.1 $hostname" &gt;&gt; /etc/hosts</code>\
-    <code>passwd</code> this is for root password NOT the user\
-    <code>useradd -m $user</code> add your user\
-    <code>passwd $user</code> enter your user password\
-    <code>sudo nano /etc/sudoers</code>\
-    <code>$user ALL=(ALL:ALL) ALL" &gt;&gt; /etc/sudoers</code></p>
-<p>12) Bootloader\
-    Install Bootloader (I'm using GRUB)</p>
-<pre><code>1)  EFI Bootloader:\
-    `pacman -Syu grub efibootmgr`\
-    `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`\
-    `grub-mkconfig -o /boot/grub/grub.cfg`\
-2)  BIOS Bootloader:\
-    `pacman -Syu grub`\
-    `grub-install --target=i386-pc /dev/sda`\
-    `grub-mkconfig -o /boot/grub/grub.cfg`
-</code></pre>
-<p>13) Exit Chroot and Reboot:\
-    <code>exit</code>\
-    <code>reboot</code></p>
-<h2 id="qtile-or-xfce4">Qtile or XFCE4</h2>
-<p>Installing Qtile or XFCE4</p>
-<h3 id="setup-qtile">Setup Qtile</h3>
-<p>There isn't much to say. This is something already well
-<a href="https://qtile.org/," title="Qtile Docs">documented</a>.</p>
-<p>1)  Start by installing it, and picom for dynamic windows:\
-    <code>sudo pacman -Syu xorg xorg-server xorg-apps xorg-xinit xterm qtile picom</code></p>
-<blockquote>
-<p>[!NOTE] The default config is loaded from
-<em>\~/.config/qtile/config.py</em>. If it's not there, copy it from
-<em>/usr/share/doc/qtile/default_config.py</em>. The config for picom is at
-<em>/etc/xdg/picom.conf</em>.</p>
-</blockquote>
-<p>2)  Change \~/.xinitrc to add the following line:\
-    <code>sudo nano ~/.xinitrc</code>\
-    <code>picom &amp;</code>\
-    <code>exec qtile start</code>\
-3)  Install the qtile-extras to make the bar look cool: It's only on the
-    AUR\
-    <code>cd ~/Downloads</code>\
-    <code>sudo git clone https://aur.archlinux.org/qtile-extras-git.git</code>\
-    <code>cd qtile-extras</code>\
-    <code>makepkg -si</code></p>
-<h3 id="setup-xfce4">Setup XFCE4</h3>
-<p>1)  Install the packages\
-    <code>sudo pacman -Syu xorg xorg-server xorg-apps xorg-xinit xterm xfce4 xfce4-goodies unzip</code>\
-2)  Change \~/.xinitrc and add these lines:\
-    <code>sudo nano ~/.xinitrc</code>\
-    <code>exec startxfce4</code>\
-3)  Customize the theme:\
-    <code>sudo mkdir $HOME/.icons</code>\
-    <code>sudo mkdir $HOME/.themes</code>\
-    <code>sudo cp /path/to/icon/.face $HOME/.face</code></p>
-<blockquote>
-<p>[!NOTE] You can find all kinds of cool looking themes and icons over
-at @url{https://www.xfce-look.org/browse/, xfce-look.org}. Download
-the theme or icon you like and unpack it just like any other tar file.
-Then just copy and paste your unpacked candy into its respective
-directory. The beauty of XFCE is that all you have to do is create a
-".theme" directory, an ".icon" directory, and a ".face" icon in your
-home directory, and xfce4 will find it when you log in.</p>
-</blockquote>
-<h2 id="building-a-server">Building a Server</h2>
-<p>Details about setting up a home server</p>
-<h1 id="reference">Reference</h1>
-<p><a href="#interlink.toolkit.site_map">site_map</a>
-</p>
-
-
-<div class="doc doc-object doc-class">
-
-
-
-<h3 id="interlink.toolkit.DB" class="doc doc-heading">
-            <code>interlink.toolkit.DB</code>
-
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-
-        <p>Connects to MariaDB</p>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>sql</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Conn to db</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-        <p>Example:</p>
-<pre><code>@viewsBP.route('/report/&lt;db&gt;/&lt;page&gt;')
-def myFuntion(db, user, password):
-  db_conn = DB(db, user, password).connect()
-  cursor = db_conn.cursor(buffered=True)
-  cursor.execute(f"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='{db}'; ")
-  sql = cursor.fetchone()
-  db_conn.close()
-  return sql
-</code></pre>
-
-          
-
-
-
-
-
-
-              <details class="quote">
-                <summary>Source code in <code>src/interlink/toolkit/__init__.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">:</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Connects to MariaDB</span>
-
-<span class="sd">Returns: </span>
-<span class="sd">    sql (str): Conn to db</span>
-
-<span class="sd">Example:</span>
-
-<span class="sd">    @viewsBP.route(&#39;/report/&lt;db&gt;/&lt;page&gt;&#39;)</span>
-<span class="sd">    def myFuntion(db, user, password):</span>
-<span class="sd">      db_conn = DB(db, user, password).connect()</span>
-<span class="sd">      cursor = db_conn.cursor(buffered=True)</span>
-<span class="sd">      cursor.execute(f&quot;SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=&#39;{db}&#39;; &quot;)</span>
-<span class="sd">      sql = cursor.fetchone()</span>
-<span class="sd">      db_conn.close()</span>
-<span class="sd">      return sql</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">db</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
-  <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Used to make connection to MariaDB&#39;&#39;&#39;</span>
-    <span class="n">mydb</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
-    <span class="n">database</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">),</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">),</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">mydb</span>
-  <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Used to close connection to MariaDB&#39;&#39;&#39;</span>
-    <span class="n">db</span> <span class="o">=</span> <span class="n">DB</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">db</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-      <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-              </details>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.toolkit.DB.close" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">close</span><span class="p">()</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Used to close connection to MariaDB</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/toolkit/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;Used to close connection to MariaDB&#39;&#39;&#39;</span>
-  <span class="n">db</span> <span class="o">=</span> <span class="n">DB</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">db</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.toolkit.DB.connect" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">connect</span><span class="p">()</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Used to make connection to MariaDB</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/toolkit/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;Used to make connection to MariaDB&#39;&#39;&#39;</span>
-  <span class="n">mydb</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-  <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
-  <span class="n">database</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">),</span>
-  <span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">),</span>
-  <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-  <span class="p">)</span>
-  <span class="k">return</span> <span class="n">mydb</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-
-
-  </div>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-class">
-
-
-
-<h3 id="interlink.formulator.Generator" class="doc doc-heading">
-            <code>interlink.formulator.Generator</code>
-
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-
-        <p>The generator is the module used to generate your forms, reports,
-queries, and anything DB related.</p>
-<p>Let's say you want to generate a blog. Use the formulator.Generator to
-make a query of your blog table from your SQL database. Create a
-variable from it, and then using Jinja's Templating Engine with Flask,
-we can manipulate the variable in an html template anyway we want.</p>
-<p>Examples:</p>
-<pre><code>from interlink import Generator
-@templetonBP.route('/forms/&lt;db&gt;/&lt;page&gt;', methods=['GET', 'POST'])  
-def generateForm(db, page):  
-    gen = Generator(db, 'DB_USER', 'DB_PASS')  
-    error, form, title = gen.generateForm(page)  
-    return render_template('forms.html', error=error, form=form, title=title)
-
-
-from interlink import Generator
-@templetonBP.route('/reports/&lt;db&gt;/&lt;page&gt;')
-def generateReport(db, page):
-  gen = Generator(db, 'DB_USER', 'DB_PASS')
-  colName, colRow, error, title = gen.generateReport(page)
-  return wrapper('reports.html', colName=colName, colRow=colRow, error=error, title=title)
-
-@viewsBP.route(/)
-def index():
-  gen = i.Generator('DB', 'DB_USER', 'DB_PASS')
-  nav = gen.generateNav()
-  return render_template('index.html', nav=nav)
-</code></pre>
-
-          
-
-
-
-
-
-
-              <details class="quote">
-                <summary>Source code in <code>src/interlink/formulator/__init__.py</code></summary>
-                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Generator</span><span class="p">:</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  The generator is the module used to generate your forms, reports,</span>
-<span class="sd">queries, and anything DB related.</span>
-
-<span class="sd">Let&#39;s say you want to generate a blog. Use the formulator.Generator to</span>
-<span class="sd">make a query of your blog table from your SQL database. Create a</span>
-<span class="sd">variable from it, and then using Jinja&#39;s Templating Engine with Flask,</span>
-<span class="sd">we can manipulate the variable in an html template anyway we want.</span>
-
-<span class="sd">Examples:</span>
-
-<span class="sd">    from interlink import Generator</span>
-<span class="sd">    @templetonBP.route(&#39;/forms/&lt;db&gt;/&lt;page&gt;&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])  </span>
-<span class="sd">    def generateForm(db, page):  </span>
-<span class="sd">        gen = Generator(db, &#39;DB_USER&#39;, &#39;DB_PASS&#39;)  </span>
-<span class="sd">        error, form, title = gen.generateForm(page)  </span>
-<span class="sd">        return render_template(&#39;forms.html&#39;, error=error, form=form, title=title)</span>
-
-
-<span class="sd">    from interlink import Generator</span>
-<span class="sd">    @templetonBP.route(&#39;/reports/&lt;db&gt;/&lt;page&gt;&#39;)</span>
-<span class="sd">    def generateReport(db, page):</span>
-<span class="sd">      gen = Generator(db, &#39;DB_USER&#39;, &#39;DB_PASS&#39;)</span>
-<span class="sd">      colName, colRow, error, title = gen.generateReport(page)</span>
-<span class="sd">      return wrapper(&#39;reports.html&#39;, colName=colName, colRow=colRow, error=error, title=title)</span>
-
-<span class="sd">    @viewsBP.route(/)</span>
-<span class="sd">    def index():</span>
-<span class="sd">      gen = i.Generator(&#39;DB&#39;, &#39;DB_USER&#39;, &#39;DB_PASS&#39;)</span>
-<span class="sd">      nav = gen.generateNav()</span>
-<span class="sd">      return render_template(&#39;index.html&#39;, nav=nav)</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-
-  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Initialize the Generator object.&#39;&#39;&#39;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
-
-  <span class="k">def</span><span class="w"> </span><span class="nf">generateForm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Generate a form to enter data into the `table`</span>
-
-<span class="sd">    Returns: </span>
-<span class="sd">      error (str): Success! Error!</span>
-<span class="sd">      form (str): Success! 404 </span>
-<span class="sd">      title (str): DB table name</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">error</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="n">createForm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="n">table</span>
-    <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">title</span>
-
-  <span class="k">def</span><span class="w"> </span><span class="nf">generateReport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Generate a report to enter data into the `table`</span>
-
-<span class="sd">    Returns: </span>
-<span class="sd">      colName (str): DB Column Name </span>
-<span class="sd">      colRow (str): DB Column Row </span>
-<span class="sd">      error (str): Success! 404</span>
-<span class="sd">      title (str): DB table name</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">colName</span><span class="p">,</span> <span class="n">colRow</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">createReport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="n">table</span>
-    <span class="k">return</span> <span class="n">colName</span><span class="p">,</span> <span class="n">colRow</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">title</span>
-
-  <span class="k">def</span><span class="w"> </span><span class="nf">generateQuery</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Run a custom SELECT statement to see the results.</span>
-
-<span class="sd">    TODO: Start making it.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">createQuery</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-
-  <span class="k">def</span><span class="w"> </span><span class="nf">generateNav</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Generate a navigation bar for each table in the initialized object&#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">createNav</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-              </details>
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.formulator.Generator.__init__" class="doc doc-heading">
-            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Initialize the Generator object.</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/formulator/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;Initialize the Generator object.&#39;&#39;&#39;</span>
-  <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
-  <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
-  <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.formulator.Generator.generateForm" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">generateForm</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Generate a form to enter data into the <code>table</code></p>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>error</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Success! Error!</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-<td><code>form</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Success! 404 </p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-<td><code>title</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>DB table name</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/formulator/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateForm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  Generate a form to enter data into the `table`</span>
-
-<span class="sd">  Returns: </span>
-<span class="sd">    error (str): Success! Error!</span>
-<span class="sd">    form (str): Success! 404 </span>
-<span class="sd">    title (str): DB table name</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="n">error</span><span class="p">,</span> <span class="n">form</span> <span class="o">=</span> <span class="n">createForm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="n">table</span>
-  <span class="k">return</span> <span class="n">error</span><span class="p">,</span> <span class="n">form</span><span class="p">,</span> <span class="n">title</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.formulator.Generator.generateNav" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">generateNav</span><span class="p">()</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Generate a navigation bar for each table in the initialized object</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/formulator/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateNav</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;Generate a navigation bar for each table in the initialized object&#39;&#39;&#39;</span>
-  <span class="k">return</span> <span class="n">createNav</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.formulator.Generator.generateQuery" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">generateQuery</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Run a custom SELECT statement to see the results.</p>
-<p>TODO: Start making it.</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/formulator/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateQuery</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  Run a custom SELECT statement to see the results.</span>
-
-<span class="sd">  TODO: Start making it.</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="k">return</span> <span class="n">createQuery</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.formulator.Generator.generateReport" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">generateReport</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Generate a report to enter data into the <code>table</code></p>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>colName</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>DB Column Name </p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-<td><code>colRow</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>DB Column Row </p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-<td><code>error</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Success! 404</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-<td><code>title</code></td>            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>DB table name</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/formulator/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generateReport</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  Generate a report to enter data into the `table`</span>
-
-<span class="sd">  Returns: </span>
-<span class="sd">    colName (str): DB Column Name </span>
-<span class="sd">    colRow (str): DB Column Row </span>
-<span class="sd">    error (str): Success! 404</span>
-<span class="sd">    title (str): DB table name</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="n">colName</span><span class="p">,</span> <span class="n">colRow</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">createReport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="n">table</span>
-  <span class="k">return</span> <span class="n">colName</span><span class="p">,</span> <span class="n">colRow</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">title</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-
-
-  </div>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="interlink.safeHaven.honeypot" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">interlink</span><span class="o">.</span><span class="n">safeHaven</span><span class="o">.</span><span class="n">honeypot</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-        <p>Python decorator you can use as a honeypot.  Any IP Adress that is black
-listed will be redirected to a login page that logs the username and
-password they attempt to use.</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/safeHaven/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">honeypot</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  Python decorator you can use as a honeypot.  Any IP Adress that is black</span>
-<span class="sd">  listed will be redirected to a login page that logs the username and</span>
-<span class="sd">  password they attempt to use.</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-  <span class="k">def</span><span class="w"> </span><span class="nf">decorated_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">session</span> <span class="o">==</span> <span class="p">{}:</span>
-      <span class="n">ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">remote_addr</span>
-      <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">blacklist</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">blacklist</span><span class="p">:</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; *&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39; --&gt;&#39;</span><span class="p">,</span> <span class="s2">&quot;This IP is blacklisted:&quot;</span><span class="p">,</span> <span class="n">ip</span><span class="p">)</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; *&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39; --&gt;&#39;</span><span class="p">,</span> <span class="s2">&quot;This IP is blacklisted:&quot;</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LOG_DIR&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/pads.log&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span>
-          <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;templeton.loginRequired&#39;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">decorated_function</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="interlink.safeHaven.backdoor" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">interlink</span><span class="o">.</span><span class="n">safeHaven</span><span class="o">.</span><span class="n">backdoor</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-        <p>Python decorator you can use as a backdoor.  Any page which has this
-decorator will give IP Address' on the whitelist full access to the
-page.</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/safeHaven/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">backdoor</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  Python decorator you can use as a backdoor.  Any page which has this</span>
-<span class="sd">  decorator will give IP Address&#39; on the whitelist full access to the</span>
-<span class="sd">  page.</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-  <span class="k">def</span><span class="w"> </span><span class="nf">decorated_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">session</span> <span class="o">==</span> <span class="p">{}:</span>
-      <span class="n">ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">remote_addr</span>
-      <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">whitelist</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">whitelist</span><span class="p">:</span>
-          <span class="n">session</span><span class="p">[</span><span class="s1">&#39;yourballslooklikemine&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">decorated_function</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="interlink.safeHaven.login" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">interlink</span><span class="o">.</span><span class="n">safeHaven</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-        <p>Python decorator you can use to check if a user is logged in.  If not,
-they will be redirected to a login page from where they can log in.</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/safeHaven/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  Python decorator you can use to check if a user is logged in.  If not,</span>
-<span class="sd">  they will be redirected to a login page from where they can log in.</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-  <span class="k">def</span><span class="w"> </span><span class="nf">decorated_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">session</span> <span class="o">==</span> <span class="p">{}:</span>
-      <span class="n">ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">remote_addr</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * [USER]&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39; --&gt;&#39;</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="s2">&quot;directed to login&quot;</span><span class="p">)</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * [USER]&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39; --&gt;&#39;</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="s2">&quot;directed to login&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LOG_DIR&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/pads.log&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span>
-      <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;templeton.secure_login&#39;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">decorated_function</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="interlink.templeton.tempulation" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">interlink</span><span class="o">.</span><span class="n">templeton</span><span class="o">.</span><span class="n">tempulation</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-        <p>Generate a new url_rule from interlinks templates.</p>
-<p>Examples:</p>
-<pre><code>  from flask import Flask
-  from interlink import tempulation
-  app = Flask(__name__)
-  app.add_url_rule('/', view_func=tempulation('yourapplication.views.index'))
-  app.add_url_rule('/user/&lt;username&gt;', view_func=tempulation('yourapplication.views.user'))
-
-  # make a new tempulator
-  def myNewTempulator(import_name, url_rules=[], **options):
-      view = tempulation(f"@{app_name@}.@{import_name@}")
-      for url_rule in url_rules:
-        app.add_url_rule(url_rule, view_func=view, **options)
-</code></pre>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/templeton/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tempulation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Generate a new url_rule from interlinks templates.</span>
-
-<span class="sd">Examples:</span>
-
-<span class="sd">      from flask import Flask</span>
-<span class="sd">      from interlink import tempulation</span>
-<span class="sd">      app = Flask(__name__)</span>
-<span class="sd">      app.add_url_rule(&#39;/&#39;, view_func=tempulation(&#39;yourapplication.views.index&#39;))</span>
-<span class="sd">      app.add_url_rule(&#39;/user/&lt;username&gt;&#39;, view_func=tempulation(&#39;yourapplication.views.user&#39;))</span>
-
-<span class="sd">      # make a new tempulator</span>
-<span class="sd">      def myNewTempulator(import_name, url_rules=[], **options):</span>
-<span class="sd">          view = tempulation(f&quot;@{app_name@}.@{import_name@}&quot;)</span>
-<span class="sd">          for url_rule in url_rules:</span>
-<span class="sd">            app.add_url_rule(url_rule, view_func=view, **options)</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">import_name</span><span class="p">):</span>
-      <span class="bp">self</span><span class="o">.</span><span class="vm">__module__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">import_name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">import_name</span> <span class="o">=</span> <span class="n">import_name</span>
-  <span class="nd">@cached_property</span>
-  <span class="k">def</span><span class="w"> </span><span class="nf">view</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="k">return</span> <span class="n">import_string</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">import_name</span><span class="p">)</span>
-  <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="interlink.templeton.tempulator" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">interlink</span><span class="o">.</span><span class="n">templeton</span><span class="o">.</span><span class="n">tempulator</span><span class="p">(</span><span class="n">import_name</span><span class="p">,</span> <span class="n">url_rules</span><span class="o">=</span><span class="p">[],</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents first">
-
-        <p>Templeton comes equiped with a tempulator, which runs off of
-tempulations. The tempulator is used for flasks Lazy Loading URL's.
-Remember that with templeton's tempulator, the generic templates are
-only coming from <code>interlink.templeton.views</code>. If you want to change
-where it's coming from you can use templeton's tempulation, and create a
-new url loader function</p>
-<p><a href="https://flask.palletsprojects.com/en/3.0.x/patterns/lazyloading/#loading-late," title="Flask Lazy Loading">Flask Lazy Loading</a></p>
-<pre><code>--&gt; views.py
-@templetonBP.route('/')
-@login
-def catalog():
-  return tempulator("views.catalog", ['/catalog'])
-
-# add a single route to the index view
-tempulator('views.catalog', ['/catalog'])
-
-# add two routes to a single function endpoint
-url_rules = ['/catalog/','/catalog/&lt;item&gt;']
-tempulator('views.catalog', url_rules)
-</code></pre>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/templeton/__init__.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">tempulator</span><span class="p">(</span><span class="n">import_name</span><span class="p">,</span> <span class="n">url_rules</span><span class="o">=</span><span class="p">[],</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Templeton comes equiped with a tempulator, which runs off of</span>
-<span class="sd">tempulations. The tempulator is used for flasks Lazy Loading URL&#39;s.</span>
-<span class="sd">Remember that with templeton&#39;s tempulator, the generic templates are</span>
-<span class="sd">only coming from `interlink.templeton.views`. If you want to change</span>
-<span class="sd">where it&#39;s coming from you can use templeton&#39;s tempulation, and create a</span>
-<span class="sd">new url loader function</span>
-
-<span class="sd">[Flask Lazy Loading](https://flask.palletsprojects.com/en/3.0.x/patterns/lazyloading/#loading-late, &quot;Flask Lazy Loading&quot;)</span>
-
-<span class="sd">    --&gt; views.py</span>
-<span class="sd">    @templetonBP.route(&#39;/&#39;)</span>
-<span class="sd">    @login</span>
-<span class="sd">    def catalog():</span>
-<span class="sd">      return tempulator(&quot;views.catalog&quot;, [&#39;/catalog&#39;])</span>
-
-<span class="sd">    # add a single route to the index view</span>
-<span class="sd">    tempulator(&#39;views.catalog&#39;, [&#39;/catalog&#39;])</span>
-
-<span class="sd">    # add two routes to a single function endpoint</span>
-<span class="sd">    url_rules = [&#39;/catalog/&#39;,&#39;/catalog/&lt;item&gt;&#39;]</span>
-<span class="sd">    tempulator(&#39;views.catalog&#39;, url_rules)</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="n">view</span> <span class="o">=</span> <span class="n">tempulation</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">import_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">url_rule</span> <span class="ow">in</span> <span class="n">url_rules</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_url_rule</span><span class="p">(</span><span class="n">url_rule</span><span class="p">,</span> <span class="n">view_func</span><span class="o">=</span><span class="n">view</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-module">
-
-
-
-<h3 id="interlink.templeton.views" class="doc doc-heading">
-            <code>interlink.templeton.views</code>
-
-
-</h3>
-
-    <div class="doc doc-contents first">
-
-          
-
-
-
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.templeton.views.index" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">index</span><span class="p">()</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Interlinks default index page.
-Example:
-  tempulator('views.index', ['/index'])</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/templeton/views.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  Interlinks default index page.</span>
-<span class="sd">  Example:</span>
-<span class="sd">    tempulator(&#39;views.index&#39;, [&#39;/index&#39;])</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Index&quot;</span>
-  <span class="n">article</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">  Article Content. This is content coming from views.py. This is some Metadata about interlink I&#39;ve added for the example: &lt;br&gt;</span>
-<span class="s1">  &#39;&#39;&#39;</span>
-  <span class="n">varA</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;New:&lt;br&gt;&#39;&#39;&#39;</span>
-  <span class="c1">#article = article.join(&#39;&lt;br&gt;&#39;)</span>
-  <span class="k">return</span> <span class="n">wrapper</span><span class="p">(</span><span class="s1">&#39;template.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">article</span><span class="o">=</span><span class="n">article</span><span class="p">,</span> <span class="n">varA</span><span class="o">=</span><span class="n">varA</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h4 id="interlink.templeton.views.wrapper" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">wrapper</span><span class="p">(</span><span class="n">page</span><span class="o">=</span><span class="s1">&#39;template.html&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
-
-</h4>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Used to wrap all the web pages in default params. TODO: make a decorator.</p>
-
-          
-
-            <details class="quote">
-              <summary>Source code in <code>src/interlink/templeton/views.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="n">page</span> <span class="o">=</span> <span class="s1">&#39;template.html&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;Used to wrap all the web pages in default params. TODO: make a decorator.&#39;&#39;&#39;</span>
-  <span class="n">ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">remote_addr</span>
-  <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">interlink</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">updated</span><span class="o">=</span><span class="n">interlink</span><span class="o">.</span><span class="n">__updated__</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">interlink</span><span class="o">.</span><span class="n">__author__</span><span class="p">,</span> <span class="n">siteMap</span><span class="o">=</span><span class="n">site_map</span><span class="p">(),</span> <span class="n">ip</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-
-
-  </div>
-
-    </div>
-
 </div><pre><code class="language-python">templates = os.path.dirname(__file__) + '/templates/'
 templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=templates)
 @templetonBP.errorhandler(404)
@@ -3652,5 +1991,5 @@ templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=t
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-03-26 18:59:09.751253+00:00
+Build Date UTC : 2025-04-02 04:58:11.057930+00:00
 -->

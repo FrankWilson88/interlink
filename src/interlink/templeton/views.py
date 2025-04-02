@@ -35,6 +35,10 @@ def catalog():
 def interlinkData():
   title = "Interlink Metadata"
   return wrapper('data.html', title=title)
+
+@templetonBP.route('/copyright/')
+def copyright():
+  return wrapper('copyright.html')
   
 # Generic templeton templates
 @templetonBP.errorhandler(404)
@@ -49,6 +53,12 @@ def internal_error(e):
 @templetonBP.route('/docs/<page>')
 def documentation(page):
   return render_template('guide/' + page)
+
+@templetonBP.route('/<db>/<table>')
+def blog(db, table):
+  gen = Generator(db, 'DB_USER', 'DB_PASS')
+  content = gen.generateQuery(table)
+  return render_template('template.html', content=content)
 
 @templetonBP.route('/reports/<db>/<page>')
 @backdoor
