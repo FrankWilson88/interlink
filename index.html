@@ -149,29 +149,34 @@ python -m pip install git+https://github.com/padsRepo/interlink.git
 </li>
 <li>
 <p>In your <code>__init__.py</code> file:</p>
-<p>import os
-   from flask import Flask, Blueprint, render_template, url_for
-   from views import viewsBP</p>
-<p>KEY = os.urandom(16)
-   os.environ['SECRET_KEY'] = str(KEY)
-   os.environ['DB_USER'] = '<username>'
-   os.environ['DB_PASS'] = '<password>'
-   os.environ['BASE_DIR'] = os.path.dirname(<strong>file</strong>)
-   os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
-   os.environ['whitelist'] = '["127.0.0.1", "192.168.0.37"]'
-   os.environ['blacklist'] = '["71.71.71.71"]'</p>
-<p>app = Flask(<strong>name</strong>)
-   app.config.from_mapping(SECRET_KEY=os.environ.get('SECRET_KEY'))
-   app.config['UPLOAD_FOLDER'] = 'repo/'</p>
-<p>from interlink import *
-   app.register_blueprint(viewsBP)
-   app.register_blueprint(templetonBP)
-   app.register_error_handler(404, url_not_found)
-   app.register_error_handler(500, internal_error)</p>
-<p>if <strong>name</strong> == '<strong>main</strong>':
-     app.run()
-   else:
-     app.run(debug=True, host='0.0.0.0', port='8000')</p>
+<pre><code>import os
+from flask import Flask, Blueprint, render_template, url_for
+from views import viewsBP
+
+KEY = os.urandom(16)
+os.environ['SECRET_KEY'] = str(KEY)
+os.environ['DB_USER'] = '&lt;username&gt;'
+os.environ['DB_PASS'] = '&lt;password&gt;'
+os.environ['BASE_DIR'] = os.path.dirname(__file__)
+os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
+os.environ['whitelist'] = '["127.0.0.1", "192.168.0.37"]'
+os.environ['blacklist'] = '["71.71.71.71"]'
+
+app = Flask(__name__)
+app.config.from_mapping(SECRET_KEY=os.environ.get('SECRET_KEY'))
+app.config['UPLOAD_FOLDER'] = 'repo/'
+
+from interlink import *
+app.register_blueprint(viewsBP)
+app.register_blueprint(templetonBP)
+app.register_error_handler(404, url_not_found)
+app.register_error_handler(500, internal_error)
+
+if __name__ == '__main__':
+ app.run()
+else:
+ app.run(debug=True, host='0.0.0.0', port='8000')
+</code></pre>
 </li>
 <li>
 <p>The <code>templetonBP</code> has all the templates you need. Enter the URL into the browser:</p>
@@ -1980,5 +1985,5 @@ templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=t
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-04-02 05:01:48.453255+00:00
+Build Date UTC : 2025-04-02 05:09:30.813409+00:00
 -->
