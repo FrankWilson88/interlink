@@ -1,127 +1,85 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
-      <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>Interlink</title>
-    <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Home";
-        var mkdocs_page_input_path = "index.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> Interlink
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#interlink.formulator">formulator</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.formulator.Generator">Generator</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#interlink.formulator.Generator.__init__">__init__</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#interlink.formulator.Generator.generateForm">generateForm</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#interlink.formulator.Generator.generateNav">generateNav</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#interlink.formulator.Generator.generateQuery">generateQuery</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#interlink.formulator.Generator.generateReport">generateReport</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#interlink.templeton">templeton</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.templeton.__doc__">__doc__</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.templeton.tempulation">tempulation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.templeton.tempulator">tempulator</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#interlink.safeHaven">safeHaven</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.safeHaven.__doc__">__doc__</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.safeHaven.backdoor">backdoor</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.safeHaven.honeypot">honeypot</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.safeHaven.login">login</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#interlink.toolkit">toolkit</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#interlink.toolkit.DB">DB</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#interlink.toolkit.DB.close">close</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#interlink.toolkit.DB.connect">connect</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">Interlink</a>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Home</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <div class="doc doc-object doc-module">
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Interlink</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/fontawesome.min.css" rel="stylesheet">
+        <link href="css/brands.min.css" rel="stylesheet">
+        <link href="css/solid.min.css" rel="stylesheet">
+        <link href="css/v4-font-face.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="assets/_mkdocstrings.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Interlink</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#interlink" class="nav-link">interlink</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#interlink.formulator" class="nav-link">formulator</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#interlink.templeton" class="nav-link">templeton</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#interlink.safeHaven" class="nav-link">safeHaven</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#interlink.toolkit" class="nav-link">toolkit</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<div class="doc doc-object doc-module">
 
 
 
@@ -137,19 +95,52 @@
 
 
 <p><span class="doc-section-title">Examples:</span></p>
-    <p>Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically. First create your database, and tables. Then install:  </p>
-<pre><code>python -m venv pads/env/my_env
-pads/env/my_env/bin/activate
-python -m pip install git+https://github.com/padsRepo/interlink.git 
-from interlink import *
-app.register_blueprint(templetonBP)
-app.register_error_handler(404, url_not_found)
-app.register_error_handler(500, internal_error)
+    <p>Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically. </p>
+        <p>Let's say we want to make a blog, and we have a database named "blog" with a table named "manifest".</p>
+<ol>
+<li>
+<p>First create your database, and tables. Then activate your virtual env and install interlink:  </p>
+<pre><code>python -m venv path/to/venv/my_env
+. path/to/venv/bin/activate
+python -m pip install git+https://github.com/padsRepo/interlink.git
 </code></pre>
-<p>Enter URL in browser:</p>
-<pre><code>127.0.0.1:8000/blog/manifest
+</li>
+<li>
+<p>In your <code>__init__.py</code> file:</p>
+<p>import os
+   from flask import Flask, Blueprint, render_template, url_for
+   from views import viewsBP</p>
+<p>KEY = os.urandom(16)
+   os.environ['SECRET_KEY'] = str(KEY)
+   os.environ['DB_USER'] = '<username>'
+   os.environ['DB_PASS'] = '<password>'
+   os.environ['BASE_DIR'] = os.path.dirname(<strong>file</strong>)
+   os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
+   os.environ['whitelist'] = '["127.0.0.1", "192.168.0.37"]'
+   os.environ['blacklist'] = '["71.71.71.71"]'</p>
+<p>app = Flask(<strong>name</strong>)
+   app.config.from_mapping(SECRET_KEY=os.environ.get('SECRET_KEY'))
+   app.config['UPLOAD_FOLDER'] = 'repo/'</p>
+<p>from interlink import *
+   app.register_blueprint(viewsBP)
+   app.register_blueprint(templetonBP)
+   app.register_error_handler(404, url_not_found)
+   app.register_error_handler(500, internal_error)</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+     app.run()
+   else:
+     app.run(debug=True, host='0.0.0.0', port='8000')</p>
+</li>
+<li>
+<p>The <code>templetonBP</code> has all the templates you need. Enter the URL into the browser:</p>
+<pre><code>127.0.0.1:8000/admin/blog
+127.0.0.1:8000/forms/blog/manifest
+127.0.0.1:8000/reports/blog/manifest
+127.0.0.1:8000/blog/manifest # for the blog you want everyone to see
 </code></pre>
-        <p>Let's say you want to generate a blog. Use the formulator.Generator to
+</li>
+</ol>
+<p>Let's say you want to use your own blog template. Use the <code>formulator.Generator</code> to
 make a query of your blog table from your SQL database. Create a
 variable from it, and then using Jinja's Templating Engine with Flask,
 we can manipulate the variable in an html template anyway we want.</p>
@@ -158,12 +149,11 @@ we can manipulate the variable in an html template anyway we want.</p>
   @viewsBP.route('/blog/')
   def blog():
     gen = Generator('blog', 'DB_USER', 'DB_PASS')
-    content = gen.generateReport('blog')
+    content = gen.generateQuery('manifest')
     return render_template('blog.html', content=content)
 </code></pre>
 <p>Then your blog template could look something like this:  </p>
-<pre><code>  {% raw %}
-  {% extends 'base.html' %}
+<pre><code>  {% extends 'base.html' %}
   {% block description %}Raw Thoughts{% endblock %}
   {% block keywords %}emo, roses are black violets are black my life is black everything is black{% endblock %}
   {% block title %}Blog{% endblock %}
@@ -171,7 +161,6 @@ we can manipulate the variable in an html template anyway we want.</p>
   {% block content %}
     &lt;article class="col-12 col-s-12 col-m-12"&gt;
       &lt;h1&gt;My personal shit show&lt;/h1&gt;
-      {{ error }}
       &lt;table class="blog"&gt;
         &lt;tr&gt;
           {% for c in content %}
@@ -186,19 +175,18 @@ we can manipulate the variable in an html template anyway we want.</p>
       &lt;/table&gt;
     &lt;/article&gt;
   {% endblock %}
-  {% endraw %}
 </code></pre>
-<p>Then, you can style the page any way that you want without having to
-keep going back and rewriting the logic for the form and report and also
-start cluttering your templates folder with a bunch of different types
-of forms, reports, navbars, blogs, logins, etc. It's just one, and it's
-already made.</p>
+<p>Then, you can style that one page any way that you want.
+When you need to enter the data just go to the URL:
+<code>http://127.0.0.1:8000/forms/blog/manifest</code>
+When you want to show it off, go to:
+<code>http://127.0.0.1:8000/blog</code></p>
 <p>Conversely, you can build your project a bit more flexible. In your
 views.py file you only need two specific views that will generate every
 form, and report respectively. In the <code>index()</code> function you will see
 the nav var set to <code>generateNav()</code>, this generates the navigation bar
 for you. So put that where ever you want that to generate. If you're
-familiar with flask's app factory, and Blueprints, then this should look
+familiar with flask's Blueprints, then this should look
 pretty simple. If not, check out the flask docs, it's pretty cool. They
 look something like this:</p>
 <p>---&gt; views.py</p>
@@ -213,16 +201,22 @@ look something like this:</p>
     nav = gen.generateNav()
     return render_template('index.html', nav=nav)
 
-  @viewsBP.route('/reports/&lt;db&gt;/&lt;page&gt;')
-  def generateReport(db, page):
+  @viewsBP.route('/&lt;db&gt;/&lt;table&gt;')
+  def blog(db, table):
+    gen = Generator(db, 'DB_USER', 'DB_PASS')
+    content = gen.generateQuery(table)
+    return render_template('template.html', content=content)
+
+  @viewsBP.route('/reports/&lt;db&gt;/&lt;table&gt;')
+  def generateReport(db, table):
     gen = i.Generator(db, 'DB_USER', 'DB_PASS')
-    colName, colRow, error, title = gen.generateReport(page)
+    colName, colRow, error, title = gen.generateReport(table)
     return render_template('reports.html', colName=colName, colRow=colRow, error=error, title=title)
 
-  @viewsBP.route('/forms/&lt;db&gt;/&lt;path&gt;', methods=['GET', 'POST'])
-  def generateForm(db, page):
+  @viewsBP.route('/forms/&lt;db&gt;/&lt;table&gt;', methods=['GET', 'POST'])
+  def generateForm(db, table):
     gen = i.Generator(db, 'DB_USER', 'DB_PASS')
-    error, form, title = gen.generateForm(page)
+    error, form, title = gen.generateForm(table)
     return render_template('forms.html', form=form, error=error, title=title)
 
   @viewsBP.route('/admin/&lt;db&gt;')
@@ -239,16 +233,14 @@ parameters(One for the column names of the table, one for the data in
 the table, a title, and a generic error) and the form needs 3(One to
 generate the forms, a title, and a generic error). The <code>generateNav()</code>
 doesn't need a parameter, but it searches for the database you set to
-your <code>Generator.__init__()</code>. Make sure to register the views in your app
-factory:</p>
+your <code>Generator.__init__()</code>. Make sure to register the views:</p>
 <p>---&gt; <strong>init</strong>.py</p>
 <pre><code>  from views import viewsBP
   app.regist_blueprint(viewsBP)
 </code></pre>
 <p>Make a template for your Forms:<br />
 ---&gt; forms.html</p>
-<pre><code>  {% raw %}
-  {% extends 'base.html' %}
+<pre><code>  {% extends 'base.html' %}
   {% block description %}{% endblock %}
   {% block keywords %}{% endblock %}
   {% block title %}{{ title }}{% endblock %}
@@ -271,12 +263,10 @@ factory:</p>
   &lt;/article&gt;
 
   {% endblock %}
-  {% endraw %}
 </code></pre>
 <p>Make a template for your reports:<br />
 ---&gt; reports.html</p>
-<pre><code>  {% raw %}
-  {% extends 'base.html' %}
+<pre><code>  {% extends 'base.html' %}
   {% block description %}{% endblock %}
   {% block keywords %}{% endblock %}
   {% block title %}{{ title }}{% endblock %}
@@ -303,18 +293,11 @@ factory:</p>
     &lt;/article&gt;
 
   {% endblock %}
-  {% endraw %}
 </code></pre>
-<p>Finally, make a navigation menu for it all. This just plops every link
-onto the screen, so it's up to you to decide how to style it, maybe make
-a dropdown menu with it or something. The formulator filters
-"timestamp", "pri", "uni", "mul", "updated", and anything that starts
-with "q". Be sure to decide which tables you actually want to use, and
-which not; so you don't accidentally insert data to a table you're not
-supposed to.</p>
+<p>Finally, make a navigation menu for it all. The formulator filters
+"timestamp", "pri", "uni", "mul", "updated", and "q".</p>
 <p>---&gt; base.html</p>
-<pre><code>  {% raw %}
-  &lt;nav class="pc mobile"&gt;
+<pre><code>  &lt;nav class="pc mobile"&gt;
     &lt;a href="{{ url_for('/.index') }}"&gt;Index&lt;/a&gt;
     &lt;div class="dropdown"&gt;
       &lt;span&gt;Reports&lt;/span&gt;
@@ -333,7 +316,6 @@ supposed to.</p>
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/nav&gt;
-  {% endraw %}
 </code></pre>
 <p>That's it! So if you have a DB with tables named books, authors,
 planets, solarSystems....etc. Just type in the url for the table name.
@@ -826,42 +808,48 @@ def index():
         <p>Generate a form to enter data into the <code>table</code></p>
 
 
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Returns:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-<b><code>error</code></b>(                  <code><span title="str">str</span></code>
-)              –
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>error</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>Success! Error!</p>
               </div>
-            </li>
-            <li>
-<b><code>form</code></b>(                  <code><span title="str">str</span></code>
-)              –
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>form</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>Success! 404 </p>
               </div>
-            </li>
-            <li>
-<b><code>title</code></b>(                  <code><span title="str">str</span></code>
-)              –
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>title</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>DB table name</p>
               </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
           
 
             <details class="quote">
@@ -974,49 +962,58 @@ def index():
         <p>Generate a report to enter data into the <code>table</code></p>
 
 
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Returns:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-<b><code>colName</code></b>(                  <code><span title="str">str</span></code>
-)              –
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>colName</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>DB Column Name </p>
               </div>
-            </li>
-            <li>
-<b><code>colRow</code></b>(                  <code><span title="str">str</span></code>
-)              –
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>colRow</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>DB Column Row </p>
               </div>
-            </li>
-            <li>
-<b><code>error</code></b>(                  <code><span title="str">str</span></code>
-)              –
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>error</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>Success! 404</p>
               </div>
-            </li>
-            <li>
-<b><code>title</code></b>(                  <code><span title="str">str</span></code>
-)              –
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>title</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>DB table name</p>
               </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
           
 
             <details class="quote">
@@ -1686,28 +1683,28 @@ they will be redirected to a login page from where they can log in.</p>
         <p>Connects to MariaDB</p>
 
 
-<table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Returns:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-<b><code>sql</code></b>(                  <code><span title="str">str</span></code>
-)              –
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>sql</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
               <div class="doc-md-description">
                 <p>Conn to db</p>
               </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>        <p>Example:</p>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Example:</p>
 <pre><code>@viewsBP.route('/report/&lt;db&gt;/&lt;page&gt;')
 def myFuntion(db, user, password):
   db_conn = DB(db, user, password).connect()
@@ -1912,49 +1909,87 @@ templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=t
 @templetonBP.route('/reports/&lt;db&gt;/&lt;page&gt;')
 @templetonBP.route('/forms/&lt;db&gt;/&lt;page&gt;', methods=['GET', 'POST'])
 @templetonBP.route('/admin/&lt;db&gt;')
-</code></pre>
-              
+</code></pre></div>
             </div>
-          </div><footer>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
         </div>
-      </div>
 
-    </section>
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
 
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-    
-  </span>
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = ".";</script>
-    <script src="js/theme_extra.js"></script>
-    <script src="js/theme.js"></script>
-      <script src="search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
 
-</body>
+    </body>
 </html>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-03-28 18:17:09.812955+00:00
+Build Date UTC : 2025-04-02 05:00:15.547782+00:00
 -->
