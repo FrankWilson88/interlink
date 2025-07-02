@@ -16,6 +16,7 @@
 
   <nav class="pc mobile">
     <a href="{{ url_for('/.index') }}">Index</a>
+    {% include 'nav.html' %}
   </nav>
 
   <div class="title">
@@ -46,7 +47,7 @@
         <div class="month"></div>
         <div class="month"></div>
       </div><br>
-      <a href="{{ url_for('/.copyright') }}">Copyright</a> &copy; <a href="https://www.joecorso.com" title="www.joecorso.com">Joe Corso</a><div id="copyright"></div>
+      <a href="{{ url_for('templeton.copyright') }}">Copyright</a> &copy; <a href="https://www.joecorso.com" title="www.joecorso.com">Joe Corso</a><div id="copyright"></div>
       <br>{{ version }}-{{ updated }} {{ ip }} <p id="screenSize"></p>
       {% if session['yourballslooklikemine'] %}
         <p>Welcome, Housemaster</p>

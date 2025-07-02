@@ -1,11 +1,4 @@
-print(" * Loading Safe Haven...")
-import os
-from datetime import datetime as d
-from functools import wraps
-from flask import request, render_template, session, redirect, url_for
-from __init__ import app
-
-def __doc__(): '''
+'''
 Safe Haven is like the security team for the president. Always lurking
 in the shadows, ready to defend your best interest. Since these are
 decorators they're easy to use.
@@ -28,6 +21,12 @@ person connecting passes, and if not redirects them to the appropriate
 page. If you're using templeton's Blueprints it will redirect to its
 login screen, and everything works seamlessly.
 '''
+
+import os
+from datetime import datetime as d
+from functools import wraps
+#from flask import request, render_template, session, redirect, url_for
+#from __init__ import app
 
 whitelist = os.environ.get('whitelist')
 blacklist = os.environ.get('blacklist')

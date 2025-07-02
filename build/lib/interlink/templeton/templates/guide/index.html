@@ -1,138 +1,1430 @@
 <!DOCTYPE html>
-<html>
-<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
-
-Copyright © 2022 Joe Corso
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Documentation at https://www.joecorso.com/guide (PADS Manual) -->
-<title>Top (PADS 0.0.5)</title>
-
-<meta name="description" content="Top (PADS 0.0.5)">
-<meta name="keywords" content="Top (PADS 0.0.5)">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="#Top" rel="start" title="Top">
-<link href="Index.html" rel="index" title="Index">
-<link href="#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Forward.html" rel="next" title="Forward">
-<style type="text/css">
-<!--
-a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
-span:hover a.copiable-link {visibility: visible}
-ul.toc-numbered-mark {list-style: none}
--->
-</style>
-
-
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2025-02-26" />
+  <title>Docs</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
 </head>
-
-<body lang="en">
-
-
-
-<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
-Next: <a href="Forward.html" accesskey="n" rel="next">Forward</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<h1 class="top" id="PADS-_0028Personal-Assistant-and-Deployment-System_0029"><span>PADS (Personal Assistant and Deployment System)<a class="copiable-link" href="#PADS-_0028Personal-Assistant-and-Deployment-System_0029"> &para;</a></span></h1>
-<p>This manual is for PADS (0.0.5, 13 March 2025) a general purpose automated assistant
-</p>
-<p>Copyright &copy; 2022 Joe Corso
-</p><blockquote class="quotation">
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-</p>
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-</p>
-<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-</p>
-<p>Documentation at <a class="url" href="https://www.joecorso.com/guide">PADS Manual</a>
-</p></blockquote>
-
-
-<div class="region-contents" id="SEC_Contents">
-<h2 class="contents-heading">Table of Contents</h2>
-
-<div class="contents">
-
-<ul class="toc-numbered-mark">
-  <li><a id="toc-Forward" href="Forward.html">Forward</a></li>
-  <li><a id="toc-Updates" href="Updates.html">Updates</a></li>
-  <li><a id="toc-PADS-CLI" href="PADS-CLI.html">1 PADS CLI</a>
-  <ul class="toc-numbered-mark">
-    <li><a id="toc-Options" href="Options.html">1.1 Options</a></li>
-    <li><a id="toc-Exit-Status" href="Exit-Status.html">1.2 Exit Status</a></li>
-    <li><a id="toc-Environment" href="Environment.html">1.3 Environment</a></li>
-    <li><a id="toc-Directories" href="Directories.html">1.4 Directories</a></li>
-    <li><a id="toc-History" href="History.html">1.5 History</a></li>
-    <li><a id="toc-Notes" href="Notes.html">1.6 Notes</a></li>
-    <li><a id="toc-Examples" href="Examples.html">1.7 Examples</a></li>
-  </ul></li>
-  <li><a id="toc-Interlink-API" href="Interlink.html">2 Interlink API</a>
-  <ul class="toc-numbered-mark">
-    <li><a id="toc-Setup" href="Setup.html">2.1 Setup</a></li>
-    <li><a id="toc-Formulator" href="Formulator.html">2.2 Formulator</a></li>
-    <li><a id="toc-Templeton" href="Templeton.html">2.3 Templeton</a></li>
-    <li><a id="toc-Safe-Haven" href="Safe-Haven.html">2.4 Safe Haven</a></li>
-    <li><a id="toc-Reference" href="r_002dinterlink_002dreference.html">2.5 Reference</a>
-    <ul class="toc-numbered-mark">
-      <li><a id="toc-Quick-Guide" href="r_002dinterlink_002dquickie.html">2.5.1 Quick Guide</a></li>
-      <li><a id="toc-interlink_002eenv" href="r_002dinterlink_002denv.html">2.5.2 interlink.env</a></li>
-      <li><a id="toc-interlink_002etoolkit" href="r_002dinterlink_002dtoolkit.html">2.5.3 interlink.toolkit</a>
-      <ul class="toc-numbered-mark">
-        <li><a id="toc-interlink_002etoolkit_002emetadata_007bversion_003d_0027-_0027_002c-createDate_003d_0027-_0027_002c-updateDate_003d_0027-_0027_002c-author_003d_0027-_0027_002c-docs_003d_0027-_0027_007d" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002emetadata_007bversion_003d_0027-_0027_002c-createDate_003d_0027-_0027_002c-updateDate_003d_0027-_0027_002c-author_003d_0027-_0027_002c-docs_003d_0027-_0027_007d">2.5.3.1 interlink.toolkit.metadata{version=&rsquo; &rsquo;, createDate=&rsquo; &rsquo;, updateDate=&rsquo; &rsquo;, author=&rsquo; &rsquo;, docs=&rsquo; &rsquo;}</a></li>
-        <li><a id="toc-interlink_002etoolkit_002eget_005fscript_005fpath_0028_0029" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002eget_005fscript_005fpath_0028_0029">2.5.3.2 interlink.toolkit.get_script_path()</a></li>
-        <li><a id="toc-interlink_002etoolkit_002esite_005fmap_0028_0029" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002esite_005fmap_0028_0029">2.5.3.3 interlink.toolkit.site_map()</a></li>
-        <li><a id="toc-interlink_002etoolkit_002eDB_0028db_002c-user_002c-password_0029" href="r_002dinterlink_002dtoolkit.html#interlink_002etoolkit_002eDB_0028db_002c-user_002c-password_0029">2.5.3.4 interlink.toolkit.DB(db, user, password)</a></li>
-      </ul></li>
-      <li><a id="toc-interlink_002eformulator" href="r_002dinterlink_002dformulator.html">2.5.4 interlink.formulator</a>
-      <ul class="toc-numbered-mark">
-        <li><a id="toc-interlink_002eformulator_002eGenerator_0028db_002c-user_002c-password_0029" href="r_002dinterlink_002dformulator.html#interlink_002eformulator_002eGenerator_0028db_002c-user_002c-password_0029">2.5.4.1 interlink.formulator.Generator(db, user, password)</a></li>
-      </ul></li>
-      <li><a id="toc-interlink_002esafeHaven" href="r_002dinterlink_002dsafeHaven.html">2.5.5 interlink.safeHaven</a>
-      <ul class="toc-numbered-mark">
-        <li><a id="toc-interlink_002esafeHaven_002e_0040honeypot_0028f_0029" href="r_002dinterlink_002dsafeHaven.html#interlink_002esafeHaven_002e_0040honeypot_0028f_0029">2.5.5.1 interlink.safeHaven.@honeypot(f)</a></li>
-        <li><a id="toc-interlink_002esafeHaven_002e_0040backdoor_0028f_0029" href="r_002dinterlink_002dsafeHaven.html#interlink_002esafeHaven_002e_0040backdoor_0028f_0029">2.5.5.2 interlink.safeHaven.@backdoor(f)</a></li>
-        <li><a id="toc-interlink_002esafeHaven_002e_0040login_0028f_0029" href="r_002dinterlink_002dsafeHaven.html#interlink_002esafeHaven_002e_0040login_0028f_0029">2.5.5.3 interlink.safeHaven.@login(f)</a></li>
-      </ul></li>
-      <li><a id="toc-interlink_002etempleton" href="r_002dinterlink_002dtempleton.html">2.5.6 interlink.templeton</a>
-      <ul class="toc-numbered-mark">
-        <li><a id="toc-interlink_002etempleton_002eTempulation_0028object_0029" href="r_002dinterlink_002dtempleton.html#interlink_002etempleton_002eTempulation_0028object_0029">2.5.6.1 interlink.templeton.Tempulation(object)</a></li>
-        <li><a id="toc-interlink_002etempleton_002etempulator_0028import_005fname_002c-url_005frules_003d_005b_005d_002c-_002a_002aoptions_0029" href="r_002dinterlink_002dtempleton.html#interlink_002etempleton_002etempulator_0028import_005fname_002c-url_005frules_003d_005b_005d_002c-_002a_002aoptions_0029">2.5.6.2 interlink.templeton.tempulator(import_name, url_rules=[], **options)</a></li>
-        <li><a id="toc-interlink_002etempleton_002etempletonBP" href="r_002dinterlink_002dtempleton.html#interlink_002etempleton_002etempletonBP">2.5.6.3 interlink.templeton.templetonBP</a></li>
-      </ul></li>
-    </ul></li>
-  </ul></li>
-  <li><a id="toc-Tutorials" href="Tutorials.html">3 Tutorials</a>
-  <ul class="toc-numbered-mark">
-    <li><a id="toc-Installing-Arch" href="Installing-Arch.html">3.1 Installing Arch</a></li>
-    <li><a id="toc-Qtile-or-XFCE4" href="Qtile-or-XFCE4.html">3.2 Qtile or XFCE4</a></li>
-    <li><a id="toc-Building-a-Server" href="Building-a-Server.html">3.3 Building a Server</a></li>
-  </ul></li>
-  <li><a id="toc-Index" href="Index.html" rel="index">Index</a></li>
+<body>
+<header id="title-block-header">
+<h1 class="title">PADS (Personal Assistant and Deployment System)</h1>
+<p class="date">2025-02-26</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#forward" id="toc-forward"><span
+class="toc-section-number">1</span> Forward</a></li>
+<li><a href="#updates" id="toc-updates"><span
+class="toc-section-number">2</span> Updates</a></li>
+<li><a href="#command-line" id="toc-command-line"><span
+class="toc-section-number">3</span> Command Line</a>
+<ul>
+<li><a href="#options" id="toc-options"><span
+class="toc-section-number">3.1</span> Options</a>
+<ul>
+<li><a href="#system-module" id="toc-system-module"><span
+class="toc-section-number">3.1.1</span> System Module</a></li>
+<li><a href="#project-module" id="toc-project-module"><span
+class="toc-section-number">3.1.2</span> Project Module</a></li>
+<li><a href="#run-module" id="toc-run-module"><span
+class="toc-section-number">3.1.3</span> Run Module</a></li>
+<li><a href="#test-module" id="toc-test-module"><span
+class="toc-section-number">3.1.4</span> Test Module</a></li>
+</ul></li>
+<li><a href="#exit-status" id="toc-exit-status"><span
+class="toc-section-number">3.2</span> Exit Status</a></li>
+<li><a href="#environment" id="toc-environment"><span
+class="toc-section-number">3.3</span> Environment</a></li>
+<li><a href="#directories" id="toc-directories"><span
+class="toc-section-number">3.4</span> Directories</a></li>
+<li><a href="#history" id="toc-history"><span
+class="toc-section-number">3.5</span> History</a></li>
+<li><a href="#notes" id="toc-notes"><span
+class="toc-section-number">3.6</span> Notes</a></li>
+<li><a href="#examples" id="toc-examples"><span
+class="toc-section-number">3.7</span> Examples</a></li>
+</ul></li>
+<li><a href="#interlink" id="toc-interlink"><span
+class="toc-section-number">4</span> Interlink</a>
+<ul>
+<li><a href="#setup" id="toc-setup"><span
+class="toc-section-number">4.1</span> Setup</a></li>
+<li><a href="#formulator" id="toc-formulator"><span
+class="toc-section-number">4.2</span> Formulator</a></li>
+<li><a href="#templeton" id="toc-templeton"><span
+class="toc-section-number">4.3</span> Templeton</a></li>
+<li><a href="#safe-haven" id="toc-safe-haven"><span
+class="toc-section-number">4.4</span> Safe Haven</a></li>
+</ul></li>
+<li><a href="#tutorials" id="toc-tutorials"><span
+class="toc-section-number">5</span> Tutorials</a>
+<ul>
+<li><a href="#installing-arch" id="toc-installing-arch"><span
+class="toc-section-number">5.1</span> Installing Arch</a></li>
+<li><a href="#qtile-or-xfce4" id="toc-qtile-or-xfce4"><span
+class="toc-section-number">5.2</span> Qtile or XFCE4</a>
+<ul>
+<li><a href="#setup-qtile" id="toc-setup-qtile"><span
+class="toc-section-number">5.2.1</span> Setup Qtile</a></li>
+<li><a href="#setup-xfce4" id="toc-setup-xfce4"><span
+class="toc-section-number">5.2.2</span> Setup XFCE4</a></li>
+</ul></li>
+<li><a href="#building-a-server" id="toc-building-a-server"><span
+class="toc-section-number">5.3</span> Building a Server</a></li>
+</ul></li>
+<li><a href="#reference" id="toc-reference"><span
+class="toc-section-number">6</span> Reference</a>
+<ul>
+<li><a href="#interlink-ref" id="toc-interlink-ref"><span
+class="toc-section-number">6.1</span> Interlink Ref</a>
+<ul>
+<li><a href="#interlink.env" id="toc-interlink.env"><span
+class="toc-section-number">6.1.1</span> interlink.env</a></li>
+<li><a href="#interlink.toolkit.get_script_path"
+id="toc-interlink.toolkit.get_script_path"><span
+class="toc-section-number">6.1.2</span>
+interlink.toolkit.get_script_path()</a></li>
+<li><a href="#interlink.toolkit.site_map"
+id="toc-interlink.toolkit.site_map"><span
+class="toc-section-number">6.1.3</span>
+interlink.toolkit.site_map()</a></li>
+<li><a href="#interlink.toolkit.dbdb-user-password"
+id="toc-interlink.toolkit.dbdb-user-password"><span
+class="toc-section-number">6.1.4</span> interlink.toolkit.DB(db, user,
+password)</a></li>
+<li><a href="#interlink.formulator.generatordb-user-password"
+id="toc-interlink.formulator.generatordb-user-password"><span
+class="toc-section-number">6.1.5</span>
+interlink.formulator.Generator(db, user, password)</a></li>
+<li><a href="#interlink.safehaven.honeypotf"
+id="toc-interlink.safehaven.honeypotf"><span
+class="toc-section-number">6.1.6</span>
+interlink.safeHaven.@honeypot(f)</a></li>
+<li><a href="#interlink.safehaven.backdoorf"
+id="toc-interlink.safehaven.backdoorf"><span
+class="toc-section-number">6.1.7</span>
+interlink.safeHaven.@backdoor(f)</a></li>
+<li><a href="#interlink.safehaven.loginf"
+id="toc-interlink.safehaven.loginf"><span
+class="toc-section-number">6.1.8</span>
+interlink.safeHaven.@login(f)</a></li>
+<li><a href="#interlink.templeton.tempulationobject"
+id="toc-interlink.templeton.tempulationobject"><span
+class="toc-section-number">6.1.9</span>
+interlink.templeton.Tempulation(object)</a></li>
+<li><a
+href="#interlink.templeton.tempulatorimport_name-url_rules-options"
+id="toc-interlink.templeton.tempulatorimport_name-url_rules-options"><span
+class="toc-section-number">6.1.10</span>
+interlink.templeton.tempulator(import_name, url_rules=[],
+**options)</a></li>
+<li><a href="#interlink.templeton.templetonbp"
+id="toc-interlink.templeton.templetonbp"><span
+class="toc-section-number">6.1.11</span>
+interlink.templeton.templetonBP</a></li>
+</ul></li>
+</ul></li>
 </ul>
-</div>
-</div>
-</div>
-<hr>
-<div class="nav-panel">
-<p>
-Next: <a href="Forward.html" accesskey="n" rel="next">Forward</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Index.html" title="Index" rel="index">Index</a>]</p>
-</div>
+</nav>
+<p>This manual is for PADS (<a href="0.0.5">version</a>, <a
+href="2025-02-26">date</a>) a general purpose automated assistant</p>
+<p>Copyright (c) 2022 Joe Corso</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+“Software”), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<p>Documentation at <a href="https://www.joecorso.com/guide,"
+title="Comprehensive Guide">PADS Manual
+(https://www.joecorso.com/guide)</a></p>
+<h1 data-number="1" id="forward"><span
+class="header-section-number">1</span> Forward</h1>
+<p>I started programming with HTML, and CSS. My goal was to make an
+e-commerce website to sell the products I made blowing glass. I realized
+this might be something for me when I was awake at 5am feverishly typing
+in more lines of code. I then noticed how important it was to organize
+the code. Every week I was changing the directory structure. Slowly I
+learned python, the Django, then Flask, then Bash. When I learned Bash I
+felt like my power lever exceeded 9K. But I still had the same problem:
+a lot of code with no where to go. So I started to write wrappers in
+Bash, to call the function name rather then source a random file.
+Eventually it turned into a full command with options and arguments.
+Eventually, an new problem arose. How to remember all this stuff? So I
+decided to document everything. I fould texinfo because I wanted
+something to run in a terminal, online, and printout. So here we are, my
+comprehensive guide on all things I’ve researched, and documented so far
+to this point. The man page my be outdated.</p>
+<h1 data-number="2" id="updates"><span
+class="header-section-number">2</span> Updates</h1>
+<ul>
+<li>Started 12-29-23 12:00pm</li>
+<li>Worked on throughout 12-30-2023</li>
+<li>Updated 1-1-2024</li>
+<li>Updated 2-9-2024</li>
+<li>Changed PADS Syntax 9-2-2024</li>
+</ul>
+<h1 data-number="3" id="command-line"><span
+class="header-section-number">3</span> Command Line</h1>
+<p>PADS is a general purpose programming language designed to automate
+tasks, and run complex scripts in a format that only involves a few
+flags, and options. The first flag in the syntax is made to access logic
+from modules which may have their own complex logic. The second flag in
+the syntax is made to access options that may be available in those
+modules. PADS also has robust error checking; so you can be sure not to
+enter the wrong flags. Also see: info pads for the comprehensive guide.
+The man page may be out of date.</p>
+<p>Synopsis:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="op">&lt;</span>cmd<span class="op">&gt;</span> -[<span class="op">&lt;</span>module<span class="op">&gt;</span>] <span class="ex">-[</span><span class="op">&lt;</span>argument<span class="op">&gt;</span>] <span class="at">-[</span><span class="op">&lt;</span>option<span class="op">&gt;</span>] <span class="pp">[</span><span class="ss">name...</span><span class="pp">]</span><span class="kw">`</span>  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="ex">pads</span> <span class="at">-S</span> <span class="at">-</span><span class="pp">[</span><span class="ss">b,u,i,l,d,r:,m,s,h,v</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">name...</span><span class="pp">]</span><span class="kw">`</span>  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="ex">pads</span> <span class="at">-P</span> <span class="at">-</span><span class="pp">[</span><span class="ss">p:,f:,g:,h,v</span><span class="pp">]</span> <span class="at">-</span><span class="pp">[</span><span class="ss">m:,s:,d</span><span class="pp">-</span><span class="ss">h</span><span class="pp">]</span> <span class="op">&lt;</span>name<span class="op">&gt;</span><span class="kw">`</span>  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="ex">pads</span> <span class="at">-R</span> <span class="at">-</span><span class="pp">[</span><span class="ss">s:,v,h</span><span class="pp">]</span> <span class="op">&lt;</span>name...<span class="op">&gt;</span><span class="kw">`</span>  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="ex">pads</span> <span class="at">-T</span> [-h<span class="kw">|</span><span class="ex">-v]</span><span class="kw">`</span>  </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="ex">pads</span> <span class="at">-x</span><span class="kw">`</span>  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="ex">pads</span> <span class="at">-h</span><span class="kw">`</span>  </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">`</span><span class="ex">pads</span> <span class="at">-v</span><span class="kw">`</span>  </span></code></pre></div>
+<h2 data-number="3.1" id="options"><span
+class="header-section-number">3.1</span> Options</h2>
+<h3 data-number="3.1.1" id="system-module"><span
+class="header-section-number">3.1.1</span> System Module</h3>
+<p><code>-S -[b,u,i,l,d,r:,m,s,h,v] [name...]</code><br />
+Run automated system scripts and exit. The logic for this module is
+intended to interact with the OS itself. The options are as follows:</p>
+<pre><code>    `-b`  
+    : Backup your system to {set a location}
 
+    `-u` [name...]  
+    : Update your machine. If given a name it will attempt to install packages.
 
+    `-i`  
+    : Update pads info page. Docs are at: pads/docs/pads.texi
 
+    `-l`  
+    : List packages installed on this machine.
+
+    `-d`  
+    : Update pads&#39; man page. Docs are at: pads/docs/pads.1.
+
+    `-r` &lt;name...&gt;  
+    : Remove supplied packages
+
+    `-m`  
+    : Set up Mariadb
+
+    `-v`  
+    : Show version
+
+    `-h`  
+    : Show help</code></pre>
+<h3 data-number="3.1.2" id="project-module"><span
+class="header-section-number">3.1.2</span> Project Module</h3>
+<p><code>-P -[p:|f:|g:|h|v] -[&lt;m|s|d&gt;] &lt;name&gt;</code><br />
+Run modules parsed in another language and exit. This module is intended
+to run full programs. Usually something other than Bash. The m flag is
+make, the s flag is start, the d flag is delete the project.</p>
+<pre><code>    `-p -[&lt;m|s|d&gt;] &lt;name&gt;`  
+    : For managing a Python Project or Module.
+
+    `-f -[&lt;m|s|d&gt;] &lt;name&gt;`  
+    : For managing a Flask Project or Module.
+
+    `-g -[&lt;m|s|d&gt;] &lt;name&gt;`  
+    : For managing a Pygames Project or Module.
+
+    `-h`  
+    : Show help for the P module and exit
+
+    `-v`  
+    : Show version for the -p module and exit</code></pre>
+<h3 data-number="3.1.3" id="run-module"><span
+class="header-section-number">3.1.3</span> Run Module</h3>
+<p><code>-R [-s|-h|-v]</code><br />
+Used to run any random script within the r_opts.sh file. This flag is
+good for testing.</p>
+<pre><code>    `-s [&lt;name&gt;]`  
+    : Run the given script. Good for scripts that dont fit into a module.
+
+    `-h`  
+    : Show help for the R module.
+
+    `-v`  
+    : Show version for the R module.</code></pre>
+<h3 data-number="3.1.4" id="test-module"><span
+class="header-section-number">3.1.4</span> Test Module</h3>
+<p><code>-T -[arg]</code> [name] For tests scripts</p>
+<pre><code>    `-s`  
+    : Run script with specified `name`
+
+    `-h`  
+    : Show help for PADS and exit.
+
+    **-v`  
+    : Show version for PADS and exit</code></pre>
+<h2 data-number="3.2" id="exit-status"><span
+class="header-section-number">3.2</span> Exit Status</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>Success</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Error</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Illegal/Required Option</td>
+</tr>
+<tr class="even">
+<td>127</td>
+<td>K18 (Command doesn’t exist)</td>
+</tr>
+<tr class="odd">
+<td>130</td>
+<td>Ctl+C</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="3.3" id="environment"><span
+class="header-section-number">3.3</span> Environment</h2>
+<p>BROWSER=“w3m”<br />
+PROMPT_COMMAND=prompt_command<br />
+RANGER_LOAD_DEFAULT=false<br />
+PATH=PATH:HOME/pads/bin</p>
+<h2 data-number="3.4" id="directories"><span
+class="header-section-number">3.4</span> Directories</h2>
+<p>N/A</p>
+<h2 data-number="3.5" id="history"><span
+class="header-section-number">3.5</span> History</h2>
+<ul>
+<li>PADS is General Purpose Artificial Intelligence designed to carry
+out every day business tasks. It’s purpose is to provide book keeping,
+employee timesheets, client tracking, automation, etc. It can do double
+entry accounting for hybrid manufacturing companies. None of the data is
+loaded as Environment Variables, so your interaction with PADS is
+between you and it. It’s original purpose was to serve as a website,
+with a relational historical database. Work on this project began in
+Python using the Django Framework on June 23, 2021 at 5:30pm. The
+accounting database first came online Oct. 13th, 2021 at 11:48pm. The
+Bash Syntax was first created by Joe Corso on May 4th, 2022. It was
+previously codenamed Project Eniac, to pay homage to the original
+project of the same name.<br />
+</li>
+<li>Work began on an Arch Linux distro<br />
+</li>
+<li>The original man page was created 2023-09-08<br />
+</li>
+<li>Flask Project for Accounting was created<br />
+</li>
+<li>Flask API was created<br />
+</li>
+<li>Started using Qtile (switched from XFCE4).<br />
+</li>
+<li>Created info page</li>
+</ul>
+<h2 data-number="3.6" id="notes"><span
+class="header-section-number">3.6</span> Notes</h2>
+<ul>
+<li>All new logic files added to ~/pads/module/ must be named by the
+flag or argument they represent.<br />
+</li>
+<li>I wanted to following a syntax which follows the <command> <module>
+<argument> <option> pattern because I thought it would be easy to code
+and work with. It seems cryptic with one letter names, but the code is
+easy, and each function can have its own logic. Most of it being
+wrappers for more complex commands that already exist anyway, but I have
+a hard time remembering. I made it similar to pacman just because I
+liked it.</li>
+</ul>
+<h2 data-number="3.7" id="examples"><span
+class="header-section-number">3.7</span> Examples</h2>
+<p><code>pads -Ph</code><br />
+Show project help and exit</p>
+<p><code>pads -Pps brain</code><br />
+Start a python project named “brain”</p>
+<p><code>pads -Ppm brain</code><br />
+Make a python project named “brain”. This will create a virtual env for
+the project as well.</p>
+<p><code>pads -Ppd brain</code><br />
+Delete the project named “brain”. It will ask confirmation as well.</p>
+<p><code>pads -Su</code><br />
+Update your machine.</p>
+<p><code>pads -Su neofetch</code><br />
+Install neofetch to your machine.</p>
+<p><code>pads -Sb</code><br />
+Back up your machine locally.</p>
+<p><code>pads -x</code><br />
+Set the x flag for whatever command you need to debug.</p>
+<h1 data-number="4" id="interlink"><span
+class="header-section-number">4</span> Interlink</h1>
+<p>This is a collection of libraries written to work in Python’s <a
+href="https://flask.palletsprojects.com/en/3.0.x/,"
+title="Flask Documents">Flask</a> framework. It will generate a form and
+report for any table in a database. It will also create the urls, and
+the navigation bar. You can customize your website by generating your
+own instance of the API; or you can register the
+Blueprint(e.g. <code>app.register_blueprint(templetonBP)</code>), which
+has its own set of templates etc. So essentially, if you create a
+database for a library like in all tutorials and you need a form
+template and a report template, it will generate the form or report from
+the table in the database, and fill in the details in the template. To
+render the page in the browser just type in the url which corresponds to
+the table name, or make a navigation bar to generate the links for you.
+So let’s walk through this so that I can remember how it works.</p>
+<h2 data-number="4.1" id="setup"><span
+class="header-section-number">4.1</span> Setup</h2>
+<p>Setting up interlink is very easy. It depends on mysql-connector, and
+flask. Which will be downloaded automatically.I like to use some
+boilerplate for every flask project, as I’m sure most people do. This
+isn’t a tutorial on Flask, so we’ll skip setting up the project. The
+point is to get it from github to your site-packages directory.</p>
+<ol type="1">
+<li>Make your flask project and create the virtual env<br />
+</li>
+<li>Download:<br />
+<code>python -m pip install git+https://github.com/padsRepo/interlink.git</code><br />
+</li>
+<li>Add to your project:<br />
+<code>from interlink import *</code></li>
+</ol>
+<p>In your <strong>init</strong>.py file you need to create these ENV
+Vars for the API to find, and import the Blueprint: (I usually add these
+to the “activate” file for starting the virtual env.)</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>      <span class="im">import</span> os</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> flask <span class="im">import</span> Flask, Blueprint, flash, render_template, request, session, redirect, url_for, send_from_directory</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> views <span class="im">import</span> viewsBP</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      KEY <span class="op">=</span> os.urandom(<span class="dv">16</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      os.environ[<span class="st">&#39;SECRET_KEY&#39;</span>] <span class="op">=</span> <span class="bu">str</span>(KEY)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      os.environ[<span class="st">&#39;DB_USER&#39;</span>] <span class="op">=</span> <span class="st">&#39;username&#39;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      os.environ[<span class="st">&#39;DB_PASS&#39;</span>] <span class="op">=</span> <span class="st">&#39;db password&#39;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      os.environ[<span class="st">&#39;BASE_DIR&#39;</span>] <span class="op">=</span> os.path.dirname(<span class="va">__file__</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      os.environ[<span class="st">&#39;LOG_DIR&#39;</span>] <span class="op">=</span> os.environ.get(<span class="st">&#39;BASE_DIR&#39;</span>) <span class="op">+</span> <span class="st">&#39;/log&#39;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      os.environ[<span class="st">&#39;whitelist&#39;</span>] <span class="op">=</span> <span class="st">&#39;[&quot;127.0.0.1&quot;, &quot;192.168.0.*&quot;, &quot;10.0.0.*&quot;]&#39;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      os.environ[<span class="st">&#39;blacklist&#39;</span>] <span class="op">=</span> <span class="st">&#39;[&quot;My_brothers_smartphone_ip&quot;]&#39;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>      app.config.from_mapping(SECRET_KEY<span class="op">=</span>os.environ.get(<span class="st">&quot;SECRET_KEY&quot;</span>))</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      app.config[<span class="st">&#39;UPLOAD_FOLDER&#39;</span>] <span class="op">=</span> <span class="st">&#39;repo/&#39;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> interlink <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      app.register_blueprint(viewsBP)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>      app.register_blueprint(templetonBP)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      app.register_error_handler(<span class="dv">404</span>, url_not_found)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      app.register_error_handler(<span class="dv">500</span>, internal_error)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        app.run()</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>:</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        app.run(debug<span class="op">=</span><span class="va">True</span>, host<span class="op">=</span><span class="st">&#39;0.0.0.0&#39;</span>, port<span class="op">=</span><span class="st">&#39;8000&#39;</span>)</span></code></pre></div>
+<p>You’ll see that we imported templetonBP from interlink, then just
+registered the Blueprint with
+<code>app_register_blueprint(templetonBP)</code>. We also imported
+<code>url_not_found</code>, and <code>internal_error</code> because PADS
+has a built in generic url handler. We register those with
+<code>app.register_error_handler(404, url_not_found)</code>, and
+<code>app.register_error_handler(500, internal_error)</code>
+respectively. The rest of it comes from your own custom urls that you
+generate from the <code>app.register_blueprint(viewsBP)</code> line. The
+DB name needs to be named exactly as it’s named in SQL.
+<code>DB_USER</code> and <code>DB_PASS</code> must be named exactly that
+for the formulator to find it. The <code>SECRET_KEY</code> is needed for
+<code>flask.session</code>. Notice that we import interlink further down
+the file, so the env vars load first and prevents recursion.<br />
+After that all you have to do is go to your browsers searchbar and
+type:<br />
+<code>http://www.mysite.com/forms/blog/blog.html</code></p>
+<h2 data-number="4.2" id="formulator"><span
+class="header-section-number">4.2</span> Formulator</h2>
+<p>The formulator is the module used to generate your forms, reports,
+queries, and anything DB related.</p>
+<p>Let’s say you want to generate a blog. Use the formulator.Generator
+to make a query of your blog table from your SQL database. Create a
+variable from it, and then using Jinja’s Templating Engine with Flask,
+we can manipulate the variable in an html template anyway we want.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> interlink <span class="im">import</span> Generator</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/blog/&#39;</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> blog():</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> Generator(<span class="st">&#39;blog&#39;</span>, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        content <span class="op">=</span> gen.generateReport(<span class="st">&#39;blog&#39;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;blog.html&#39;</span>, content<span class="op">=</span>content)</span></code></pre></div>
+<p>Then your blog template could look something like this:</p>
+<pre class="jinja2"><code>      {% raw %}
+      {% extends &#39;base.html&#39; %}
+      {% block description %}Raw Thoughts{% endblock %}
+      {% block keywords %}emo, roses are black violets are black my life is black everything is black{% endblock %}
+      {% block title %}Blog{% endblock %}
+
+      {% block content %}
+        &lt;article class=&quot;col-12 col-s-12 col-m-12&quot;&gt;
+          &lt;h1&gt;My personal shit show&lt;/h1&gt;
+          {{ error }}
+          &lt;table class=&quot;blog&quot;&gt;
+            &lt;tr&gt;
+              {% for c in content %}
+                &lt;th&gt;{{ c[3] }}&lt;/th&gt;
+              {% endfor %}
+            &lt;/tr&gt;
+            {% for row in content %}
+                {% for c in row %}
+                &lt;tr&gt;{{ c }}&lt;/tr&gt;&lt;br&gt;
+                {% endfor %}
+            {% endfor %}
+          &lt;/table&gt;
+        &lt;/article&gt;
+      {% endblock %}
+      {% endraw %}</code></pre>
+<p>Then, you can style the page any way that you want without having to
+keep going back and rewriting the logic for the form and report and also
+start cluttering your templates folder with a bunch of different types
+of forms, reports, navbars, blogs, logins, etc. It’s just one, and it’s
+already made.</p>
+<p>Conversely, you can build your project a bit more flexible. In your
+views.py file you only need two specific views that will generate every
+form, and report respectively. In the <code>index()</code> function you
+will see the nav var set to <code>generateNav()</code>, this generates
+the navigation bar for you. So put that where ever you want that to
+generate. If you’re familiar with flask’s app factory, and Blueprints,
+then this should look pretty simple. If not, check out the flask docs,
+it’s pretty cool. They look something like this:</p>
+<p>—&gt; views.py</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> flask <span class="im">import</span> Blueprint, render_template</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>      <span class="im">import</span> interlink <span class="im">as</span> i</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      viewsBP <span class="op">=</span> Blueprint(<span class="st">&#39;/&#39;</span>, <span class="va">__name__</span>, url<span class="op">-</span>prefix<span class="op">=</span><span class="st">&#39;/&#39;</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="op">/</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> index():</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> i.Generator(<span class="st">&#39;DB&#39;</span>, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        nav <span class="op">=</span> gen.generateNav()</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;index.html&#39;</span>, nav<span class="op">=</span>nav)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/reports/&lt;db&gt;/&lt;page&gt;&#39;</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> generateReport(db, page):</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> i.Generator(db, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        colName, colRow, error, title <span class="op">=</span> gen.generateReport(page)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;reports.html&#39;</span>, colName<span class="op">=</span>colName, colRow<span class="op">=</span>colRow, error<span class="op">=</span>error, title<span class="op">=</span>title)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/forms/&lt;db&gt;/&lt;path&gt;&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>, <span class="st">&#39;POST&#39;</span>])</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> generateForm(db, page):</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> i.Generator(db, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        error, form, title <span class="op">=</span> gen.generateForm(page)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;forms.html&#39;</span>, form<span class="op">=</span>form, error<span class="op">=</span>error, title<span class="op">=</span>title)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/admin/&lt;db&gt;&#39;</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> admin(db):</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        nav <span class="op">=</span> Generator(db, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>).generateNav()</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;admin.html&#39;</span>, nav<span class="op">=</span>nav, db<span class="op">=</span>db, title<span class="op">=</span>db)</span></code></pre></div>
+<p>Basically, make a route for a reports url and a route for a forms url
+so that the computer doesn’t confuse the two. For your route you need to
+define a parameter for your database, and table. This is just to pass
+into the <code>generateReport()</code> or <code>generateForm()</code>
+functions which is used to find the table, and create the form or
+report. The report needs 4 parameters(One for the column names of the
+table, one for the data in the table, a title, and a generic error) and
+the form needs 3(One to generate the forms, a title, and a generic
+error). The <code>generateNav()</code> doesn’t need a parameter, but it
+searches for the database you set to your
+<code>Generator.__init__()</code>. Make sure to register the views in
+your app factory:</p>
+<p>—&gt; _<em>init_</em>.py</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> views <span class="im">import</span> viewsBP</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      app.regist_blueprint(viewsBP)</span></code></pre></div>
+<p>Make a template for your Forms:<br />
+—&gt; forms.html</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>      {% raw %}</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      {% extends &#39;base.html&#39; %}</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      {% block description %}{% endblock %}</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      {% block keywords %}{% endblock %}</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      {% block title %}{{ title }}{% endblock %}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>      {% block content %}</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;index&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">section</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;col-6 col-s-6 col-m-6&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">fieldset</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;form&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">label</span><span class="dt">&gt;</span>{{ error }}<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">form</span><span class="ot"> method</span><span class="op">=</span><span class="st">&quot;POST&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>              {% for f in form %}</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;{{ f[0] }}&quot;</span><span class="dt">&gt;</span>{{ f[0] }}<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;text&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;{{ f[0] }}&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>              {% endfor %}</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>              <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;/</span><span class="kw">fieldset</span><span class="dt">&gt;</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>      {% endblock %}</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>      {% endraw %}</span></code></pre></div>
+<p>Make a template for your reports:<br />
+—&gt; reports.html</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>      {% raw %}</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      {% extends &#39;base.html&#39; %}</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      {% block description %}{% endblock %}</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      {% block keywords %}{% endblock %}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      {% block title %}{{ title }}{% endblock %}</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      {% block content %}</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">article</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;col-12 col-s-12 col-m-12&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>{{ title }} Report<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>          {{ error }}</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">table</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;data&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>              {% for c in colName %}</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>{{ c[0] }}<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>              {% endfor %}</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>            {% for row in colRow %}</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>              <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                {% for c in row %}</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>{{ c }}<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                {% endfor %}</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>              <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>            {% endfor %}</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">article</span><span class="dt">&gt;</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>      {% endblock %}</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>      {% endraw %}</span></code></pre></div>
+<p>Finally, make a navigation menu for it all. This just plops every
+link onto the screen, so it’s up to you to decide how to style it, maybe
+make a dropdown menu with it or something. The formulator filters
+“timestamp”, “pri”, “uni”, “mul”, “updated”, and anything that starts
+with “q”. Be sure to decide which tables you actually want to use, and
+which not; so you don’t accidentally insert data to a table you’re not
+supposed to.</p>
+<p>—&gt; base.html</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>      {% raw %}</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">nav</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;pc mobile&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;{{ url_for(&#39;/.index&#39;) }}&quot;</span><span class="dt">&gt;</span>Index<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;dropdown&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Reports<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;dropdownContent&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            {% for p in nav %}</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;{{ url_for(&#39;templeton.generateReport&#39;, db=&#39;{}&#39;.format(db),  page=&#39;{}&#39;.format(p[0])) }}&quot;</span><span class="dt">&gt;</span>{{ p[0] }}<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            {% endfor %}</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;dropdown&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Forms<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;dropdownContent&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>            {% for p in nav %}</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;{{ url_for(&#39;templeton.generateForm&#39;, db=&#39;{}&#39;.format(db),  page=&#39;{}&#39;.format(p[0])) }}&quot;</span><span class="dt">&gt;</span>{{ p[0] }}<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>            {% endfor %}</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>          <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>      {% endraw %}</span></code></pre></div>
+<p>That’s it! So if you have a DB with tables named books, authors,
+planets, solarSystems….etc. Just type in the url for the table name. For
+example:</p>
+<p><code>https://www.website.com/reports/&lt;dbname&gt;/authors</code><br />
+OR<br />
+<code>https://www.website.com/forms/&lt;dbname&gt;/solarSystems</code></p>
+<h2 data-number="4.3" id="templeton"><span
+class="header-section-number">4.3</span> Templeton</h2>
+<p>Templeton is like the butler used to fetch the templates, and fill in
+the proper parameters. Most of templeton works under the hood, so if
+done well, you won’t notice it’s there.</p>
+<p>The easiest way to use templeton is to register its Blueprint’s in
+your app. There are three, <code>404</code> <code>500</code>
+<code>templetonBP</code></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>      app.register_blueprint(templetonBP)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>      app.register_error_handler(<span class="dv">404</span>, url_not_found)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>      pp.register_error_handler(<span class="dv">500</span>, internal_error)</span></code></pre></div>
+<p>After that you may enjoy templeton’s vast array of templates just by
+typing in the URL.</p>
+<p>Templeton also comes equiped with a tempulator, which runs off of
+tempulations. The tempulator is used for flasks Lazy Loading URL’s.
+Remember that with templeton’s tempulator, the generic templates are
+only coming from <code>interlink.templeton.views</code>. If you want to
+change where it’s coming from you can use templeton’s Tempulation, and
+create a new url loader function</p>
+<p><a
+href="https://flask.palletsprojects.com/en/3.0.x/patterns/lazyloading/#loading-late,"
+title="Flask Lazy Loading">Flask Lazy Loading</a><br />
+–&gt; interlink.templeton.tempulator(import_name, url_rules=[],
+**options)</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>      <span class="at">@templetonBP.route</span>(<span class="st">&#39;/&#39;</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">@login</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> catalog():</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> tempulator(<span class="st">&quot;views.catalog&quot;</span>, [<span class="st">&#39;/catalog&#39;</span>])</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># add a single route to the index view</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>      tempulator(<span class="st">&#39;views.catalog&#39;</span>, [<span class="st">&#39;/catalog&#39;</span>])</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>      <span class="co"># add two routes to a single function endpoint</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>      url_rules <span class="op">=</span> [<span class="st">&#39;/catalog/&#39;</span>,<span class="st">&#39;/catalog/&lt;item&gt;&#39;</span>]</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>      tempulator(<span class="st">&#39;views.catalog&#39;</span>, url_rules)</span></code></pre></div>
+<p>–&gt; interlink.templeton.Tempulation(object)</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> interlink <span class="im">import</span> Tempulation</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>      app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      app.add_url_rule(<span class="st">&#39;/&#39;</span>, view_func<span class="op">=</span>Tempulation(<span class="st">&#39;yourapplication.views.index&#39;</span>))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>      app.add_url_rule(<span class="st">&#39;/user/&lt;username&gt;&#39;</span>, view_func<span class="op">=</span>Tempulation(<span class="st">&#39;yourapplication.views.user&#39;</span>))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>      <span class="co"># make a new tempulator</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> myNewTempulator(import_name, url_rules<span class="op">=</span>[], <span class="op">**</span>options):</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>          view <span class="op">=</span> Tempulation(<span class="ss">f&quot;@</span><span class="sc">{</span>app_name<span class="op">@</span><span class="sc">}</span><span class="ss">.@</span><span class="sc">{</span>import_name<span class="op">@</span><span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">for</span> url_rule <span class="kw">in</span> url_rules:</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>            app.add_url_rule(url_rule, view_func<span class="op">=</span>view, <span class="op">**</span>options)</span></code></pre></div>
+<h2 data-number="4.4" id="safe-haven"><span
+class="header-section-number">4.4</span> Safe Haven</h2>
+<p>Safe Haven is like the security team for the president. Always
+lurking in the shadows, ready to defend your best interest. Since these
+are decorators they’re easy to use.</p>
+<p><a href="https://peps.python.org/pep-0318/,"
+title="Python Decorators">Python Decorators</a></p>
+<p>All you have to do is add the appropriate decorator to each page that
+you want to add the functionality to. Here’s a simple index page, that I
+want really locked down.</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/&#39;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">@backdoor</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">@honeypot</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">@login</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> index():</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;index.html&#39;</span>)</span></code></pre></div>
+<p>And there’s nothing more to it then that. Safe Haven checks that the
+person connecting passes, and if not redirects them to the appropriate
+page. If you’re using templeton’s Blueprints it will redirect to its
+login screen, and everything works seamlessly.</p>
+<h1 data-number="5" id="tutorials"><span
+class="header-section-number">5</span> Tutorials</h1>
+<p>A Collection of tutorials I’ve cobbled together after reading through
+docs, and stackover flow.</p>
+<h2 data-number="5.1" id="installing-arch"><span
+class="header-section-number">5.1</span> Installing Arch</h2>
+<p>Details about setting up Arch Linux. PADS has a built in Arch Install
+script. Use it at your own risk.</p>
+<ol type="1">
+<li><p>Boot Mode<br />
+Verify boot mode. If this command runs with no errors, you’re using EFI
+Mode.<br />
+<code>ls /sys/firmware/efi/efivars</code></p></li>
+<li><p>Internet Connection<br />
+Connect to the internet. If you’re on Ethernet, it should be connected
+automatically.</p>
+<ol type="1">
+<li>Enable and start <a href="https://wiki.archlinux.org/title/dhcpcd,"
+title="dhcpcd wiki">dhcpcd.service</a><br />
+<code>systemctl enable dhcpcd.service</code><br />
+<code>systemctl start dhcpcd.service</code><br />
+</li>
+<li>If you’re on WIFI, use <a
+href="https://wiki.archlinux.org/title/Iwd#iwctl,"
+title="iwd Docs">iwd</a>.<br />
+<code>iwctl</code><br />
+<code>device list</code><br />
+<code>station device scan</code><br />
+<code>station device get-networks</code><br />
+<code>station device connect SSID</code><br />
+</li>
+<li>Ping something…<br />
+<code>ping www.google.com</code></li>
+</ol></li>
+<li><p>System Clock<br />
+Update system clock<br />
+<code>timedatectl set-ntp true</code><br />
+<code>timedatectl set-timezone America/New_York</code><br />
+<code>timedatectl status</code></p></li>
+<li><p>Partition<br />
+Partition the disk. I use <a
+href="https://wiki.archlinux.org/title/fdisk,"
+title="fdisk Docs">fdisk</a>. DO NOT OVERWRITE REDUNDANT STORAGE!!!!
+List devices, and choose your device.<br />
+<code>fdisk -l</code><br />
+<code>fdisk /dev/sda</code></p>
+<ol type="1">
+<li>EFI Boot Mode:
+<ol type="1">
+<li>Build partition table<br />
+<code>n</code> /mnt/boot partition<br />
+<code>p</code> primary partition<br />
+<code>1</code> /dev/sda1<br />
+<code>""</code> first block default<br />
+<code>+512M</code> last block 512mb<br />
+<code>n</code> swap partition<br />
+<code>p</code> primary partition<br />
+<code>2</code> /dev/sda2<br />
+<code>""</code> first block default<br />
+<code>+2G</code> last block 2gb (Or however big you want swap)<br />
+<code>n</code> /mnt partition<br />
+<code>3</code> /dev/sda3<br />
+<code>""</code> first block default<br />
+<code>""</code> last block takes rest of space<br />
+<code>w</code> write partition table<br />
+<code>q</code> quit fdisk (Might exit automatically)<br />
+</li>
+<li>Make filesystem:<br />
+<code>mkfs.fat -F 32 /dev/sda1</code><br />
+<code>mkswap /dev/sda2</code><br />
+<code>mkfs.ext4 /dev/sda3</code><br />
+</li>
+<li>Mount filesystem:<br />
+<code>mount --mkdir /dev/sda1 /mnt/boot</code><br />
+<code>swapon /dev/sda2</code><br />
+<code>mount /dev/sda3 /mnt</code><br />
+</li>
+</ol></li>
+<li>BIOS Boot Mode:
+<ol type="1">
+<li>Build partition table<br />
+<code>n</code> /mnt partition<br />
+<code>p</code> primary partition<br />
+<code>1</code> partition number<br />
+<code>""</code> first block default<br />
+<code>+500G</code> last block (make it as big as you want)<br />
+<code>t</code> type of filesystem<br />
+<code>83</code> linux filesystem<br />
+<code>a</code> bootable flag<br />
+<code>1</code> partition number to make bootable<br />
+<code>n</code> swap partition<br />
+<code>p</code> primary partition<br />
+<code>3</code> partition number<br />
+<code>""</code> first block default<br />
+<code>+2G</code> last block partition<br />
+<code>t</code> type of filesystem<br />
+<code>3</code> partition number<br />
+<code>82</code> OR <code>swap</code> swap filesystem<br />
+<code>w</code> write partition table<br />
+<code>q</code> quit fdisk<br />
+</li>
+<li>Make filesystem: <code>mkfs.ext4 /dev/sda1</code><br />
+<code>mkswap /dev/sda2</code><br />
+<code>swapon /dev/sda2</code><br />
+</li>
+<li>Mount filesystem:<br />
+<code>mount /dev/sda1 /mnt</code></li>
+</ol></li>
+</ol></li>
+<li><p>Backup<br />
+Backup and Select your mirrorlist<br />
+<code>cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak</code><br />
+<code>reflector --verbose -c "US" -f 12 -l 50 -n 12 --sort rate --protocol https --save /etc/pacman.d/mirrorlist</code><br />
+<code>cat /etc/pacman.d/mirrorlist</code></p></li>
+<li><p>Install Packages<br />
+<code>pacstrap /mnt base linux linux-firmware neofetch fakeroot nano sudo man-db man-pages texinfo lshw upower dhcpcd iwd</code></p></li>
+</ol>
+<blockquote>
+<p>[!NOTE] If your iso file is old, you may get an error like this:
+error: some-package: signature from “Some Person email@<span
+class="citation" data-cites="some.domain">@some.domain</span>” is
+unknown trust You will need to update your key-ring with:<br />
+<code>pacman -Sy</code><br />
+<code>sudo pacman -S archlinux-keyring</code></p>
+</blockquote>
+<blockquote>
+<p>[!NOTE] If you’re using a hypervisor install proper guest
+utilities:<br />
+<code>pacstrap /mnt virtualbox-guest-utils &amp;&amp; systemctl enable vboxservice.service &amp;&amp; systemctl start vboxservice.service</code></p>
+</blockquote>
+<ol start="7" type="1">
+<li><p>Configure the system<br />
+<code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></p></li>
+<li><p>Change root<br />
+<code>arch-chroot /mnt</code></p></li>
+<li><p>Timezone<br />
+Configure timezone for system<br />
+<code>ln -sf /usr/share/zoneinfo/Region/City /etc/localtime</code><br />
+<code>hwclock --systohc</code></p></li>
+<li><p>Locale<br />
+Set device locale</p>
+<ol type="1">
+<li>Manually edit /etc/locale.gen and uncomment your locale (ig:
+en_US.UTF-8) OR run the following command:<br />
+<code>sed -i "s/#en_US.UTF-8 UTF8/en_US.UTF-8 UTF-8/g" /etc/locale.gen</code><br />
+</li>
+<li>Generate locale file<br />
+<code>locale-gen</code><br />
+</li>
+<li>Manually edit /etc/locale.conf OR run the following command<br />
+<code>echo "LANG=en_US.UTF-8" &gt;&gt; /etc/locale.conf</code></li>
+</ol></li>
+<li><p>OS Environment<br />
+Create hostname, host, and user, enable dhcpcd.service<br />
+<code>systemctl enable dhcpcd.service</code><br />
+<code>echo "$hostname" &gt; /etc/hostname</code><br />
+<code>echo "127.0.0.1 localhost" &gt;&gt; /etc/hosts</code><br />
+<code>echo "::1 localhost" &gt;&gt; /etc/hosts</code><br />
+<code>echo "127.0.1.1 $hostname" &gt;&gt; /etc/hosts</code><br />
+<code>passwd</code> this is for root password NOT the user<br />
+<code>useradd -m $user</code> add your user<br />
+<code>passwd $user</code> enter your user password<br />
+<code>sudo nano /etc/sudoers</code><br />
+<code>$user ALL=(ALL:ALL) ALL" &gt;&gt; /etc/sudoers</code></p></li>
+<li><p>Bootloader<br />
+Install Bootloader (I’m using GRUB)</p>
+<ol type="1">
+<li>EFI Bootloader:<br />
+<code>pacman -Syu grub efibootmgr</code><br />
+<code>grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</code><br />
+<code>grub-mkconfig -o /boot/grub/grub.cfg</code><br />
+</li>
+<li>BIOS Bootloader:<br />
+<code>pacman -Syu grub</code><br />
+<code>grub-install --target=i386-pc /dev/sda</code><br />
+<code>grub-mkconfig -o /boot/grub/grub.cfg</code></li>
+</ol></li>
+<li><p>Exit Chroot and Reboot:<br />
+<code>exit</code><br />
+<code>reboot</code></p></li>
+</ol>
+<h2 data-number="5.2" id="qtile-or-xfce4"><span
+class="header-section-number">5.2</span> Qtile or XFCE4</h2>
+<p>Installing Qtile or XFCE4</p>
+<h3 data-number="5.2.1" id="setup-qtile"><span
+class="header-section-number">5.2.1</span> Setup Qtile</h3>
+<p>There isn’t much to say. This is something already well <a
+href="https://qtile.org/," title="Qtile Docs">documented</a>.</p>
+<ol type="1">
+<li>Start by installing it, and picom for dynamic windows:<br />
+<code>sudo pacman -Syu xorg xorg-server xorg-apps xorg-xinit xterm qtile picom</code></li>
+</ol>
+<blockquote>
+<p>[!NOTE] The default config is loaded from
+<em>~/.config/qtile/config.py</em>. If it’s not there, copy it from
+<em>/usr/share/doc/qtile/default_config.py</em>. The config for picom is
+at <em>/etc/xdg/picom.conf</em>.</p>
+</blockquote>
+<ol start="2" type="1">
+<li>Change ~/.xinitrc to add the following line:<br />
+<code>sudo nano ~/.xinitrc</code><br />
+<code>picom &amp;</code><br />
+<code>exec qtile start</code><br />
+</li>
+<li>Install the qtile-extras to make the bar look cool: It’s only on the
+AUR<br />
+<code>cd ~/Downloads</code><br />
+<code>sudo git clone https://aur.archlinux.org/qtile-extras-git.git</code><br />
+<code>cd qtile-extras</code><br />
+<code>makepkg -si</code></li>
+</ol>
+<h3 data-number="5.2.2" id="setup-xfce4"><span
+class="header-section-number">5.2.2</span> Setup XFCE4</h3>
+<ol type="1">
+<li>Install the packages<br />
+<code>sudo pacman -Syu xorg xorg-server xorg-apps xorg-xinit xterm xfce4 xfce4-goodies unzip</code><br />
+</li>
+<li>Change ~/.xinitrc and add these lines:<br />
+<code>sudo nano ~/.xinitrc</code><br />
+<code>exec startxfce4</code><br />
+</li>
+<li>Customize the theme:<br />
+<code>sudo mkdir $HOME/.icons</code><br />
+<code>sudo mkdir $HOME/.themes</code><br />
+<code>sudo cp /path/to/icon/.face $HOME/.face</code></li>
+</ol>
+<blockquote>
+<p>[!NOTE] You can find all kinds of cool looking themes and icons over
+at <span class="citation"
+data-cites="url">@url</span>{https://www.xfce-look.org/browse/,
+xfce-look.org}. Download the theme or icon you like and unpack it just
+like any other tar file. Then just copy and paste your unpacked candy
+into its respective directory. The beauty of XFCE is that all you have
+to do is create a “.theme” directory, an “.icon” directory, and a
+“.face” icon in your home directory, and xfce4 will find it when you log
+in.</p>
+</blockquote>
+<h2 data-number="5.3" id="building-a-server"><span
+class="header-section-number">5.3</span> Building a Server</h2>
+<p>Details about setting up a home server</p>
+<h1 data-number="6" id="reference"><span
+class="header-section-number">6</span> Reference</h1>
+<h2 data-number="6.1" id="interlink-ref"><span
+class="header-section-number">6.1</span> Interlink Ref</h2>
+<p>Reference information for the Interlink Library</p>
+<h3 data-number="6.1.1" id="interlink.env"><span
+class="header-section-number">6.1.1</span> interlink.env</h3>
+<p>Environment variables needed for interlink</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>KEY <span class="op">=</span> os.urandom(<span class="dv">16</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;SECRET_KEY&#39;</span>] <span class="op">=</span> <span class="bu">str</span>(KEY)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;DB&#39;</span>] <span class="op">=</span> <span class="st">&#39;db_name&#39;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;DB_USER&#39;</span>] <span class="op">=</span> <span class="st">&#39;db_username&#39;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;DB_PASS&#39;</span>] <span class="op">=</span> <span class="st">&#39;db_password&#39;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;BASE_DIR&#39;</span>] <span class="op">=</span> os.path.dirname(<span class="va">__file__</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;LOG_DIR&#39;</span>] <span class="op">=</span> os.environ.get(<span class="st">&#39;BASE_DIR&#39;</span>) <span class="op">+</span> <span class="st">&#39;/log&#39;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;whitelist&#39;</span>] <span class="op">=</span> <span class="st">&#39;[&quot;127.0.0.1&quot;, &quot;my_ip&quot;, &quot;192.168.0.*&quot;]&#39;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">&#39;blacklist&#39;</span>] <span class="op">=</span> <span class="st">&#39;[&quot;105.0.0.*&quot;]&#39;</span></span></code></pre></div>
+<h3 data-number="6.1.2" id="interlink.toolkit.get_script_path"><span
+class="header-section-number">6.1.2</span>
+interlink.toolkit.get_script_path()</h3>
+<p>Get the current path the script being ran, not the parent directory
+or current working directory.</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_script_path():</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> os.path.dirname(os.path.realpath(sys.argv[<span class="dv">0</span>]))</span></code></pre></div>
+<h3 data-number="6.1.3" id="interlink.toolkit.site_map"><span
+class="header-section-number">6.1.3</span>
+interlink.toolkit.site_map()</h3>
+<p>Produces a clickable list of all URL’s within the project, minus any
+“GET” requests.</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> has_no_empty_params(rule):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  defaults <span class="op">=</span> rule.defaults <span class="cf">if</span> rule.defaults <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> ()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  arguments <span class="op">=</span> rule.arguments <span class="cf">if</span> rule.arguments <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> ()</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">len</span>(defaults) <span class="op">&gt;=</span> <span class="bu">len</span>(arguments)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> site_map():</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  links <span class="op">=</span> []</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> rule <span class="kw">in</span> app.url_map.iter_rules():</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter out rules we can&#39;t navigate to in a browser</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and rules that require parameters</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">&quot;GET&quot;</span> <span class="kw">in</span> rule.methods <span class="kw">and</span> has_no_empty_params(rule):</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>      url <span class="op">=</span> url_for(rule.endpoint, <span class="op">**</span>(rule.defaults <span class="kw">or</span> <span class="op">@</span>{<span class="op">@</span>}))</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>      links.append((url, rule.endpoint))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># links is now a list of url, endpoint tuples</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> links</span></code></pre></div>
+<h3 data-number="6.1.4" id="interlink.toolkit.dbdb-user-password"><span
+class="header-section-number">6.1.4</span> interlink.toolkit.DB(db,
+user, password)</h3>
+<p>Creates a connection to a SQL database.</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DB:</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, db, user, password):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.db <span class="op">=</span> db</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.user <span class="op">=</span> user</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.password <span class="op">=</span> password</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="ex">connect</span>(<span class="va">self</span>):</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    mydb <span class="op">=</span> mysql.connector.<span class="ex">connect</span>(</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    host<span class="op">=</span><span class="st">&#39;localhost&#39;</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    database<span class="op">=</span>os.environ.get(<span class="va">self</span>.db),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    user<span class="op">=</span>os.environ.get(<span class="va">self</span>.user),</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    password<span class="op">=</span>os.environ.get(<span class="va">self</span>.password)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mydb</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> close(<span class="va">self</span>):</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    db <span class="op">=</span> DB(<span class="va">self</span>.db, <span class="va">self</span>.user, <span class="va">self</span>.password)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> db <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      db.close()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>`__init__(<span class="va">self</span>, db, user, password)`  </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Initalize the connection, create the <span class="bu">object</span>.  </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    `db`  </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    The name of the Environment Variable <span class="cf">for</span> the database  </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    `user`  </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    The name of the Environment Variable <span class="cf">for</span> the user which has access to the database  </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    `password`  </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    The name of the Environment Variable <span class="cf">for</span> the password of the user which has access to the database  </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>`connect(<span class="va">self</span>)`  </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>Create the connection to the database <span class="cf">for</span> creating the cursor.  </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>`close(<span class="va">self</span>)`  </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>Close the connection to the database  </span></code></pre></div>
+<h3 data-number="6.1.5"
+id="interlink.formulator.generatordb-user-password"><span
+class="header-section-number">6.1.5</span>
+interlink.formulator.Generator(db, user, password)</h3>
+<p>Create the object for generating your form, report, query, or
+nav.</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Generator: </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, db, user, password):</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.db <span class="op">=</span> db</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.user <span class="op">=</span> user</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.password <span class="op">=</span> password</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> generateForm(<span class="va">self</span>, table):</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    error, form <span class="op">=</span> createForm(<span class="va">self</span>.db, <span class="va">self</span>.user, <span class="va">self</span>.password, table)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    title <span class="op">=</span> table</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> error, form, title</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> generateReport(<span class="va">self</span>, table):</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    colName, colRow, error <span class="op">=</span> createReport(<span class="va">self</span>.db, <span class="va">self</span>.user, <span class="va">self</span>.password, table)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    title <span class="op">=</span> table</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> colName, colRow, error, title</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> generateQuery(<span class="va">self</span>, table):</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> createQuery(<span class="va">self</span>.db, <span class="va">self</span>.user, <span class="va">self</span>.password, table)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> generateNav(<span class="va">self</span>):</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> createNav(<span class="va">self</span>.db, <span class="va">self</span>.user, <span class="va">self</span>.password)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>`__init__(<span class="va">self</span>, db, user, password)`  </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>Initalize the connection, create the <span class="bu">object</span>.  </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    `db`  </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    The name of the Environment Variable <span class="cf">for</span> the database  </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    `user`  </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    The name of the Environment Variable <span class="cf">for</span> the user which has access to the database  </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    `password`  </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    The name of the Environment Variable <span class="cf">for</span> the password of the user which has access to the database  </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>`generateForm(<span class="va">self</span>, table)`  </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>Generate the Form, URL, <span class="kw">and</span> Template <span class="cf">for</span> said <span class="op">@</span>code{table} <span class="kw">in</span> database. Variables returned are `error` `form` `title`  </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>`generateReport(<span class="va">self</span>, table)`</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>Generate the Report, URL, <span class="kw">and</span> Template <span class="cf">for</span> said <span class="op">@</span>code{table} <span class="kw">in</span> database. Variables returned are <span class="op">@</span>code{error} <span class="op">@</span>code{table} <span class="op">@</span>code{colName} <span class="op">@</span>code{colRow}</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>`generateQuery(<span class="va">self</span>, table)`</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>Generate a Query <span class="cf">for</span> said <span class="op">@</span>code{table} <span class="kw">in</span> database. Unlike creating a URL <span class="kw">and</span> Template, you can create a variable to be used <span class="kw">in</span> a template.</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>`generateNav(<span class="va">self</span>)`</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>Generate a Navigation Bar <span class="cf">for</span> said <span class="op">@</span>code{table} <span class="kw">in</span> database. It basically just finds the table names, rather than the table data.</span></code></pre></div>
+<h3 data-number="6.1.6" id="interlink.safehaven.honeypotf"><span
+class="header-section-number">6.1.6</span>
+interlink.safeHaven.@honeypot(f)</h3>
+<p><span class="citation"
+data-cites="url">@url</span>{https://peps.python.org/pep-0318/, See:
+Python Decorator} Python decorator you can use as a honeypot. Any IP
+Adress that is black listed will be redirected to a login page that logs
+the username and password they attempt to use.</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> honeypot(f):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">@wraps</span>(f)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> decorated_function(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> session <span class="op">==</span> <span class="op">@</span>{<span class="op">@</span>}:</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>      ip <span class="op">=</span> request.remote_addr</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> b <span class="kw">in</span> blacklist:</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ip <span class="kw">in</span> blacklist:</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>          <span class="bu">print</span>(<span class="st">&quot; *&quot;</span>, <span class="bu">str</span>(d.now()) <span class="op">+</span> <span class="st">&#39; --&gt;&#39;</span>, <span class="st">&quot;This IP is blacklisted:&quot;</span>, ip)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>          <span class="bu">print</span>(<span class="st">&quot; *&quot;</span>, <span class="bu">str</span>(d.now()) <span class="op">+</span> <span class="st">&#39; --&gt;&#39;</span>, <span class="st">&quot;This IP is blacklisted:&quot;</span>, ip, <span class="bu">file</span><span class="op">=</span><span class="bu">open</span>(os.environ.get(<span class="st">&#39;LOG_DIR&#39;</span>) <span class="op">+</span> <span class="st">&#39;/pads.log&#39;</span>, <span class="st">&#39;a&#39;</span>))</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">return</span> redirect(url_for(<span class="st">&#39;templeton.loginRequired&#39;</span>))</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> decorated_function</span></code></pre></div>
+<h3 data-number="6.1.7" id="interlink.safehaven.backdoorf"><span
+class="header-section-number">6.1.7</span>
+interlink.safeHaven.@backdoor(f)</h3>
+<p>Python decorator you can use as a backdoor. Any page which has this
+decorator will give IP Address’ on the whitelist full access to the
+page.</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> backdoor(f):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">@wraps</span>(f)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> decorated_function(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> session <span class="op">==</span> <span class="op">@</span>{<span class="op">@</span>}:</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>      ip <span class="op">=</span> request.remote_addr</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> w <span class="kw">in</span> whitelist:</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ip <span class="kw">in</span> whitelist:</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>          session[<span class="st">&#39;yourballslooklikemine&#39;</span>] <span class="op">=</span> ip</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> decorated_function</span></code></pre></div>
+<h3 data-number="6.1.8" id="interlink.safehaven.loginf"><span
+class="header-section-number">6.1.8</span>
+interlink.safeHaven.@login(f)</h3>
+<p>Python decorator you can use to check if a user is logged in. If not,
+they will be redirected to a login page from where they can log in.</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login(f):</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">@wraps</span>(f)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> decorated_function(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> session <span class="op">==</span> <span class="op">@</span>{<span class="op">@</span>}:</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>      ip <span class="op">=</span> request.remote_addr</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&quot; * [USER]&quot;</span>, <span class="bu">str</span>(d.now()) <span class="op">+</span> <span class="st">&#39; --&gt;&#39;</span>, ip, <span class="st">&quot;directed to login&quot;</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&quot; * [USER]&quot;</span>, <span class="bu">str</span>(d.now()) <span class="op">+</span> <span class="st">&#39; --&gt;&#39;</span>, ip, <span class="st">&quot;directed to login&quot;</span>, <span class="bu">file</span><span class="op">=</span><span class="bu">open</span>(os.environ.get(<span class="st">&#39;LOG_DIR&#39;</span>) <span class="op">+</span> <span class="st">&#39;/pads.log&#39;</span>, <span class="st">&#39;a&#39;</span>))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> redirect(url_for(<span class="st">&#39;templeton.secure_login&#39;</span>))</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> decorated_function</span></code></pre></div>
+<h3 data-number="6.1.9" id="interlink.templeton.tempulationobject"><span
+class="header-section-number">6.1.9</span>
+interlink.templeton.Tempulation(object)</h3>
+<p>If you don’t like templetons tempulator, you can use its Templulation
+to create your own!</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Tempulation(<span class="bu">object</span>):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, import_name):</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__module__, <span class="va">self</span>.<span class="va">__name__</span> <span class="op">=</span> import_name.rsplit(<span class="st">&#39;.&#39;</span>, <span class="dv">1</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.import_name <span class="op">=</span> import_name</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">@cached_property</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> view(<span class="va">self</span>):</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> import_string(<span class="va">self</span>.import_name)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.view(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span></code></pre></div>
+<h3 data-number="6.1.10"
+id="interlink.templeton.tempulatorimport_name-url_rules-options"><span
+class="header-section-number">6.1.10</span>
+interlink.templeton.tempulator(import_name, url_rules=[],
+**options)</h3>
+<p>Used to generate generic templates from templeton directory of
+templates</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>tempulator(<span class="st">&#39;views.catalog&#39;</span>, [<span class="st">&#39;/catalog&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tempulator(import_name, url_rules<span class="op">=</span>[], <span class="op">**</span>options):</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    view <span class="op">=</span> Tempulation(<span class="ss">f&quot;@</span><span class="sc">{</span>__name__<span class="op">@</span><span class="sc">}</span><span class="ss">.@</span><span class="sc">{</span>import_name<span class="op">@</span><span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> url_rule <span class="kw">in</span> url_rules:</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>      app.add_url_rule(url_rule, view_func<span class="op">=</span>view, <span class="op">**</span>options)</span></code></pre></div>
+<h3 data-number="6.1.11" id="interlink.templeton.templetonbp"><span
+class="header-section-number">6.1.11</span>
+interlink.templeton.templetonBP</h3>
+<p>Used if you would like to register templeton’s Blueprint within your
+project. Mostly used to generate templeton’s Forms, Report, and
+URL’s.</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>templates <span class="op">=</span> os.path.dirname(<span class="va">__file__</span>) <span class="op">+</span> <span class="st">&#39;/templates/&#39;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>templetonBP <span class="op">=</span> Blueprint(<span class="st">&#39;templeton&#39;</span>, <span class="va">__name__</span>, url_prefix<span class="op">=</span><span class="st">&#39;/&#39;</span>, template_folder<span class="op">=</span>templates)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.errorhandler</span>(<span class="dv">404</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.errorhandler</span>(<span class="dv">500</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/guide/&lt;page&gt;&#39;</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/interlink/&#39;</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/loginRequired/&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>, <span class="st">&#39;POST&#39;</span>])</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/login/&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>, <span class="st">&#39;POST&#39;</span>])</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/register/&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>, <span class="st">&#39;POST&#39;</span>])</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/reports/&lt;db&gt;/&lt;page&gt;&#39;</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/forms/&lt;db&gt;/&lt;page&gt;&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>, <span class="st">&#39;POST&#39;</span>])</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="at">@templetonBP.route</span>(<span class="st">&#39;/admin/&lt;db&gt;&#39;</span>)</span></code></pre></div>
 </body>
 </html>

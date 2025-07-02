@@ -1,11 +1,4 @@
-print(" * Loading Templeton...")
-
-import interlink
-from werkzeug.utils import import_string, cached_property
-from __init__ import app
-
-def __doc__():
-  '''
+'''
 Templeton is like the butler used to fetch the templates, and fill in
 the proper parameters. Most of templeton works under the hood, so if
 done well, you won't notice it's there.
@@ -18,8 +11,8 @@ app. There are three, `404` `500` `templetonBP`
     app.register_blueprint(templetonBP)
     app.register_error_handler(404, url_not_found)
     app.register_error_handler(500, internal_error)
-  '''
-  
+'''
+
 def tempulation(object):
   '''
 Generate a new url_rule from interlinks templates.
@@ -38,6 +31,7 @@ Examples:
           for url_rule in url_rules:
             app.add_url_rule(url_rule, view_func=view, **options)
   '''
+  from werkzeug.utils import import_string, cached_property
   def __init__(self, import_name):
       self.__module__, self.__name__ = import_name.rsplit('.', 1)
       self.import_name = import_name
@@ -71,6 +65,7 @@ new url loader function
     url_rules = ['/catalog/','/catalog/<item>']
     tempulator('views.catalog', url_rules)
   '''
+  from __init__ import app
   view = tempulation(f"{__name__}.{import_name}")
   for url_rule in url_rules:
     app.add_url_rule(url_rule, view_func=view, **options)

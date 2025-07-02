@@ -1,15 +1,14 @@
 # This file is used as a hub to import the functions of each of PADS API Libraries.
-# Copyright Joe Corso pads.email.address@hotmail.com
+# Copyright Joe Corso armyglass@hotmail.com
 
 '''
-Flask Generator for Forms, Reports, URLs and templates.
-
 This is a collection of libraries written to work in Python’s flask framework. It will generate a form and report for any table in a database. It will also create the urls, and the navigation bar. You can customize your website by generating your own instance of the API; or you can register the Blueprint(e.g. app.register_blueprint(templetonBP)), which has its own set of templates etc. So essentially, if you create a database for a library like in all tutorials and you need a form template and a report template, it will generate the form or report from the table in the database, and fill in the details in the template. To render the page in the browser just type in the url which corresponds to the table name, or make a navigation bar to generate the links for you.
 
 Examples:
-    Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically. Let's say we want to make a blog, and we have a database named "blog" with a table named "manifest".
+    Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically.
+Let's say we want to make a blog, and we have a database named "blog" with a table named "manifest".
 
-1. First create your database, and tables. Then activate your virtual env and install interlink:  
+1. First create your database, and tables. Then activate your virtual env and install interlink:
 
         python -m venv path/to/venv/my_env
         . path/to/venv/bin/activate
@@ -65,7 +64,7 @@ we can manipulate the variable in an html template anyway we want.
         content = gen.generateQuery('manifest')
         return render_template('blog.html', content=content)
 
-Then your blog template could look something like this:  
+Then your blog template could look something like this:
 
       {% extends 'base.html' %}
       {% block description %}Raw Thoughts{% endblock %}
@@ -157,7 +156,7 @@ your `Generator.__init__()`. Make sure to register the views:
       from views import viewsBP
       app.regist_blueprint(viewsBP)
 
-Make a template for your Forms:  
+Make a template for your Forms:
 ---> forms.html
 
       {% extends 'base.html' %}
@@ -184,7 +183,7 @@ Make a template for your Forms:
 
       {% endblock %}
 
-Make a template for your reports:  
+Make a template for your reports:
 ---> reports.html
 
       {% extends 'base.html' %}
@@ -244,9 +243,9 @@ That's it! So if you have a DB with tables named books, authors,
 planets, solarSystems....etc. Just type in the url for the table name.
 For example:
 
-`https://www.website.com/reports/<dbname>/authors`  
-OR  
-`https://www.website.com/forms/<dbname>/solarSystems`  
+`https://www.website.com/reports/<dbname>/authors`
+OR
+`https://www.website.com/forms/<dbname>/solarSystems`
 
 
 Modules:
@@ -259,7 +258,7 @@ Classes:
   Generator: Forms
   DB: Connect to DB
 
-Functions:  
+Functions:
   tempulator: templates
   tempulation: Custom Views
   honeypot: distraction
@@ -280,10 +279,14 @@ __copyright__ = 'Copyright 2024 Joe Corso'
 __license__ = 'MIT License'
 __email__ = 'pads.email.address@gmail.com'
 __status__ = 'Development'
-__description__ = "Flask Generator for Forms, Reports, URLs and templates."
+__description__ = "Interlink will generate a form and report for any table in a database. It will also create the urls, and the navigation bar."
 __all__ = [__name__, 'formulator', 'templeton', 'safeHaven', 'toolkit']
 
-import formulator
-import templeton
-import safeHaven
-import toolkit
+if __name__ == '__main__':
+  print('main')
+  import formulator
+  import templeton
+  import safeHaven
+  import toolkit
+
+

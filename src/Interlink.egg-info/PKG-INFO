@@ -1,4 +1,4 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.4
 Name: Interlink
 Version: 0.0.4
 Summary: Interlink will generate a form and report for any table in a database. It will also create the urls, and the navigation bar.
@@ -25,164 +25,58 @@ Requires-Dist: Flask>=3.1.0
 Requires-Dist: mysql>=0.0.3
 Requires-Dist: mysqlclient>=2.2.7
 Requires-Dist: mysql-connector>=2.2.9
+Dynamic: license-file
 
 
 # Interlink
 
+ - Full Docs [here](https://padsrepo.github.io/interlink/)
+
 This is a collection of libraries written to work in Python’s flask framework. It will generate a form and report for any table in a database. It will also create the urls, and the navigation bar. You can customize your website by generating your own instance of the API; or you can register the Blueprint(e.g. app.register_blueprint(templetonBP)), which has its own set of templates etc. So essentially, if you create a database for a library like in all tutorials and you need a form template and a report template, it will generate the form or report from the table in the database, and fill in the details in the template. To render the page in the browser just type in the url which corresponds to the table name, or make a navigation bar to generate the links for you.
 
-### Install:
+### Setup:
+Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically. 
+Let's say we want to make a blog, and we have a database named "blog" with a table named "manifest".
 
-1. Activate your virtual env, and install the program:
+1. First create your database, and tables. Then activate your virtual env and install interlink:  
 
-`python -m pip install git+https://github.com/padsRepo/interlink.git`
+        python -m venv path/to/venv/my_env
+        . path/to/venv/bin/activate
+        python -m pip install git+https://github.com/padsRepo/interlink.git
+   
+2. In your `__init__.py` file:
 
-<h3 class="subsection" id="Quick-Guide"><span>Quick Guide<a class="copiable-link" href="#Quick-Guide"> &para;</a></span></h4>
-<a class="index-entry-id" id="index-Interlink_002c-Reference_002c-Quick-Guide"></a>
-<p>Here is the TLDR: If you set everything up properly you should be able to just type in the URL for the form or report you want to see. If you type it in wrong you&rsquo;ll see a 404. If the code is wrong you&rsquo;ll see a 500, or some other error message if you have debug mode on.
-</p>
-<div class="example">
-<pre class="example-preformatted">https://www.website.com/reports/&lt;dbname&gt;/authors
-OR
-https://www.website.com/forms/&lt;dbname&gt;/solarSystems
-</pre></div>
+       import os
+       from flask import Flask, Blueprint, render_template, url_for
+       from views import viewsBP
+       
+       KEY = os.urandom(16)
+       os.environ['SECRET_KEY'] = str(KEY)
+       os.environ['DB_USER'] = '<username>'
+       os.environ['DB_PASS'] = '<password>'
+       os.environ['BASE_DIR'] = os.path.dirname(__file__)
+       os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
+       os.environ['whitelist'] = '["127.0.0.1", "192.168.0.37"]'
+       os.environ['blacklist'] = '["71.71.71.71"]'
+       
+       app = Flask(__name__)
+       app.config.from_mapping(SECRET_KEY=os.environ.get('SECRET_KEY'))
+       app.config['UPLOAD_FOLDER'] = 'repo/'
+       
+       from interlink import *
+       app.register_blueprint(viewsBP)
+       app.register_blueprint(templetonBP)
+       app.register_error_handler(404, url_not_found)
+       app.register_error_handler(500, internal_error)
+       
+       if __name__ == '__main__':
+         app.run()
+       else:
+         app.run(debug=True, host='0.0.0.0', port='8000')
 
-<p>&ndash;&gt; __init__.py
-</p><div class="example">
-<pre class="example-preformatted">import os
-import pandas as pd
-import odf
-from flask import Flask, Blueprint, flash, render_template, request, session, redirect, url_for, send_from_directory
-
-from views import viewsBP
-
-KEY = os.urandom(16)
-os.environ['SECRET_KEY'] = str(KEY)
-os.environ['DB_USER'] = '&lt;dbname&gt;'
-os.environ['DB_PASS'] = '&lt;dbpassword&gt;'
-os.environ['BASE_DIR'] = os.path.dirname(__file__)
-os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
-os.environ['whitelist'] = '[&quot;127.0.0.1&quot;, &quot;192.168.0.49&quot;]'
-os.environ['blacklist'] = '[&quot;&quot;]'
-
-app = Flask(__name__)
-app.config.from_mapping(SECRET_KEY=os.environ.get(&quot;SECRET_KEY&quot;))
-app.config['UPLOAD_FOLDER'] = 'repo/'
-
-from interlink import *
-app.register_blueprint(viewsBP)
-app.register_blueprint(templetonBP)
-app.register_error_handler(404, url_not_found)
-app.register_error_handler(500, internal_error)
-
-if __name__ == '__main__':
-  app.run()
-else:
-  app.run(debug=True, host='0.0.0.0', port='8000')
-</pre></div>
-
-<p>&ndash;&gt; views.py
-</p><div class="example">
-<pre class="example-preformatted">from __init__ import *
-
-print(&quot; * Loading Views...&quot;)
-viewsBP = Blueprint('/', __name__, url_prefix='/')
-
-tempulator('views.catalog', ['/catalog'])
-
-@viewsBP.route('/')
-@honeypot
-@backdoor
-def index():
-  gen = Generator('repository', 'DB_USER', 'DB_PASS')
-  manifest = gen.generateQuery('qrepo1')
-  siteMap = site_map()
-  version = metadata['version']
-  updateDate = metadata['updateDate']
-  ip = session['yourballslooklikemine']
-  return render_template('index.html', domains=domains, manifest=manifest, siteMap=siteMap, version=version, updateDate=updateDate, ip=ip)
-</pre></div>
-
-<p>&ndash;&gt; forms.html
-</p><pre class="verbatim">
-{% extends 'base.html' %}
-{% block description %}{% endblock %}
-{% block keywords %}{% endblock %}
-{% block title %}{{ title }}{% endblock %}
-
-{% block content %}
-
-&lt;article class=&quot;index&quot;&gt;
-  &lt;section class=&quot;col-6 col-s-6 col-m-6&quot;&gt;
-    &lt;fieldset class=&quot;form&quot;&gt;
-      &lt;label&gt;{{ error }}&lt;/label&gt;
-      &lt;form method=&quot;POST&quot;&gt;
-        {% for f in form %}
-          &lt;label for=&quot;{{ f[0] }}&quot;&gt;{{ f[0] }}&lt;/label&gt;
-          &lt;input type=&quot;text&quot; name=&quot;{{ f[0] }}&quot;&gt;
-        {% endfor %}
-        &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
-      &lt;/form&gt;
-    &lt;/fieldset&gt;
-  &lt;/section&gt;
-&lt;/article&gt;
-
-{% endblock %}
-</pre>
-<p>&mdash;&gt; reports.html
-</p><pre class="verbatim">
-{% extends 'base.html' %}
-{% block description %}{% endblock %}
-{% block keywords %}{% endblock %}
-{% block title %}{{ title }}{% endblock %}
-
-{% block content %}
-
-  &lt;article class=&quot;col-12 col-s-12 col-m-12&quot;&gt;
-    &lt;h1&gt;{{ title }} Report&lt;/h1&gt;
-    {{ error }}
-    &lt;table class=&quot;data&quot;&gt;
-      &lt;tr&gt;
-        {% for c in colName %}
-          &lt;th&gt;{{ c[0] }}&lt;/th&gt;
-        {% endfor %}
-      &lt;/tr&gt;
-      {% for row in colRow %}
-        &lt;tr&gt;
-          {% for c in row %}
-          &lt;td&gt;{{ c }}&lt;/td&gt;
-          {% endfor %}
-        &lt;/tr&gt;
-      {% endfor %}
-    &lt;/table&gt;
-  &lt;/article&gt;
-
-{% endblock %}
-</pre>
-<p>&mdash;&gt; base.html
-</p><pre class="verbatim">
-&lt;nav class=&quot;pc mobile&quot;&gt;
-  &lt;a href=&quot;{{ url_for('/.index') }}&quot;&gt;Index&lt;/a&gt;
-  &lt;div class=&quot;dropdown&quot;&gt;
-    &lt;span&gt;Reports&lt;/span&gt;
-    &lt;div class=&quot;dropdownContent&quot;&gt;
-      {% for p in path %}
-      &lt;a href=&quot;{{ url_for('pads.generateReport', path='{}'.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
-      {% endfor %}
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;dropdown&quot;&gt;
-    &lt;span&gt;Forms&lt;/span&gt;
-    &lt;div class=&quot;dropdownContent&quot;&gt;
-      {% for p in path %}
-      &lt;a href=&quot;{{ url_for('pads.generateForm', path='{}'.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
-      {% endfor %}
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;
-
-</pre>
-</div>
-
-</body>
-</html>
+3. The `templetonBP` has all the templates you need. Enter the URL into the browser:
+    
+        127.0.0.1:8000/admin/blog
+        127.0.0.1:8000/form/blog/manifest
+        127.0.0.1:8000/report/blog/manifest
+        127.0.0.1:8000/blog/manifest # for the blog you want everyone to see

@@ -1,5 +1,0 @@
-site_name: My Docs
-plugins:
-- mkdocstrings:
-    default_handler: python
-    paths: ~/pads/env/flask/lib/python3.13/site-packages/

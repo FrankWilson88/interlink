@@ -5,6 +5,30 @@ from functools import wraps
 from flask import request, render_template, session, redirect, url_for
 from __init__ import app
 
+def __doc__(): '''
+Safe Haven is like the security team for the president. Always lurking
+in the shadows, ready to defend your best interest. Since these are
+decorators they're easy to use.
+
+[Python Decorators](https://peps.python.org/pep-0318/, "Python Decorators")
+
+All you have to do is add the appropriate decorator to each page that
+you want to add the functionality to. Here's a simple index page, that I
+want really locked down.
+
+    @viewsBP.route('/')
+    @backdoor
+    @honeypot
+    @login
+    def index():
+      return render_template('index.html')
+
+And there's nothing more to it then that. Safe Haven checks that the
+person connecting passes, and if not redirects them to the appropriate
+page. If you're using templeton's Blueprints it will redirect to its
+login screen, and everything works seamlessly.
+'''
+
 whitelist = os.environ.get('whitelist')
 blacklist = os.environ.get('blacklist')
 
