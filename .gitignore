@@ -1,0 +1,32 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# IDE-specific files (e.g., VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Test/coverage reports
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Data files (if not meant for version control)
+*.sqlite3
+*.db
+data/ # or specific data files/folders
+
+# Poetry-specific files
+poetry.lock # if you want to allow different dependency versions per environment
