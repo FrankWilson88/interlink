@@ -272,10 +272,10 @@ Functions:
 '''
 
 # metadata
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 __author__ = 'Joe Corso'
 __date__ = '01-21-2024'
-__updated__ = '03-18-2025'
+__updated__ = '07-01-2025'
 __copyright__ = 'Copyright 2024 Joe Corso'
 __license__ = 'MIT License'
 __email__ = 'pads.email.address@gmail.com'
