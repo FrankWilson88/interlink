@@ -1,13 +1,11 @@
 '''
-This is the Toolkit Module
+This is the Toolkit Module. It contains classes and functions that are reuseable across the entire library.
 '''
 
 import os
 import sys
 import mysql.connector
 from flask import url_for
-
-from __init__ import app
 
 def get_script_path():
     return os.path.dirname(os.path.realpath(sys.argv[0]))
@@ -18,6 +16,7 @@ def has_no_empty_params(rule):
   return len(defaults) >= len(arguments)
 
 def site_map():
+  from __init__ import app
   links = []
   for rule in app.url_map.iter_rules():
   # Filter out rules we can't navigate to in a browser
@@ -33,7 +32,7 @@ class DB:
 Connects to MariaDB
 
 Returns: 
-    sql (str): Conn to db
+    mydb (str): Conn to db
 
 Example:
 
@@ -47,6 +46,7 @@ Example:
       return sql
   '''
   def __init__(self, user, password, db = ''):
+    '''Initialize the database object'''
     self.db = db
     self.user = user
     self.password = password

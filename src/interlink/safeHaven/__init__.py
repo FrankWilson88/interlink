@@ -25,7 +25,7 @@ login screen, and everything works seamlessly.
 import os
 from datetime import datetime as d
 from functools import wraps
-#from flask import request, render_template, session, redirect, url_for
+from flask import request, render_template, session, redirect, url_for
 #from __init__ import app
 
 whitelist = os.environ.get('whitelist')

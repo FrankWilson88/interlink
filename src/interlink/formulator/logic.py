@@ -2,10 +2,12 @@ import os
 from flask import request
 from interlink.toolkit import DB
 
-def createQuery(db, user, password, table, *args):
+def createQuery(db, user, password, table):
+  '''
+  This is a docstring for createQuery
+  '''
   db_conn = DB(user, password).connect()
   cursor = db_conn.cursor(buffered=True)
-  print(*args)
   sql = f'''SELECT * FROM {db}.{table};'''
   cursor.execute(sql)
   sql = cursor.fetchall()
@@ -20,9 +22,10 @@ def createQuery(db, user, password, table, *args):
 def createNav(db, user, password):
   db_conn = DB(user, password).connect()
   cursor = db_conn.cursor(buffered=True)
-  cursor.execute(f'''SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='{db}'; ''')
+  cursor.execute(f'''SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='{db}' AND TABLE_NAME NOT LIKE 'q%'; ''')
   sql = cursor.fetchall()
   db_conn.close()
+  print(sql)
   return sql
 
 def createReport(db, user, password, table):

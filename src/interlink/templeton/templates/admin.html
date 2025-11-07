@@ -9,7 +9,9 @@
     <p>Welcome, {{ session['yourballslooklikemine'] }}</p>
     <p>Admin for {{ db }}, tables: {{ nav }}</p>
   </div>
-  {% include 'nav.html' %}
+  <div class="adminNav">
+    {% include 'nav.html' %}
+  </div>
   <p>{{ error }}</p>
 </article>
 {% endblock %}

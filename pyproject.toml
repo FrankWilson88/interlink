@@ -1,46 +1,47 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-
 [project]
-name = "Interlink"
-dynamic=["version"]
-dependencies = [
-  "Flask>=3.1.0",
-  "mysqlclient==2.2.7",
-  "mysql-connector>=2.2.9",
-]
-requires-python = ">=3.0"
+name = "interlink"
+version = "0.1.7"
+description = "Flask Generator for Forms, Reports, URLs and templates."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
 authors = [
-  {name = "Joe Corso"}, 
-  {email = "pads.email.address@gmail.com"}
+  { name = "Joe Corso", email = "pads.email.address@gmail.com" }
 ]
-description = "Interlink will generate a form and report for any table in a database. It will also create the urls, and the navigation bar."
-readme = {file = "README.md", content-type = "text/markdown"}
-license = {file = "LICENSE.md", content-type = "text/markdown"}  # or license = {file = "LICENSE.txt"} for legacy declaration
-#license-files = ["LICEN[CS]E.*"]
-keywords = ["flask", "form", "report", "navigation", "url", "sql", "database"]
+maintainers = [
+  { name = "Joe Corso", email = "pads.email.address@gmail.com" }
+]
+
+keywords = ["flask", "form-generator", "reporting", "template", "web", "forms"]
 classifiers = [
-  "Development Status :: 4 - Beta",
-  "Programming Language :: Python"
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Framework :: Flask"
+]
+dependencies = [
+  "flask>=2.3",
+  "mysql>=0.0.3",
+  "mysqlclient>=2.2.7",
+  "mysql-connector>=2.2.9",
+
 ]
 
 [project.urls]
-Homepage = "https://github.com/padsRepo/interlink"
-Documentation = "https://github.com/padsRepo/interlink/wiki/Interlink.html"
-Repository = "https://github.com/padsRepo/interlink.git"
+Homepage = "https://your.project.homepage"  # Optional
+Repository = "https://github.com/yourusername/interlink"  # Optional
 
-[tool.setuptools.dynamic]
-version = {attr = "interlink.__version__"}
+[tool.setuptools]
+package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
-where = ["src"]  # or wherever your package code is located
+where = ["src"]
 
 [tool.setuptools.package-data]
-"interlink" = ["formulator/*", "safeHaven/*", "toolkit/*", "templeton/templates/*", "templeton/templates/guide/*"]
-#"Bug Tracker" = "https://github.com/me/spam/issues"
-#Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
-
-#[project.scripts]
-#spam-cli = "spam:main_cli"
+"interlink" = ["formulator/*", "safeHaven/*", "toolkit/*", "templeton/*", "templeton/templates/*", "templeton/templates/guide/*"]

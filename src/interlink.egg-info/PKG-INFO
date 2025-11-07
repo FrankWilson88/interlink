@@ -1,20 +1,78 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.4
 Name: interlink
-Version: 0.0.0
-Summary: Interlink will generate a form and report for any table in a database. It will also create the urls, and the navigation bar.
+Version: 0.1.6
+Summary: Flask Generator for Forms, Reports, URLs and templates.
 Author-email: Joe Corso <pads.email.address@gmail.com>
 Maintainer-email: Joe Corso <pads.email.address@gmail.com>
-License: MIT License
-Project-URL: Homepage, https://github.com/padsRepo/interlink
-Project-URL: Documentation, https://github.com/padsRepo/interlink/wiki/Interlink.html
-Project-URL: Repository, https://github.com/padsRepo/interlink.git
-Keywords: flask,form,report,navigation,url,sql,database
-Classifier: Development Status :: 4 - Beta
-Classifier: Programming Language :: Python
-Requires-Python: >=3.0
+License: MIT
+Project-URL: Homepage, https://your.project.homepage
+Project-URL: Repository, https://github.com/yourusername/interlink
+Keywords: flask,form-generator,reporting,template,web,forms
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Framework :: Flask
+Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE.md
-Requires-Dist: Flask>=3.1.0
+Requires-Dist: flask>=2.3
 Requires-Dist: mysql>=0.0.3
 Requires-Dist: mysqlclient>=2.2.7
 Requires-Dist: mysql-connector>=2.2.9
+Dynamic: license-file
+
+
+# Interlink
+
+ - Full Docs [here](https://padsrepo.github.io/interlink/)
+
+This is a collection of libraries written to work in Python’s flask framework. It will generate a form and report for any table in a database. It will also create the urls, and the navigation bar. You can customize your website by generating your own instance of the API; or you can register the Blueprint(e.g. app.register_blueprint(templetonBP)), which has its own set of templates etc. So essentially, if you create a database for a library like in all tutorials and you need a form template and a report template, it will generate the form or report from the table in the database, and fill in the details in the template. To render the page in the browser just type in the url which corresponds to the table name, or make a navigation bar to generate the links for you.
+
+### Setup:
+Setting up interlink is very easy. It depends on mysql-connector, and flask. Which will be downloaded automatically. 
+Let's say we want to make a blog, and we have a database named "blog" with a table named "manifest".
+
+1. First create your database, and tables. Then activate your virtual env and install interlink:  
+
+        python -m venv path/to/venv/my_env
+        . path/to/venv/bin/activate
+        python -m pip install git+https://github.com/padsRepo/interlink.git
+   
+2. In your `__init__.py` file:
+
+       import os
+       from flask import Flask, Blueprint, render_template, url_for
+       from views import viewsBP
+       
+       KEY = os.urandom(16)
+       os.environ['SECRET_KEY'] = str(KEY)
+       os.environ['DB_USER'] = '<username>'
+       os.environ['DB_PASS'] = '<password>'
+       os.environ['BASE_DIR'] = os.path.dirname(__file__)
+       os.environ['LOG_DIR'] = os.environ.get('BASE_DIR') + '/log'
+       os.environ['whitelist'] = '["127.0.0.1", "192.168.0.37"]'
+       os.environ['blacklist'] = '["71.71.71.71"]'
+       
+       app = Flask(__name__)
+       app.config.from_mapping(SECRET_KEY=os.environ.get('SECRET_KEY'))
+       app.config['UPLOAD_FOLDER'] = 'repo/'
+       
+       from interlink import *
+       app.register_blueprint(viewsBP)
+       app.register_blueprint(templetonBP)
+       app.register_error_handler(404, url_not_found)
+       app.register_error_handler(500, internal_error)
+       
+       if __name__ == '__main__':
+         app.run()
+       else:
+         app.run(debug=True, host='0.0.0.0', port='8000')
+
+3. The `templetonBP` has all the templates you need. Enter the URL into the browser:
+    
+        127.0.0.1:8000/admin/blog
+        127.0.0.1:8000/form/blog/manifest
+        127.0.0.1:8000/report/blog/manifest
+        127.0.0.1:8000/blog/manifest # for the blog you want everyone to see

@@ -1,19 +1,24 @@
 import os
 from flask import Blueprint, render_template, request
-from . import interlink
+import interlink
 from interlink.formulator import Generator
 from interlink.safeHaven import backdoor, login, honeypot
 from interlink.toolkit import site_map
+from interlink.templeton import tempulator
 
 templates = os.path.dirname(__file__) + '/templates/'
 templetonBP = Blueprint('templeton', __name__, url_prefix='/', template_folder=templates)
 
 def wrapper(page = 'template.html', **kwargs):
-  '''Used to wrap all the web pages in default params. TODO: make a decorator.'''
+  '''
+Used to wrap all the web pages in default params.
+  
+TODO: make a decorator.
+  '''
   ip = request.remote_addr
   return render_template(page, version=interlink.__version__, updated=interlink.__updated__, author=interlink.__author__, siteMap=site_map(), ip=ip, **kwargs)
 
-def index():
+def dashboard():
   '''
   Interlinks default index page.
   Example:
@@ -29,12 +34,8 @@ def index():
 
 def catalog():
   title = f'Catalog'
+  print("hi")
   return wrapper('template.html', title=title)
-
-@templetonBP.route('/interlink/')
-def interlinkData():
-  title = "Interlink Metadata"
-  return wrapper('data.html', title=title)
 
 @templetonBP.route('/copyright/')
 def copyright():
