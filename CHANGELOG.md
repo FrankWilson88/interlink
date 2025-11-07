@@ -6,17 +6,11 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Placeholder for upcoming features.
-
-### Changed
-- Placeholder for modifications.
-
-### Fixed
-- Placeholder for bug fixes.
+- I was not tracking the project properly before, so it's starting now.
 
 ---
 
-## [1.0.0] - 2025-09-29
+## [1.0.0] - Some time in the past
 ### Added
 - Initial stable release.
 - Core features implemented.
@@ -26,13 +20,6 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 - N/A
-
----
-
-## [0.1.0] - 2025-09-01
-### Added
-- First public release (beta).
-- Project scaffolding and initial setup.
 
 ---
 
