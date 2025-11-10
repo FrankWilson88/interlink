@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="paddocs" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Joe Corso" />
+  <meta name="keywords" content="automation, pads, documentation, framework, bash, python, DevOps, System
+Administration, Web Development, Flask, NGINX, uWSGI, Arch Linux, Home
+Lab" />
+  <title>Technical Documentation</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true }); // This tells Mermaid to automatically render diagrams on page load
+  </script>
+      <link rel="stylesheet" href="../../config/responsive.css" />
+    <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    body{max-width: 90em;}
+    .dedication{font-size: 85%; display: block; margin: 2em 2em 2em 2em; text-align: center;}
+    .dedication-title{text-align: center;}
+    .dedication-title:before{content: "Dedication"; font-weight: bold}
+    .preface-title:before{content: "Preface"; font-weight: bold;}
+    footer, footer small{clear: both; float: left;}
+    #TOC {
+    position: fixed;
+    width: 20em;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: lightblue;
+    overflow-y: scroll;
+    padding: 1em;
+    }
+    @media only screen and (max-width: 600px) {
+    body {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    #TOC {
+        display: block;
+        position: static;
+        background-color: white;
+    }
+    }
+  </style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</head>
+<body>
+
+<header id="title-block-header">
+<h1 class="title">Technical Documentation</h1>
+<p class="subtitle">Guides, Source Code, Syntax</p>
+<p class="author">Joe Corso</p>
+<p class="date">May, 24, 2024</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Reports, Source Code, Syntax on my personal Computer Science
+research</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#project-interlink" id="toc-project-interlink">Project
+Interlink</a>
+<ul>
+<li><a href="#project-proposal" id="toc-project-proposal">Project
+Proposal</a></li>
+<li><a href="#project-overview" id="toc-project-overview">Project
+Overview</a></li>
+<li><a href="#design-report" id="toc-design-report">Design
+Report</a></li>
+<li><a href="#technical-report" id="toc-technical-report">Technical
+Report</a></li>
+<li><a href="#final-technical-report"
+id="toc-final-technical-report">Final Technical Report</a></li>
+<li><a href="#interlink" id="toc-interlink">interlink</a></li>
+<li><a href="#formulator" id="toc-formulator">formulator</a></li>
+<li><a href="#safehaven" id="toc-safehaven">safeHaven</a></li>
+<li><a href="#templeton" id="toc-templeton">templeton</a></li>
+<li><a href="#toolkit" id="toc-toolkit">toolkit</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="project-interlink">Project Interlink</h1>
+<h2 id="project-proposal">Project Proposal</h2>
+<h3 id="project-title">Project Title</h3>
+<p>Project Interlink</p>
+<h3 id="authors">Author(s)</h3>
+<p>Joe Corso</p>
+<h3 id="date">Date</h3>
+<p>01-21-2024</p>
+<h3 id="problem-statement">Problem Statement</h3>
+<p>It takes too long to manually write every form and report you need
+for a database</p>
+<h3 id="objectives">Objectives</h3>
+<ul>
+<li>Simplify and automate CRUD interface generation from live MySQL
+schemas.</li>
+<li>Provide reusable security decorators and templating tools for Flask
+apps.</li>
+<li>Enable developers to focus on business logic, not boilerplate.</li>
+<li>Logic for templates, forms, and routing are in separate
+modules.</li>
+<li>Modular enough to plug into any Flask-based backend.</li>
+</ul>
+<h3 id="scope">Scope</h3>
+<ul>
+<li>Form, and Report generating with Flask/MySQL</li>
+<li>Web Development</li>
+<li>Template Building</li>
+</ul>
+<h3 id="benefits">Benefits</h3>
+<p>Automate the generation of forms, reports, navigation, and access
+controls</p>
+<h3 id="risks-challenges">Risks &amp; Challenges</h3>
+<ul>
+<li>Robust Security</li>
+</ul>
+<h3 id="resources-needed">Resources Needed</h3>
+<ul>
+<li>Flask</li>
+<li>Python</li>
+<li>Web Development Skills</li>
+</ul>
+<h2 id="project-overview">Project Overview</h2>
+<h3 id="purpose">Purpose</h3>
+<p>Interlink reduces time-to-deploy for data-heavy applications by
+abstracting away routine form and report logic. It streamlines software
+operations and automates flask appications at the infrastructure
+level.</p>
+<h3 id="background">Background</h3>
+<p>NA</p>
+<h3 id="overview">Overview</h3>
+<p>By consolidating templating, access control, and DB-driven
+form/report logic, Interlink provides a minimalist yet powerful platform
+that complements Flask’s ecosystem. <strong>Interlink</strong> is a
+modular, Flask-based Python framework designed to accelerate development
+of data-driven web applications. Interlink automates the generation of
+forms, reports, navigation, and access control based on MySQL database
+schemas. The system offers a low-code solution for rapidly building
+internal tools and administrative dashboards without sacrificing control
+or customizability.</p>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li><strong><code>formulator</code></strong>: Generates HTML forms and
+reports directly from database tables.</li>
+<li><strong><code>templeton</code></strong>: Provides a templating layer
+and ready-to-use Flask Blueprints for common views.</li>
+<li><strong><code>safeHaven</code></strong>: Offers pluggable security
+decorators (<code>@requireLogin</code>, <code>@honeypot</code>, etc.) to
+protect routes.</li>
+<li><strong><code>toolkit</code></strong>: A utility module for DB
+connections, route registration, and view generation automation.</li>
+</ul>
+<h3 id="target-audience">Target Audience</h3>
+<ul>
+<li>Backend developers building internal web tools.</li>
+<li>Teams managing CRUD-heavy applications.</li>
+<li>Flask developers seeking rapid prototyping frameworks.</li>
+</ul>
+<h3 id="expected-impact">Expected Impact</h3>
+<p>Interlink is a practical, extensible framework that embodies the PADS
+philosophy: less boilerplate, more velocity. It empowers developers to
+move fast, stay organized, and build interfaces that just work — all
+while keeping security and modularity at the forefront.</p>
+<h2 id="design-report">Design Report</h2>
+<h3 id="architecture-overview">Architecture Overview</h3>
+<h4 id="modular-structure">Modular Structure</h4>
+<ul>
+<li><strong>formulator</strong>: Converts database schema into HTML
+forms and CRUD views.</li>
+<li><strong>templeton</strong>: Template engine wrapping Flask views
+into standard layouts.</li>
+<li><strong>safeHaven</strong>: Route protection and authentication
+decorators.</li>
+<li><strong>toolkit</strong>: Utility functions for route registration,
+DB I/O, and schema parsing.</li>
+</ul>
+<h4 id="blueprint-based-routing">Blueprint-Based Routing</h4>
+<p>Each module can be loaded as a Flask Blueprint, allowing independent
+development and integration. Navigation, view registration, and auth
+middleware are initialized at the application level.</p>
+<h3 id="technology-stack">Technology Stack</h3>
+<ul>
+<li>Flask</li>
+<li>MySQL</li>
+<li>Jinja2</li>
+<li>Python</li>
+</ul>
+<h3 id="data-flow">Data Flow</h3>
+<h4 id="directory-structure">Directory Structure</h4>
+<pre class="plaintext"><code>/interlink/src/interlink
+├── formulator
+│   ├── __init__.py
+│   └── logic.py
+├── __init__.py
+├── __main__.py
+├── safeHaven
+│   └── __init__.py
+├── templeton
+│   ├── __init__.py
+│   ├── templates
+│   │   ├── 404.html
+│   │   ├── 500.html
+│   │   ├── admin.html
+│   │   ├── copyright.html
+│   │   ├── data.html
+│   │   ├── forms.html
+│   │   ├── guide
+│   │   │   └── index.html
+│   │   ├── login.html
+│   │   ├── nav.html
+│   │   ├── reports.html
+│   │   ├── template.html
+│   │   └── templeton.html
+│   └── views.py
+└── toolkit
+    └── __init__.py</code></pre>
+<ul>
+<li><strong>Diagram – Module Interaction</strong></li>
+</ul>
+<pre><code>  ┌─────────────┐    ┌──────────────┐
+  │  formulator │───▶│   templeton  │
+  └─────────────┘    └──────────────┘
+         │                   │
+         ▼                   ▼
+  ┌─────────────┐    ┌──────────────┐
+  │  safeHaven  │    │   toolkit    │
+  └─────────────┘    └──────────────┘</code></pre>
+<h3 id="uiux-design">UI/UX Design</h3>
+<p>A minimal UI approach is taken by default, but templates are
+overrideable using Jinja2 template inheritance. Menus and layouts are
+dynamically generated based on the database schema and user
+permissions.</p>
+<h3 id="security-considerations">Security Considerations</h3>
+<ul>
+<li>Currently optimized for MySQL. PostgreSQL and SQLite support
+planned.</li>
+<li>Tight coupling to Flask—porting to FastAPI would require wrapper
+layers.</li>
+</ul>
+<h3 id="scalability-plan">Scalability Plan</h3>
+<ul>
+<li>Plugin system for frontend themes</li>
+<li>Admin dashboard with configurable widgets</li>
+<li>CLI scaffolding for new project generation</li>
+</ul>
+<h2 id="technical-report">Technical Report</h2>
+<h3 id="introduction">Introduction</h3>
+<p>Interlink is a Flask-compatible backend library suite that generates
+form interfaces, reporting views, and access-controlled pages based on
+MySQL table schemas. It follows a plugin architecture with four core
+modules: formulator, templeton, safeHaven, and toolkit.</p>
+<h3 id="problem-statement-1">Problem Statement</h3>
+<p>Clearly define the technical challenge or need that this report
+addresses.</p>
+<h3 id="methodology">Methodology</h3>
+<p>Describe the processes, tools, and technologies used to address the
+problem.<br />
+Include diagrams, charts, or pseudocode if applicable.</p>
+<h3 id="implementation-details">Implementation Details</h3>
+<p>interlink.formulator</p>
+<ul>
+<li>Reflects table schema using SHOW COLUMNS.</li>
+<li>Generates GET/POST routes for forms.</li>
+<li>Handles input validation and DB inserts/updates.</li>
+</ul>
+<p>interlink.templeton</p>
+<ul>
+<li>Manages layout templates.</li>
+<li>Provides base HTML and page blocks via Jinja2.</li>
+<li>Dynamically creates menus from registered Blueprints.</li>
+</ul>
+<p>interlink.safeHaven</p>
+<ul>
+<li>Includes decorators like @requireLogin, @honeypot, etc.</li>
+<li>Middleware setup for session control.</li>
+<li>Provides helper utilities for role management.</li>
+</ul>
+<p>interlink.toolkit</p>
+<ul>
+<li>DB connector using pymysql.</li>
+<li>Auto route-loader from config or metadata.</li>
+<li>Markdown-to-HTML conversion for embedded docs.</li>
+</ul>
+<h3 id="results">Results</h3>
+<ul>
+<li>Integrated into Flask via Blueprint registration.</li>
+<li>Configurable via environment or .env settings.</li>
+<li>Supports local dev server (flask run) or WSGI deployments.</li>
+</ul>
+<h3 id="analysis">Analysis</h3>
+<ul>
+<li>Speedy Web App Development</li>
+</ul>
+<h3 id="challenges-limitations">Challenges &amp; Limitations</h3>
+<ul>
+<li>Tight coupling to MySQL only.</li>
+<li>Lacks full test coverage on edge-case inputs.</li>
+<li>Blueprint auto-discovery can be brittle if paths are
+misconfigured.</li>
+</ul>
+<h3 id="recommendations">Recommendations</h3>
+<ul>
+<li>Full test coverage with CI integration.</li>
+<li>PostgreSQL and SQLite backend support.</li>
+<li>Admin GUI for live schema editing and form regeneration.</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>What it lacks for in developers, it makes up for in development.</p>
+<h3 id="references">References</h3>
+<ul>
+<li>NA</li>
+</ul>
+<!--
+## Research Log  
+"Running record of steps, discoveries, and next actions."
+
+---
+
+### 2025-08-12  
+[Next →](#section-1)
+
+#### Summary  
+> Short paragraph about today’s focus.
+
+#### Steps Taken  
+1. *Step 1*  
+2. *Step 2*  
+3. *Step 3*  
+
+#### Observations & Notes  
+- *Unexpected results*  
+- *Interesting patterns*  
+- *Ideas to try later*  
+
+#### Problems / Challenges  
+- *Problem and how you addressed it (or didn’t)*  
+
+#### Next Actions  
+- *Tasks for tomorrow or next session*  
+
+---
+
+### 2025-08-13  
+[← Previous](#section) | [Next →](#section-2)
+
+#### Summary  
+> Example: "Tested SAS HBA with breakout cables — confirmed all four drives detected."
+
+#### Steps Taken  
+1. Installed HBA in test PC.  
+2. Connected SAS-to-SATA cables.  
+3. Verified detection in `lsblk`.  
+
+#### Observations & Notes  
+- Breakout cable pin mismatch caused first detection failure.  
+- Older firmware on HBA required flashing to IT mode.  
+
+#### Problems / Challenges  
+- Need better airflow — drives running hot.  
+
+#### Next Actions  
+- Order fan shroud.  
+- Test with mixed SAS/SATA drives.  
+
+---
+
+### 2025-08-14  
+[← Previous](#section-1) | [Next →](#section-3)
+
+*(Continue adding sections for each workday or session)*
+
+---
+-->
+<h2 id="final-technical-report">Final Technical Report</h2>
+<h3 id="project-summary">Project Summary</h3>
+<p>Interlink is a modular Python/Flask library suite that automates the
+generation of CRUD forms, tabular reports, and navigation menus from
+MySQL database schemas. Its purpose is to drastically reduce development
+time for database-driven web applications while ensuring consistent
+design, maintainable code, and built-in security.</p>
+<hr />
+<h3 id="development-process">Development Process</h3>
+<ol type="1">
+<li><strong>Requirements Gathering</strong> – Identified the need for
+automated form/report generation in Flask projects.<br />
+</li>
+<li><strong>Module Planning</strong> – Split into four logical
+components: <code>formulator</code>, <code>templeton</code>,
+<code>safeHaven</code>, and <code>toolkit</code>.<br />
+</li>
+<li><strong>Database Integration</strong> – Connected to MySQL using
+SQLAlchemy, with schema introspection via
+<code>INFORMATION_SCHEMA</code>.<br />
+</li>
+<li><strong>Form Generation</strong> – Implemented dynamic Flask-WTF
+form creation from table definitions.<br />
+</li>
+<li><strong>Template System</strong> – Created Jinja2 templates with
+theme and layout inheritance.<br />
+</li>
+<li><strong>Security Layer</strong> – Developed
+authentication/authorization decorators in <code>safeHaven</code>.<br />
+</li>
+<li><strong>Utility Layer</strong> – Added config parsing, logging, and
+database utilities in <code>toolkit</code>.<br />
+</li>
+<li><strong>Blueprint Packaging</strong> – Each generated module can be
+plugged into a Flask app as a Blueprint.<br />
+</li>
+<li><strong>Testing</strong> – Performed unit, integration, and UI
+testing before deployment.</li>
+</ol>
+<hr />
+<h3 id="features-implemented">Features Implemented</h3>
+<ul>
+<li><strong>Automatic CRUD Form Generation</strong> from MySQL
+schema.<br />
+</li>
+<li><strong>Dynamic Report Rendering</strong> with pagination and
+filtering.<br />
+</li>
+<li><strong>Navigation Menu Builder</strong> based on registered
+Blueprints.<br />
+</li>
+<li><strong>Security Decorators</strong> for route access control.<br />
+</li>
+<li><strong>Blueprint Integration</strong> for modular Flask
+applications.<br />
+</li>
+<li><strong>Theme/Template Management</strong> through
+<code>templeton</code>.<br />
+</li>
+<li><strong>Database Utility Functions</strong> for configuration,
+logging, and schema queries.</li>
+</ul>
+<hr />
+<h3 id="technical-specifications">Technical Specifications</h3>
+<ul>
+<li><strong>Language:</strong> Python 3.x<br />
+</li>
+<li><strong>Framework:</strong> Flask<br />
+</li>
+<li><strong>Database:</strong> MySQL (via SQLAlchemy ORM)<br />
+</li>
+<li><strong>Templating:</strong> Jinja2<br />
+</li>
+<li><strong>Forms:</strong> Self Generating<br />
+</li>
+<li><strong>Security:</strong> Flask-Login, custom decorators
+(<code>safeHaven</code>)<br />
+</li>
+<li><strong>Configuration Files:</strong> ENV VARS in <code>.env</code>
+file<br />
+</li>
+<li><strong>APIs:</strong> Internal Python API for module calls.<br />
+</li>
+<li><strong>Protocols:</strong> HTTP/HTTPS (Flask server), WSGI
+compatibility.</li>
+</ul>
+<hr />
+<h3 id="testing-validation">Testing &amp; Validation</h3>
+<ul>
+<li><strong>Unit Testing:</strong> Covered form creation, report
+rendering, and security decorators using <code>pytest</code>.<br />
+</li>
+<li><strong>Integration Testing:</strong> Verified end-to-end
+request/response for generated routes.<br />
+</li>
+<li><strong>UI Testing:</strong> Manual browser-based testing for
+template rendering and navigation.<br />
+</li>
+<li><strong>Database Validation:</strong> Confirmed schema parsing and
+CRUD accuracy with sample MySQL databases.<br />
+</li>
+<li><strong>Result:</strong> All core modules functioned as designed
+with stable performance and no major security gaps identified.</li>
+</ul>
+<hr />
+<h3 id="lessons-learned">Lessons Learned</h3>
+<ul>
+<li>Schema introspection can vary across database vendors —
+future-proofing for PostgreSQL and SQLite will require abstraction
+layers.<br />
+</li>
+<li>Dynamic code generation works well but needs careful error handling
+for missing or malformed schemas.<br />
+</li>
+<li>Templating flexibility is key — early investment in a clean template
+hierarchy paid off in maintainability.<br />
+</li>
+<li>Security must be baked in early — retrofitting auth is more painful
+later.</li>
+</ul>
+<hr />
+<h3 id="future-work">Future Work</h3>
+<ul>
+<li>Add support for <strong>PostgreSQL</strong> and
+<strong>SQLite</strong>.<br />
+</li>
+<li>Implement <strong>drag-and-drop form designer GUI</strong>.<br />
+</li>
+<li>Add <strong>inline editing</strong> capabilities to reports.<br />
+</li>
+<li>Develop a <strong>REST API</strong> generator for headless
+use.<br />
+</li>
+<li>Support <strong>internationalization (i18n)</strong> and
+multilingual forms.<br />
+</li>
+<li>Introduce <strong>theme marketplace</strong> for community-driven
+templates.</li>
+</ul>
+<hr />
+<h3 id="appendices">Appendices</h3>
+<hr />
+<p><small></p>
+<p>Template generated by ChatGPT<br />
+Documentation generated by <a
+href="https://padsrepo.github.io/pads/#paddocs">PADDOCS</a><br />
+Compendium section: 10-docs<br />
+Title: Project Interlink<br />
+Author: Joe Corso<br />
+Created: 2024-01-21<br />
+Updated: 2025-07-02<br />
+Tags: interlink, flask, forms, report, mariadb<br />
+Status: [ <strong>Draft</strong> / Final / Reviewed ]<br />
+Template:<br />
+- 00-project-proposal.md<br />
+- 01-project-overview.md<br />
+- 02-design-report.md<br />
+- 03-technical-report.md<br />
+- 04-research-log.md<br />
+- 05-final-report.md</p>
+<p>License: “All Rights Reserved”<br />
+Schema: technical<br />
+Version: 0.1.1<br />
+Branding: Operation Mindmap<br />
+</small></p>
+<p><em><strong>version</strong></em></p>
+<p>0.1.7</p>
+<p><em><strong>author</strong></em></p>
+<p>Joe Corso</p>
+<p><em><strong>date</strong></em></p>
+<p>01-21-2024</p>
+<p><em><strong>updated</strong></em></p>
+<p>10-18-2025</p>
+<p><em><strong>copyright</strong></em></p>
+<p>Copyright 2024 Joe Corso</p>
+<p><em><strong>license</strong></em></p>
+<p>MIT License</p>
+<p><em><strong>email</strong></em></p>
+<p>pads.email.address@gmail.com</p>
+<p><em><strong>status</strong></em></p>
+<p>Development</p>
+<p><em><strong>description</strong></em></p>
+<p>Flask Generator for Forms, Reports, URLs and templates.</p>
+<h2 id="interlink">interlink</h2>
+<p>Flask Generator for Forms, Reports, URLs and templates.</p>
+<p>This is a collection of libraries written to work in Python’s flask
+framework. It will generate a form and report for any table in a
+database. It will also create the urls, and the navigation bar. You can
+customize your website by generating your own instance of the API; or
+you can register the
+Blueprint(e.g. app.register_blueprint(templetonBP)), which has its own
+set of templates.<br />
+So essentially, if you create a database for a library like in all
+tutorials and you need a form template and a report template, it will
+generate the form or report from the table in the database, and fill in
+the details in the template. To render the page in the browser just type
+in the url which corresponds to the table name, or make a navigation bar
+to generate the links for you.</p>
+<p>Examples:</p>
+<p>Setting up interlink is very easy. It depends on mysql-connector, and
+flask. Which will be downloaded automatically when installed. Let’s say
+we want to make a blog, and we have a database named “blog” with a table
+named “manifest”. This documentation is not in the same scope of writing
+SQL, we will assume you’ve set up your blog any way you want. That’s the
+beauty of interlink, it doesn’t matter.</p>
+<ol type="1">
+<li>First create your database, and tables. Then build your flask
+project, activate your virtual env, and install interlink:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>        <span class="ex">$</span> python <span class="at">-m</span> venv path/to/venv/my_env</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="ex">$</span> . path/to/venv/my_env/bin/activate</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">$</span> python <span class="at">-m</span> pip install git+https://github.com/padsRepo/interlink.git</span></code></pre></div>
+<ol start="2" type="1">
+<li>There are a few <a
+href="https://docs.python.org/3/library/os.html#os.environ">enviroment
+variables</a> that need to be set to get full functionality from
+Interlink. These variables can be placed in an .env file for best
+practices. This documentation shows the full <code>__init__.py</code>
+file for easier reading.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">__init__</span>.py</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="im">import</span> os</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="im">from</span> flask <span class="im">import</span> Flask, Blueprint, render_template, url_for</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="im">from</span> views <span class="im">import</span> viewsBP</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        KEY <span class="op">=</span> os.urandom(<span class="dv">16</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        os.environ[<span class="st">&#39;SECRET_KEY&#39;</span>] <span class="op">=</span> <span class="bu">str</span>(KEY) <span class="co"># REQUIRED</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        os.environ[<span class="st">&#39;DB_USER&#39;</span>] <span class="op">=</span> <span class="st">&#39;&lt;username&gt;&#39;</span> <span class="co"># REQUIRED</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        os.environ[<span class="st">&#39;DB_PASS&#39;</span>] <span class="op">=</span> <span class="st">&#39;&lt;password&gt;&#39;</span> <span class="co"># REQUIRED</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        os.environ[<span class="st">&#39;BASE_DIR&#39;</span>] <span class="op">=</span> os.path.dirname(<span class="va">__file__</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        os.environ[<span class="st">&#39;LOG_DIR&#39;</span>] <span class="op">=</span> os.environ.get(<span class="st">&#39;BASE_DIR&#39;</span>) <span class="op">+</span> <span class="st">&#39;/log&#39;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        os.environ[<span class="st">&#39;whitelist&#39;</span>] <span class="op">=</span> <span class="st">&#39;[&quot;127.0.0.1&quot;, &quot;192.168.0.37&quot;]&#39;</span> <span class="co"># REQUIRED</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        os.environ[<span class="st">&#39;blacklist&#39;</span>] <span class="op">=</span> <span class="st">&#39;[&quot;71.71.71.71&quot;]&#39;</span> <span class="co"># REQUIRED</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        app.config.from_mapping(SECRET_KEY<span class="op">=</span>os.environ.get(<span class="st">&#39;SECRET_KEY&#39;</span>))</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        app.config[<span class="st">&#39;UPLOAD_FOLDER&#39;</span>] <span class="op">=</span> <span class="st">&#39;repo/&#39;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="im">from</span> interlink <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        app.register_blueprint(viewsBP) <span class="co"># Your views.py file</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        app.register_blueprint(templetonBP) <span class="co"># Add to use interlinks templating engine</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        app.register_error_handler(<span class="dv">404</span>, url_not_found) <span class="co"># From the templeton lib</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        app.register_error_handler(<span class="dv">500</span>, internal_error) <span class="co"># From the templeton lib</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> debug <span class="op">==</span> <span class="va">False</span>:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>         app.run(debug<span class="op">=</span><span class="va">True</span>, host<span class="op">=</span><span class="st">&#39;0.0.0.0&#39;</span>, port<span class="op">=</span><span class="st">&#39;8000&#39;</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>         </span></code></pre></div>
+<ol start="3" type="1">
+<li>The <code>templetonBP</code> has all the templates you need. There
+is a default admin, forms, reports, blog, login, index page, and its own
+documentation. It helps to load the <code>templetonBP</code>
+<strong>after</strong> your own library. If you have variables set
+outside the scope of the <code>__init__.py</code> file, interlink will
+not find them.<br />
+Enter the URL into the browser, interlink also has it’s own navigation
+bar:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>admin<span class="op">/</span>blog</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>forms<span class="op">/</span>blog<span class="op">/</span>manifest</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>reports<span class="op">/</span>blog<span class="op">/</span>manifest</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>blog<span class="op">/</span>manifest <span class="co"># for the blog you want everyone to see</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>admin<span class="op">/</span>blog</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>copyright<span class="op">/</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span><span class="dv">404</span><span class="op">/</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span><span class="dv">500</span><span class="op">/</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>docs<span class="op">/&lt;</span>page<span class="op">&gt;/</span> <span class="co"># the docs page for this library.</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>loginRequired<span class="op">/</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>login<span class="op">/</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>register<span class="op">/</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>index<span class="op">/</span></span></code></pre></div>
+<ol start="4" type="1">
+<li>tying in navigation to interlink from your first index file.</li>
+</ol>
+<p>Closing</p>
+<table>
+<thead>
+<tr>
+<th>Modules</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#formulator">formulator</a></td>
+<td>Form and Report Generator</td>
+</tr>
+<tr>
+<td><a href="#templeton">templeton</a></td>
+<td>Template Generator</td>
+</tr>
+<tr>
+<td><a href="#safehaven">safeHaven</a></td>
+<td>Security Guard</td>
+</tr>
+<tr>
+<td><a href="#toolkit">toolkit</a></td>
+<td>Misc Tools</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Classes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#generator">Generator</a></td>
+<td>Object method used to query database</td>
+</tr>
+<tr>
+<td><a href="#db">DB</a></td>
+<td>Object method used to connect and close connection to database</td>
+</tr>
+<tr>
+<td><a href="#tempulation">Tempulation</a></td>
+<td>Custom Views</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Functions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#tempulator">tempulator</a></td>
+<td>templates</td>
+</tr>
+<tr>
+<td><a href="#honeypot">honeypot</a></td>
+<td>distraction</td>
+</tr>
+<tr>
+<td><a href="#backdoor">backdoor</a></td>
+<td>entry way</td>
+</tr>
+<tr>
+<td><a href="#login">login</a></td>
+<td>check user</td>
+</tr>
+<tr>
+<td><a href="#site_map">site_map</a></td>
+<td>site map for SEO</td>
+</tr>
+<tr>
+<td><a href="#url_not_found">url_not_found</a></td>
+<td>404 Error</td>
+</tr>
+<tr>
+<td><a href="#internal_error">internal_error</a></td>
+<td>500 Error</td>
+</tr>
+<tr>
+<td><a href="#templetonbp">templetonBP</a></td>
+<td>Templeton Templates</td>
+</tr>
+</tbody>
+</table>
+<h2 id="formulator">formulator</h2>
+<p>The formulator is used as the SQL engine to gather the data from the
+database to populate the template.</p>
+<p>The formulator module makes use of the <code>Generator()</code>
+object, to connect to the database, find the proper table, query the
+results, and return a value that can be passed into an html template. It
+is the main module behind the Interlink library. It acts as the SQL
+engine, to generate a return value, that can be manipulated to the
+developers needs. It’s main dependancy is the <code>toolkit.DB()</code>
+object for connection to a database. Make sure you have the proper
+environment variables set to ensure proper connection. If the project
+does not fit into the <code>templetonBP</code> this module will assist
+in automating redundant SQL statements, form, and report development,
+and navigation menus which need to sort administration, from users, from
+bad actors. It can be used along side other modules in the library as
+well as imported directly into your own project.</p>
+<p>Let’s say you dont like templetons blog template and you want to use
+your own blog template. Use the <code>formulator.Generator</code> to
+make a query of your blog table from your SQL database. Create a
+variable from it, and then using Jinja’s Templating Engine with Flask,
+we can manipulate the variable in an html template anyway we want.</p>
+<p>In your views.py file you only need two specific views that will
+generate every form, and report respectively. In the
+<code>index()</code> function you will see the nav variable set to
+<code>generateNav()</code>. This generates the navigation bar for you.
+It can be used in the template to build the navigation menu. If you’re
+familiar with flask’s Blueprints, then this should look pretty simple.
+If not, check out the flask docs, it’s pretty cool.</p>
+<p>Basically, make a route for a reports url and a route for a forms url
+so that the computer doesn’t confuse the two. For your route you need to
+define a parameter for your database, and table. This is just to pass
+into the <code>generateReport()</code> or <code>generateForm()</code>
+functions which is used to find the table, and create the form or
+report. The report needs 4 parameters(One for the column names of the
+table, one for the data in the table, a title, and a generic error) and
+the form needs 3(One to generate the forms, a title, and a generic
+error). The <code>generateNav()</code> doesn’t need a parameter, but it
+searches for the database you set to your
+<code>Generator.__init__()</code>. Make sure to register the views:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">__init__</span>.py</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> views <span class="im">import</span> viewsBP</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      app.regist_blueprint(viewsBP)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    views.py</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> flask <span class="im">import</span> Blueprint, render_template</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="im">import</span> interlink <span class="im">as</span> i</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      viewsBP <span class="op">=</span> Blueprint(<span class="st">&#39;/&#39;</span>, <span class="va">__name__</span>, url<span class="op">-</span>prefix<span class="op">=</span><span class="st">&#39;/&#39;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="op">/</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> index():</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> i.Generator(<span class="st">&#39;DB&#39;</span>, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        nav <span class="op">=</span> gen.generateNav()</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;index.html&#39;</span>, nav<span class="op">=</span>nav)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/&lt;db&gt;/&lt;table&gt;&#39;</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> blog(db, table):</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> Generator(db, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        content <span class="op">=</span> gen.generateQuery(table)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;template.html&#39;</span>, content<span class="op">=</span>content)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/reports/&lt;db&gt;/&lt;table&gt;&#39;</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> generateReport(db, table):</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> i.Generator(db, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        colName, colRow, error, title <span class="op">=</span> gen.generateReport(table)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;reports.html&#39;</span>, colName<span class="op">=</span>colName, colRow<span class="op">=</span>colRow, error<span class="op">=</span>error, title<span class="op">=</span>title)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/forms/&lt;db&gt;/&lt;table&gt;&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>, <span class="st">&#39;POST&#39;</span>])</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> generateForm(db, table):</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        gen <span class="op">=</span> i.Generator(db, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        error, form, title <span class="op">=</span> gen.generateForm(table)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;forms.html&#39;</span>, form<span class="op">=</span>form, error<span class="op">=</span>error, title<span class="op">=</span>title)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">@viewsBP.route</span>(<span class="st">&#39;/admin/&lt;db&gt;&#39;</span>)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> admin(db):</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        nav <span class="op">=</span> Generator(db, <span class="st">&#39;DB_USER&#39;</span>, <span class="st">&#39;DB_PASS&#39;</span>).generateNav()</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">&#39;admin.html&#39;</span>, nav<span class="op">=</span>nav, db<span class="op">=</span>db, title<span class="op">=</span>db)</span></code></pre></div>
+<p>Make a template for your Forms:</p>
+<pre class="jinja"><code>      forms.html
+
+      {% extends &#39;base.html&#39; %}
+      {% block description %}{% endblock %}
+      {% block keywords %}{% endblock %}
+      {% block title %}{{ title }}{% endblock %}
+
+      {% block content %}
+
+      &lt;article class=&quot;index&quot;&gt;
+        &lt;section class=&quot;col-6 col-s-6 col-m-6&quot;&gt;
+          &lt;fieldset class=&quot;form&quot;&gt;
+            &lt;label&gt;{{ error }}&lt;/label&gt;
+            &lt;form method=&quot;POST&quot;&gt;
+              {% for f in form %}
+                &lt;label for=&quot;{{ f[0] }}&quot;&gt;{{ f[0] }}&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;{{ f[0] }}&quot;&gt;
+              {% endfor %}
+              &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+            &lt;/form&gt;
+          &lt;/fieldset&gt;
+        &lt;/section&gt;
+      &lt;/article&gt;
+
+      {% endblock %}</code></pre>
+<p>Make a template for your reports:</p>
+<pre class="jinja"><code>      reports.html
+
+      {% extends &#39;base.html&#39; %}
+      {% block description %}{% endblock %}
+      {% block keywords %}{% endblock %}
+      {% block title %}{{ title }}{% endblock %}
+
+      {% block content %}
+
+        &lt;article class=&quot;col-12 col-s-12 col-m-12&quot;&gt;
+          &lt;h1&gt;{{ title }} Report&lt;/h1&gt;
+          {{ error }}
+          &lt;table class=&quot;data&quot;&gt;
+            &lt;tr&gt;
+              {% for c in colName %}
+                &lt;th&gt;{{ c[0] }}&lt;/th&gt;
+              {% endfor %}
+            &lt;/tr&gt;
+            {% for row in colRow %}
+              &lt;tr&gt;
+                {% for c in row %}
+                &lt;td&gt;{{ c }}&lt;/td&gt;
+                {% endfor %}
+              &lt;/tr&gt;
+            {% endfor %}
+          &lt;/table&gt;
+        &lt;/article&gt;
+
+      {% endblock %}</code></pre>
+<p>Finally, make a navigation menu for it all. The formulator filters
+“timestamp”, “pri”, “uni”, “mul”, “updated”, and “q”.</p>
+<pre class="jinja"><code>      base.html
+
+      &lt;nav class=&quot;pc mobile&quot;&gt;
+        &lt;a href=&quot;{{ url_for(&#39;/.index&#39;) }}&quot;&gt;Index&lt;/a&gt;
+        &lt;div class=&quot;dropdown&quot;&gt;
+          &lt;span&gt;Reports&lt;/span&gt;
+          &lt;div class=&quot;dropdownContent&quot;&gt;
+            {% for p in nav %}
+            &lt;a href=&quot;{{ url_for(&#39;templeton.generateReport&#39;, db=&#39;{}&#39;.format(db),  page=&#39;{}&#39;.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
+            {% endfor %}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;dropdown&quot;&gt;
+          &lt;span&gt;Forms&lt;/span&gt;
+          &lt;div class=&quot;dropdownContent&quot;&gt;
+            {% for p in nav %}
+            &lt;a href=&quot;{{ url_for(&#39;templeton.generateForm&#39;, db=&#39;{}&#39;.format(db),  page=&#39;{}&#39;.format(p[0])) }}&quot;&gt;{{ p[0] }}&lt;/a&gt;
+            {% endfor %}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/nav&gt;</code></pre>
+<p>That’s it! So if you have a DB with tables named books, authors,
+planets, solarSystems….etc. Just type in the url for the table name. For
+example:</p>
+<p><code>https://www.website.com/reports/&lt;dbname&gt;/authors</code><br />
+OR<br />
+<code>https://www.website.com/forms/&lt;dbname&gt;/solarSystems</code></p>
+<h3 id="generator">Generator</h3>
+<p>The generator is the module used to generate your forms, reports,
+queries, and anything DB related. It wraps the core functionality of the
+modeule into a reusable Class Object which you can use to recall a
+connection or query to a specifc database and table. In practice, the
+developer would not have to write the boilpate code needed to connect,
+query, and close connection to the database. By leveraging the concept
+of OOP, the intent is to mitigate, and slow down DDOS attacks, by
+preventing the end user from creating multiple concurrent conections to
+any given website.</p>
+<h4 id="init"><strong>init</strong></h4>
+<p>Initialize the Generator object. This would, in theory, create an new
+object in the session which the server could point back to.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Args</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db (str)</td>
+<td>Name of <a href="#db">db</a> to connect</td>
+</tr>
+<tr>
+<td>user (str)</td>
+<td>Name of user to connect with. Take from ‘DB_USER’ env var.</td>
+</tr>
+<tr>
+<td>password (str)</td>
+<td>Password used to connect with. Taken from ‘DB_PASS’ env var.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="generateform">generateForm</h4>
+<p>Generate a form using <em>table</em> name to populate the
+<code>form.html</code> template.</p>
+<table>
+<thead>
+<tr>
+<th>Args</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>table (str)</td>
+<td>Table name of table within database</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error (str)</td>
+<td>200 404 500</td>
+</tr>
+<tr>
+<td>form (str)</td>
+<td>Data used to populate template</td>
+</tr>
+<tr>
+<td>title (str)</td>
+<td>Name of <em>db</em> given from <em><strong>init</strong></em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="generatereport">generateReport</h4>
+<p>Generate a report using <em>table</em> name to populate the
+<code>report.html</code> template.</p>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>colName (str)</td>
+<td>Name of each column in the <em>table</em></td>
+</tr>
+<tr>
+<td>colRow (str)</td>
+<td>Data within each row of the <em>table</em></td>
+</tr>
+<tr>
+<td>error (str)</td>
+<td>200 404 500</td>
+</tr>
+<tr>
+<td>title (str)</td>
+<td>Name of <em>db</em> given from <em><strong>init</strong></em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="generatequery">generateQuery</h4>
+<p>Run a custom SELECT statement to see the results.</p>
+<table>
+<thead>
+<tr>
+<th>Args</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>table (str)</td>
+<td>Table name to query</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sql (str)</td>
+<td>Index of the data for each column in a record</td>
+</tr>
+</tbody>
+</table>
+<p>TODO:<br />
+- Add *args to select different columns.</p>
+<h4 id="generatenav">generateNav</h4>
+<p>Generate a navigation bar for each <em>table</em> which the
+<em>user</em> has access.</p>
+<h2 id="safehaven">safeHaven</h2>
+<p>Safe Haven is like the security team for the president. Always
+lurking in the shadows, ready to defend your best interest. Since these
+are decorators they’re easy to use.</p>
+<p><a href="https://peps.python.org/pep-0318/,"
+title="Python Decorators">Python Decorators</a></p>
+<p>All you have to do is add the appropriate decorator to each page that
+you want to add the functionality to. Here’s a simple index page, that I
+want really locked down.</p>
+<pre><code>@viewsBP.route(&#39;/&#39;)
+@backdoor
+@honeypot
+@login
+def index():
+  return render_template(&#39;index.html&#39;)</code></pre>
+<p>And there’s nothing more to it then that. Safe Haven checks that the
+person connecting passes, and if not redirects them to the appropriate
+page. If you’re using templeton’s Blueprints it will redirect to its
+login screen, and everything works seamlessly.</p>
+<h3 id="honeypot">honeypot</h3>
+<p>Python decorator you can use as a honeypot. Any IP Adress that is
+black listed will be redirected to a login page that logs the username
+and password they attempt to use.</p>
+<h3 id="backdoor">backdoor</h3>
+<p>Python decorator you can use as a backdoor. Any page which has this
+decorator will give IP Address’ on the whitelist full access to the
+page.</p>
+<h3 id="login">login</h3>
+<p>Python decorator you can use to check if a user is logged in. If not,
+they will be redirected to a login page from where they can log in.</p>
+<h2 id="templeton">templeton</h2>
+<p>Templeton is like the butler used to fetch the templates, fill in the
+proper parameters, and serve it to you on a silver platter. Templeton
+builds the skeleton website for you. All you have to do is type in the
+proper URL, or generate the navigation bar.</p>
+<p>The easiest way to use templeton is to register its Blueprint’s in
+your app. There are three; <code>404</code>, <code>500</code>, and
+<code>templetonBP</code>.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">__init__</span>.py</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      <span class="im">from</span> interlink.templeton.views <span class="im">import</span> templetonBP</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      app.register_blueprint(templetonBP)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      app.register_error_handler(<span class="dv">404</span>, url_not_found)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      app.register_error_handler(<span class="dv">500</span>, internal_error)</span></code></pre></div>
+<p>The <code>templetonBP</code> has a default set of templates you can
+use to have a full website deployed. The URL’s which Templeton uses are
+as follows:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>admin<span class="op">/&lt;</span>db<span class="op">&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>forms<span class="op">/&lt;</span>db<span class="op">&gt;/&lt;</span>table<span class="op">&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>reports<span class="op">/&lt;</span>db<span class="op">&gt;/&lt;</span>table<span class="op">&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/&lt;</span>db<span class="op">&gt;/&lt;</span>table<span class="op">&gt;</span> <span class="co"># for the blog you want everyone to see</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>admin<span class="op">/&lt;</span>db<span class="op">&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>copyright<span class="op">/</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span><span class="dv">404</span><span class="op">/</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span><span class="dv">500</span><span class="op">/</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>docs<span class="op">/&lt;</span>page<span class="op">&gt;/</span> <span class="co"># the docs page for this library.</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>loginRequired<span class="op">/</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>login<span class="op">/</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>register<span class="op">/</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>      <span class="fl">127.0.0.1</span>:<span class="dv">8000</span><span class="op">/</span>index<span class="op">/</span></span></code></pre></div>
+<p>Whatever the name of the database, type the name into the <em>db</em>
+parameter. Whatever the name of the table, type the name into the
+<em>table</em> parameter. It will generate a generic template for
+you.</p>
+<p>The Tempulations are used to build a new url rule, based on the
+developers needs.</p>
+<blockquote>
+<p>[!NOTE]<br />
+Remember that with templeton’s tempulator, the generic templates are
+only coming from <code>interlink.templeton.views</code>. If you want to
+change where it’s coming from you can use templeton’s Tempulation, and
+create a new url loader function.</p>
+</blockquote>
+<p>Templeton also comes equiped with a tempulator, which runs off of
+Tempulations. The tempulator is basically just <a
+href="https://flask.palletsprojects.com/en/3.0.x/patterns/lazyloading/#loading-late,"
+title="Flask Lazy Loading">Flask Lazy Loading</a> URL’s in a wrapper.
+This feature is used to route Templetons templates to a URL, but does
+not have an endpoint(e.g. does not load by default). It is used to add
+extra templates to the app, if needed, without added overhead to the
+base project. For example, if you make a blog, you should be able to
+build a blog without also loading the catalog from an ecommerce site
+into memory, and vice versa. By using the tempulator, you can load a
+blog without a journal, or an ecommerce site without a repository, or a
+snosberry without an everlasting gobbstopper. You can also use the
+tempulator to load one endpoint before the other. If you like templetons
+catalog view, and you’re an ecommerce site you may want to load that as
+your index page. This would achieve those results. If you like the admin
+page, but need it rerouted to another URL, you would use
+templulator.</p>
+<h3 id="tempulation">Tempulation</h3>
+<p>Generate a new url_rule from any view within your project. This is
+used if you would like to map out url rules for each of your own
+endpoints.</p>
+<p>Examples:</p>
+<pre><code># Use the Tempulation&#39;s to create a new URL:
+app.add_url_rule(&#39;/dash&#39;, view_func=Tempulation(&#39;interlink.templeton.views.dashboard&#39;))
+
+# make a new tempulator
+def myNewTempulator(import_name, url_rules=[], **options):
+    view = Tempulation(f&quot;@{app_name@}.@{import_name@}&quot;)
+    for url_rule in url_rules:
+      app.add_url_rule(url_rule, view_func=view, **options)</code></pre>
+<h4 id="init-1"><strong>init</strong></h4>
+<p>Initialize the Tempulation object. This will hold the variable for
+the new url_rule.</p>
+<table>
+<thead>
+<tr>
+<th>Args</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>object (str)</td>
+<td>Endpoint for new view</td>
+</tr>
+</tbody>
+</table>
+<h4 id="view">view</h4>
+<p>None</p>
+<h4 id="call"><strong>call</strong></h4>
+<p>None</p>
+<h3 id="tempulator">tempulator</h3>
+<p>The tempulator is used to add extra templates to the app, if needed,
+without added overhead to the base project. For example, if you make a
+blog, you should be able to build a blog without also loading the
+catalog from an ecommerce site into memory, and vice versa. By using the
+tempulator, you can load a blog without a journal, or a ecommerce site
+without a repository, or a snosberry without an everlasting gobbstopper.
+You can also use the tempulator to load one endpoint before the other.
+If you like templetons catalog view, and you’re an ecommerce site you
+may want to load that as your index page. This would achieve those
+results.</p>
+<pre><code>--&gt; views.py  
+# load templetons catalog view as the index view
+@templetonBP.route(&#39;/&#39;)
+@login
+def catalog():
+  return tempulator(&quot;views.catalog&quot;, [&#39;/catalog&#39;], app = app)
+
+# add a single route to the catalog view
+tempulator(&#39;views.catalog&#39;, [&#39;/catalog&#39;], app = app)
+
+# add two routes to a single function endpoint
+url_rules = [&#39;/catalog/&#39;,&#39;/catalog/&lt;item&gt;&#39;]
+tempulator(&#39;views.catalog&#39;, url_rules, app = app)</code></pre>
+<h2 id="toolkit">toolkit</h2>
+<p>This is the Toolkit Module. It contains classes and functions that
+are reuseable across the entire library.</p>
+<h3 id="db">DB</h3>
+<p>Connects to MariaDB</p>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mydb (str)</td>
+<td>Conn to db</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code>@viewsBP.route(&#39;/report/&lt;db&gt;/&lt;page&gt;&#39;)
+def myFuntion(db, user, password):
+  db_conn = DB(db, user, password).connect()
+  cursor = db_conn.cursor(buffered=True)
+  cursor.execute(f&quot;SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=&#39;{db}&#39;; &quot;)
+  sql = cursor.fetchone()
+  db_conn.close()
+  return sql</code></pre>
+<h4 id="init-2"><strong>init</strong></h4>
+<p>Initialize the database object</p>
+<h4 id="connect">connect</h4>
+<p>Used to make connection to MariaDB</p>
+<h4 id="close">close</h4>
+<p>Used to close connection to MariaDB</p>
+
+
+<footer>
+  <small>All Rights Reserved (c) Joe Corso 2025</small>
+  <small>This documentation was generated using <a href="https://padsrepo.github.io/pads/#paddocs">PADDOCS</a></small>
+</footer>
+</body>
+</html>
